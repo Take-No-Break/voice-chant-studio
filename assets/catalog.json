@@ -2198,5 +2198,4314 @@
     "cast_seconds": 0.0,
     "passive": false,
     "channeled": false
+  },
+  {
+    "key": "druid_99",
+    "class": "DRUID",
+    "name": "Demoralizing Roar",
+    "ids": [
+      99,
+      1735,
+      9490,
+      9747,
+      9898
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_339",
+    "class": "DRUID",
+    "name": "Entangling Roots",
+    "ids": [
+      339,
+      1062,
+      5195,
+      5196,
+      9852,
+      9853
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_467",
+    "class": "DRUID",
+    "name": "Thorns",
+    "ids": [
+      467,
+      782,
+      1075,
+      8914,
+      9756,
+      9910
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_740",
+    "class": "DRUID",
+    "name": "Tranquility",
+    "ids": [
+      740,
+      8918,
+      9862,
+      9863
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "druid_768",
+    "class": "DRUID",
+    "name": "Cat Form",
+    "ids": [
+      768
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_769",
+    "class": "DRUID",
+    "name": "Swipe",
+    "ids": [
+      769,
+      779,
+      780,
+      9754,
+      9908
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_770",
+    "class": "DRUID",
+    "name": "Faerie Fire",
+    "ids": [
+      770,
+      778,
+      9749,
+      9907
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_774",
+    "class": "DRUID",
+    "name": "Rejuvenation",
+    "ids": [
+      774,
+      1058,
+      1430,
+      2090,
+      2091,
+      3627,
+      8910,
+      9839,
+      9840,
+      9841
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_783",
+    "class": "DRUID",
+    "name": "Travel Form",
+    "ids": [
+      783
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_1066",
+    "class": "DRUID",
+    "name": "Aquatic Form",
+    "ids": [
+      1066
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_1079",
+    "class": "DRUID",
+    "name": "Rip",
+    "ids": [
+      1079,
+      9492,
+      9493,
+      9752,
+      9894,
+      9896
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_1126",
+    "class": "DRUID",
+    "name": "Mark of the Wild",
+    "ids": [
+      1126,
+      5232,
+      5234,
+      6756,
+      8907,
+      9884,
+      9885
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_1822",
+    "class": "DRUID",
+    "name": "Rake",
+    "ids": [
+      1822,
+      1823,
+      1824,
+      9904
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_1850",
+    "class": "DRUID",
+    "name": "Dash",
+    "ids": [
+      1850,
+      9821
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_2637",
+    "class": "DRUID",
+    "name": "Hibernate",
+    "ids": [
+      2637,
+      18657,
+      18658
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_2782",
+    "class": "DRUID",
+    "name": "Remove Curse",
+    "ids": [
+      2782
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_2893",
+    "class": "DRUID",
+    "name": "Abolish Poison",
+    "ids": [
+      2893
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_2908",
+    "class": "DRUID",
+    "name": "Soothe Animal",
+    "ids": [
+      2908,
+      8955,
+      9901
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_2912",
+    "class": "DRUID",
+    "name": "Starfire",
+    "ids": [
+      2912,
+      8949,
+      8950,
+      8951,
+      9875,
+      9876
+    ],
+    "cast_seconds": 3.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_3029",
+    "class": "DRUID",
+    "name": "Claw",
+    "ids": [
+      3029,
+      5201,
+      9849,
+      9850
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5176",
+    "class": "DRUID",
+    "name": "Wrath",
+    "ids": [
+      5176,
+      5177,
+      5178,
+      5179,
+      5180,
+      6780,
+      8905,
+      9912
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5185",
+    "class": "DRUID",
+    "name": "Healing Touch",
+    "ids": [
+      5185,
+      5186,
+      5187,
+      5188,
+      5189,
+      6778,
+      8903,
+      9758,
+      9888,
+      9889
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5209",
+    "class": "DRUID",
+    "name": "Challenging Roar",
+    "ids": [
+      5209
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5211",
+    "class": "DRUID",
+    "name": "Bash",
+    "ids": [
+      5211,
+      6798,
+      8983
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5215",
+    "class": "DRUID",
+    "name": "Prowl",
+    "ids": [
+      5215,
+      6783,
+      9913
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5221",
+    "class": "DRUID",
+    "name": "Shred",
+    "ids": [
+      5221,
+      6800,
+      8992,
+      9829,
+      9830
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5225",
+    "class": "DRUID",
+    "name": "Track Humanoids",
+    "ids": [
+      5225
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5229",
+    "class": "DRUID",
+    "name": "Enrage",
+    "ids": [
+      5229
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5487",
+    "class": "DRUID",
+    "name": "Bear Form",
+    "ids": [
+      5487
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_5570",
+    "class": "DRUID",
+    "name": "Insect Swarm",
+    "ids": [
+      5570,
+      24974,
+      24975,
+      24976,
+      24977
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_6785",
+    "class": "DRUID",
+    "name": "Ravage",
+    "ids": [
+      6785,
+      6787,
+      9866,
+      9867
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_6807",
+    "class": "DRUID",
+    "name": "Maul",
+    "ids": [
+      6807,
+      6808,
+      6809,
+      8972,
+      9745,
+      9880,
+      9881
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_8921",
+    "class": "DRUID",
+    "name": "Moonfire",
+    "ids": [
+      8921,
+      8924,
+      8925,
+      8926,
+      8927,
+      8928,
+      8929,
+      9833,
+      9834,
+      9835
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_8936",
+    "class": "DRUID",
+    "name": "Regrowth",
+    "ids": [
+      8936,
+      8938,
+      8939,
+      8940,
+      8941,
+      9750,
+      9856,
+      9857,
+      9858
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_8946",
+    "class": "DRUID",
+    "name": "Cure Poison",
+    "ids": [
+      8946
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_8998",
+    "class": "DRUID",
+    "name": "Cower",
+    "ids": [
+      8998,
+      9000,
+      9892
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_9005",
+    "class": "DRUID",
+    "name": "Pounce",
+    "ids": [
+      9005,
+      9823,
+      9827
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_9634",
+    "class": "DRUID",
+    "name": "Dire Bear Form",
+    "ids": [
+      9634
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_16689",
+    "class": "DRUID",
+    "name": "Nature's Grasp",
+    "ids": [
+      16689,
+      16810,
+      16811,
+      16812,
+      16813,
+      17329
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_16864",
+    "class": "DRUID",
+    "name": "Omen of Clarity",
+    "ids": [
+      16864
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_16914",
+    "class": "DRUID",
+    "name": "Hurricane",
+    "ids": [
+      16914,
+      17401,
+      17402
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "druid_16942",
+    "class": "DRUID",
+    "name": "Sharpened Claws",
+    "ids": [
+      16942
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_17116",
+    "class": "DRUID",
+    "name": "Nature's Swiftness",
+    "ids": [
+      17116
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_18562",
+    "class": "DRUID",
+    "name": "Swiftmend",
+    "ids": [
+      18562
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_18960",
+    "class": "DRUID",
+    "name": "Teleport: Moonglade",
+    "ids": [
+      18960
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_20484",
+    "class": "DRUID",
+    "name": "Rebirth",
+    "ids": [
+      20484,
+      20739,
+      20742,
+      20747,
+      20748
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_20719",
+    "class": "DRUID",
+    "name": "Feline Grace",
+    "ids": [
+      20719
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_22568",
+    "class": "DRUID",
+    "name": "Ferocious Bite",
+    "ids": [
+      22568,
+      22827,
+      22828,
+      22829,
+      1328618
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_22812",
+    "class": "DRUID",
+    "name": "Barkskin",
+    "ids": [
+      22812
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_22842",
+    "class": "DRUID",
+    "name": "Frenzied Regeneration",
+    "ids": [
+      22842
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_24858",
+    "class": "DRUID",
+    "name": "Moonkin Form",
+    "ids": [
+      24858
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_29166",
+    "class": "DRUID",
+    "name": "Innervate",
+    "ids": [
+      29166
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_407995",
+    "class": "DRUID",
+    "name": "Primal Bite",
+    "ids": [
+      407995,
+      1238069,
+      1238070
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_408120",
+    "class": "DRUID",
+    "name": "Wild Growth",
+    "ids": [
+      408120,
+      1238214,
+      1238215
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_414644",
+    "class": "DRUID",
+    "name": "Lacerate",
+    "ids": [
+      414644,
+      414647,
+      1235826,
+      1235827,
+      1328616
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_437138",
+    "class": "DRUID",
+    "name": "Revive",
+    "ids": [
+      437138,
+      1237948,
+      1237949,
+      1237950,
+      1237951
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_1328829",
+    "class": "DRUID",
+    "name": "Poised",
+    "ids": [
+      1328829
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_75",
+    "class": "HUNTER",
+    "name": "Auto Shot",
+    "ids": [
+      75
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_136",
+    "class": "HUNTER",
+    "name": "Mend Pet",
+    "ids": [
+      136,
+      3111,
+      3661,
+      3662,
+      13542,
+      13543,
+      13544
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "hunter_674",
+    "class": "HUNTER",
+    "name": "Dual Wield",
+    "ids": [
+      674
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_781",
+    "class": "HUNTER",
+    "name": "Disengage",
+    "ids": [
+      781,
+      14272,
+      14273
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_883",
+    "class": "HUNTER",
+    "name": "Call Pet",
+    "ids": [
+      883
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_982",
+    "class": "HUNTER",
+    "name": "Revive Pet",
+    "ids": [
+      982
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1002",
+    "class": "HUNTER",
+    "name": "Eyes of the Beast",
+    "ids": [
+      1002
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1130",
+    "class": "HUNTER",
+    "name": "Hunter's Mark",
+    "ids": [
+      1130,
+      14323,
+      14324,
+      14325
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1462",
+    "class": "HUNTER",
+    "name": "Beast Lore",
+    "ids": [
+      1462
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1494",
+    "class": "HUNTER",
+    "name": "Track Beasts",
+    "ids": [
+      1494
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1495",
+    "class": "HUNTER",
+    "name": "Mongoose Bite",
+    "ids": [
+      1495,
+      14269,
+      14270,
+      14271
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1499",
+    "class": "HUNTER",
+    "name": "Freezing Trap",
+    "ids": [
+      1499,
+      14310,
+      14311
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1510",
+    "class": "HUNTER",
+    "name": "Volley",
+    "ids": [
+      1510,
+      14294,
+      14295
+    ],
+    "cast_seconds": 6.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "hunter_1513",
+    "class": "HUNTER",
+    "name": "Scare Beast",
+    "ids": [
+      1513,
+      14326,
+      14327
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1515",
+    "class": "HUNTER",
+    "name": "Tame Beast",
+    "ids": [
+      1515
+    ],
+    "cast_seconds": 20.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "hunter_1543",
+    "class": "HUNTER",
+    "name": "Flare",
+    "ids": [
+      1543
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1978",
+    "class": "HUNTER",
+    "name": "Serpent Sting",
+    "ids": [
+      1978,
+      13549,
+      13550,
+      13551,
+      13552,
+      13553,
+      13554,
+      13555
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_2641",
+    "class": "HUNTER",
+    "name": "Dismiss Pet",
+    "ids": [
+      2641
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_2643",
+    "class": "HUNTER",
+    "name": "Multi-Shot",
+    "ids": [
+      2643
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_2973",
+    "class": "HUNTER",
+    "name": "Raptor Strike",
+    "ids": [
+      2973,
+      14260,
+      14261,
+      14262,
+      14263,
+      14264,
+      14265,
+      14266
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_2974",
+    "class": "HUNTER",
+    "name": "Wing Clip",
+    "ids": [
+      2974,
+      14267,
+      14268
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_3034",
+    "class": "HUNTER",
+    "name": "Viper Sting",
+    "ids": [
+      3034,
+      14279,
+      14280
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_3043",
+    "class": "HUNTER",
+    "name": "Scorpid Sting",
+    "ids": [
+      3043
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_3044",
+    "class": "HUNTER",
+    "name": "Arcane Shot",
+    "ids": [
+      3044,
+      14281,
+      14282,
+      14283,
+      14284,
+      14285,
+      14286,
+      14287
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_3045",
+    "class": "HUNTER",
+    "name": "Rapid Fire",
+    "ids": [
+      3045
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_3127",
+    "class": "HUNTER",
+    "name": "Parry",
+    "ids": [
+      3127
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_4187",
+    "class": "HUNTER",
+    "name": "Great Stamina",
+    "ids": [
+      4187,
+      4188,
+      4189,
+      4190,
+      4191,
+      4192,
+      4193,
+      4194,
+      5041,
+      5042
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_5116",
+    "class": "HUNTER",
+    "name": "Concussive Shot",
+    "ids": [
+      5116
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_5118",
+    "class": "HUNTER",
+    "name": "Aspect of the Cheetah",
+    "ids": [
+      5118
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_5149",
+    "class": "HUNTER",
+    "name": "Beast Training",
+    "ids": [
+      5149
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_5384",
+    "class": "HUNTER",
+    "name": "Feign Death",
+    "ids": [
+      5384
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_6197",
+    "class": "HUNTER",
+    "name": "Eagle Eye",
+    "ids": [
+      6197
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "hunter_6991",
+    "class": "HUNTER",
+    "name": "Feed Pet",
+    "ids": [
+      6991
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_8737",
+    "class": "HUNTER",
+    "name": "Mail",
+    "ids": [
+      8737
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13159",
+    "class": "HUNTER",
+    "name": "Aspect of the Pack",
+    "ids": [
+      13159
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13161",
+    "class": "HUNTER",
+    "name": "Aspect of the Beast",
+    "ids": [
+      13161,
+      1299445,
+      1299446,
+      1299447
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13163",
+    "class": "HUNTER",
+    "name": "Aspect of the Monkey",
+    "ids": [
+      13163
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13165",
+    "class": "HUNTER",
+    "name": "Aspect of the Hawk",
+    "ids": [
+      13165,
+      14318,
+      14319,
+      14320,
+      14321,
+      14322
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13795",
+    "class": "HUNTER",
+    "name": "Immolation Trap",
+    "ids": [
+      13795,
+      14302,
+      14303,
+      14304,
+      14305
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13809",
+    "class": "HUNTER",
+    "name": "Frost Trap",
+    "ids": [
+      13809
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_13813",
+    "class": "HUNTER",
+    "name": "Explosive Trap",
+    "ids": [
+      13813,
+      14316,
+      14317
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_14274",
+    "class": "HUNTER",
+    "name": "Distracting Shot",
+    "ids": [
+      14274,
+      15629,
+      15630,
+      15631,
+      15632,
+      20736
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_14917",
+    "class": "HUNTER",
+    "name": "Growl",
+    "ids": [
+      14917,
+      14918,
+      14919,
+      14920,
+      14921
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19263",
+    "class": "HUNTER",
+    "name": "Deterrence",
+    "ids": [
+      19263
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19306",
+    "class": "HUNTER",
+    "name": "Counterattack",
+    "ids": [
+      19306,
+      20909,
+      20910,
+      1242634
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19434",
+    "class": "HUNTER",
+    "name": "Aimed Shot",
+    "ids": [
+      19434,
+      20900,
+      20901,
+      20902,
+      20903,
+      20904
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19503",
+    "class": "HUNTER",
+    "name": "Scatter Shot",
+    "ids": [
+      19503
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19506",
+    "class": "HUNTER",
+    "name": "Trueshot Aura",
+    "ids": [
+      19506,
+      20905,
+      20906,
+      1299346,
+      1299348
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19574",
+    "class": "HUNTER",
+    "name": "Bestial Wrath",
+    "ids": [
+      19574
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19577",
+    "class": "HUNTER",
+    "name": "Intimidation",
+    "ids": [
+      19577
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19878",
+    "class": "HUNTER",
+    "name": "Track Demons",
+    "ids": [
+      19878
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19879",
+    "class": "HUNTER",
+    "name": "Track Dragonkin",
+    "ids": [
+      19879
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19880",
+    "class": "HUNTER",
+    "name": "Track Elementals",
+    "ids": [
+      19880
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19882",
+    "class": "HUNTER",
+    "name": "Track Giants",
+    "ids": [
+      19882
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19883",
+    "class": "HUNTER",
+    "name": "Track Humanoids",
+    "ids": [
+      19883
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19884",
+    "class": "HUNTER",
+    "name": "Track Undead",
+    "ids": [
+      19884
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_19885",
+    "class": "HUNTER",
+    "name": "Track Hidden",
+    "ids": [
+      19885
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_20043",
+    "class": "HUNTER",
+    "name": "Aspect of the Wild",
+    "ids": [
+      20043,
+      20190
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_23989",
+    "class": "HUNTER",
+    "name": "Readiness",
+    "ids": [
+      23989
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_23992",
+    "class": "HUNTER",
+    "name": "Fire Resistance",
+    "ids": [
+      23992,
+      24439,
+      24444,
+      24445
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_24446",
+    "class": "HUNTER",
+    "name": "Frost Resistance",
+    "ids": [
+      24446,
+      24447,
+      24448,
+      24449
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_24488",
+    "class": "HUNTER",
+    "name": "Shadow Resistance",
+    "ids": [
+      24488,
+      24505,
+      24506,
+      24507
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_24492",
+    "class": "HUNTER",
+    "name": "Nature Resistance",
+    "ids": [
+      24492,
+      24502,
+      24503,
+      24504
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_24493",
+    "class": "HUNTER",
+    "name": "Arcane Resistance",
+    "ids": [
+      24493,
+      24497,
+      24500,
+      24501
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_24545",
+    "class": "HUNTER",
+    "name": "Natural Armor",
+    "ids": [
+      24545,
+      24549,
+      24550,
+      24551,
+      24552,
+      24553,
+      24554,
+      24555,
+      24629,
+      24630
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1293241",
+    "class": "HUNTER",
+    "name": "Summon Hawk",
+    "ids": [
+      1293241,
+      1293525,
+      1293526,
+      1293527
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "hunter_1310687",
+    "class": "HUNTER",
+    "name": "Sniper Shot",
+    "ids": [
+      1310687,
+      1310785,
+      1310786
+    ],
+    "cast_seconds": 4.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_53",
+    "class": "ROGUE",
+    "name": "Backstab",
+    "ids": [
+      53,
+      2589,
+      2590,
+      2591,
+      8721,
+      11279,
+      11280,
+      11281
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_408",
+    "class": "ROGUE",
+    "name": "Kidney Shot",
+    "ids": [
+      408,
+      8643
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_674",
+    "class": "ROGUE",
+    "name": "Dual Wield",
+    "ids": [
+      674
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_703",
+    "class": "ROGUE",
+    "name": "Garrote",
+    "ids": [
+      703,
+      8631,
+      8632,
+      8633,
+      11289,
+      11290
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_921",
+    "class": "ROGUE",
+    "name": "Pick Pocket",
+    "ids": [
+      921
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1725",
+    "class": "ROGUE",
+    "name": "Distract",
+    "ids": [
+      1725
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1752",
+    "class": "ROGUE",
+    "name": "Sinister Strike",
+    "ids": [
+      1752,
+      1757,
+      1758,
+      1759,
+      1760,
+      8621,
+      11293,
+      11294
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1766",
+    "class": "ROGUE",
+    "name": "Kick",
+    "ids": [
+      1766,
+      1767,
+      1768,
+      1769
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1776",
+    "class": "ROGUE",
+    "name": "Gouge",
+    "ids": [
+      1776,
+      1777,
+      8629,
+      11285,
+      11286
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1784",
+    "class": "ROGUE",
+    "name": "Stealth",
+    "ids": [
+      1784,
+      1785,
+      1786,
+      1787
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1804",
+    "class": "ROGUE",
+    "name": "Pick Lock",
+    "ids": [
+      1804
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1833",
+    "class": "ROGUE",
+    "name": "Cheap Shot",
+    "ids": [
+      1833
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1842",
+    "class": "ROGUE",
+    "name": "Disarm Trap",
+    "ids": [
+      1842
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1856",
+    "class": "ROGUE",
+    "name": "Vanish",
+    "ids": [
+      1856,
+      1857
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1860",
+    "class": "ROGUE",
+    "name": "Safe Fall",
+    "ids": [
+      1860
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1943",
+    "class": "ROGUE",
+    "name": "Rupture",
+    "ids": [
+      1943,
+      8639,
+      8640,
+      11273,
+      11274,
+      11275
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1966",
+    "class": "ROGUE",
+    "name": "Feint",
+    "ids": [
+      1966,
+      6768,
+      8637,
+      11303
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2070",
+    "class": "ROGUE",
+    "name": "Sap",
+    "ids": [
+      2070,
+      6770,
+      11297
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2094",
+    "class": "ROGUE",
+    "name": "Blind",
+    "ids": [
+      2094
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2098",
+    "class": "ROGUE",
+    "name": "Eviscerate",
+    "ids": [
+      2098,
+      6760,
+      6761,
+      6762,
+      8623,
+      8624,
+      11299,
+      11300
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2835",
+    "class": "ROGUE",
+    "name": "Deadly Poison",
+    "ids": [
+      2835
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2836",
+    "class": "ROGUE",
+    "name": "Detect Traps",
+    "ids": [
+      2836
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2837",
+    "class": "ROGUE",
+    "name": "Deadly Poison II",
+    "ids": [
+      2837
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2842",
+    "class": "ROGUE",
+    "name": "Poisons",
+    "ids": [
+      2842
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_2983",
+    "class": "ROGUE",
+    "name": "Sprint",
+    "ids": [
+      2983,
+      8696,
+      11305
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_3127",
+    "class": "ROGUE",
+    "name": "Parry",
+    "ids": [
+      3127
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_3420",
+    "class": "ROGUE",
+    "name": "Crippling Poison",
+    "ids": [
+      3420
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_3421",
+    "class": "ROGUE",
+    "name": "Crippling Poison II",
+    "ids": [
+      3421
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_5171",
+    "class": "ROGUE",
+    "name": "Slice and Dice",
+    "ids": [
+      5171,
+      6774
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_5277",
+    "class": "ROGUE",
+    "name": "Evasion",
+    "ids": [
+      5277
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_5763",
+    "class": "ROGUE",
+    "name": "Mind-numbing Poison",
+    "ids": [
+      5763
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_6510",
+    "class": "ROGUE",
+    "name": "Blinding Powder",
+    "ids": [
+      6510
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_8647",
+    "class": "ROGUE",
+    "name": "Expose Armor",
+    "ids": [
+      8647,
+      8649,
+      8650,
+      11197,
+      11198
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_8676",
+    "class": "ROGUE",
+    "name": "Ambush",
+    "ids": [
+      8676,
+      8724,
+      8725,
+      11267,
+      11268,
+      11269
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_8687",
+    "class": "ROGUE",
+    "name": "Instant Poison II",
+    "ids": [
+      8687
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_8691",
+    "class": "ROGUE",
+    "name": "Instant Poison III",
+    "ids": [
+      8691
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_8694",
+    "class": "ROGUE",
+    "name": "Mind-numbing Poison II",
+    "ids": [
+      8694
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_11341",
+    "class": "ROGUE",
+    "name": "Instant Poison IV",
+    "ids": [
+      11341
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_11342",
+    "class": "ROGUE",
+    "name": "Instant Poison V",
+    "ids": [
+      11342
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_11343",
+    "class": "ROGUE",
+    "name": "Instant Poison VI",
+    "ids": [
+      11343
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_11357",
+    "class": "ROGUE",
+    "name": "Deadly Poison III",
+    "ids": [
+      11357
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_11358",
+    "class": "ROGUE",
+    "name": "Deadly Poison IV",
+    "ids": [
+      11358
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_11400",
+    "class": "ROGUE",
+    "name": "Mind-numbing Poison III",
+    "ids": [
+      11400
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_13220",
+    "class": "ROGUE",
+    "name": "Wound Poison",
+    "ids": [
+      13220
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_13228",
+    "class": "ROGUE",
+    "name": "Wound Poison II",
+    "ids": [
+      13228
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_13229",
+    "class": "ROGUE",
+    "name": "Wound Poison III",
+    "ids": [
+      13229
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_13230",
+    "class": "ROGUE",
+    "name": "Wound Poison IV",
+    "ids": [
+      13230
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_13750",
+    "class": "ROGUE",
+    "name": "Adrenaline Rush",
+    "ids": [
+      13750
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_13877",
+    "class": "ROGUE",
+    "name": "Blade Flurry",
+    "ids": [
+      13877
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_14177",
+    "class": "ROGUE",
+    "name": "Cold Blood",
+    "ids": [
+      14177
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_14183",
+    "class": "ROGUE",
+    "name": "Premeditation",
+    "ids": [
+      14183
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_14185",
+    "class": "ROGUE",
+    "name": "Preparation",
+    "ids": [
+      14185
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_14278",
+    "class": "ROGUE",
+    "name": "Ghostly Strike",
+    "ids": [
+      14278
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_16511",
+    "class": "ROGUE",
+    "name": "Hemorrhage",
+    "ids": [
+      16511
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1241582",
+    "class": "ROGUE",
+    "name": "Mutilate",
+    "ids": [
+      1241582,
+      1241584
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1316709",
+    "class": "ROGUE",
+    "name": "Death Mark",
+    "ids": [
+      1316709,
+      1325756,
+      1325757,
+      1325758
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1328825",
+    "class": "ROGUE",
+    "name": "Poised",
+    "ids": [
+      1328825
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "rogue_1329283",
+    "class": "ROGUE",
+    "name": "Shank",
+    "ids": [
+      1329283,
+      1329549
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_131",
+    "class": "SHAMAN",
+    "name": "Water Breathing",
+    "ids": [
+      131
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_324",
+    "class": "SHAMAN",
+    "name": "Lightning Shield",
+    "ids": [
+      324,
+      325,
+      905,
+      945,
+      8134,
+      10431,
+      10432
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_331",
+    "class": "SHAMAN",
+    "name": "Healing Wave",
+    "ids": [
+      331,
+      332,
+      547,
+      913,
+      939,
+      959,
+      8005,
+      10395,
+      10396
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_370",
+    "class": "SHAMAN",
+    "name": "Purge",
+    "ids": [
+      370,
+      8012
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_403",
+    "class": "SHAMAN",
+    "name": "Lightning Bolt",
+    "ids": [
+      403,
+      529,
+      548,
+      915,
+      943,
+      6041,
+      10391,
+      10392,
+      15207,
+      15208
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_421",
+    "class": "SHAMAN",
+    "name": "Chain Lightning",
+    "ids": [
+      421,
+      930,
+      2860,
+      10605
+    ],
+    "cast_seconds": 2.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_526",
+    "class": "SHAMAN",
+    "name": "Cure Poison",
+    "ids": [
+      526
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_546",
+    "class": "SHAMAN",
+    "name": "Water Walking",
+    "ids": [
+      546
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_556",
+    "class": "SHAMAN",
+    "name": "Astral Recall",
+    "ids": [
+      556
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_1064",
+    "class": "SHAMAN",
+    "name": "Chain Heal",
+    "ids": [
+      1064,
+      10622,
+      10623
+    ],
+    "cast_seconds": 2.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_2008",
+    "class": "SHAMAN",
+    "name": "Ancestral Spirit",
+    "ids": [
+      2008,
+      20609,
+      20610,
+      20776,
+      20777
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_2484",
+    "class": "SHAMAN",
+    "name": "Earthbind Totem",
+    "ids": [
+      2484
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_2645",
+    "class": "SHAMAN",
+    "name": "Ghost Wolf",
+    "ids": [
+      2645
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_2870",
+    "class": "SHAMAN",
+    "name": "Cure Disease",
+    "ids": [
+      2870
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_3599",
+    "class": "SHAMAN",
+    "name": "Searing Totem",
+    "ids": [
+      3599,
+      6363,
+      6364,
+      6365,
+      10437,
+      10438
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_5394",
+    "class": "SHAMAN",
+    "name": "Healing Stream Totem",
+    "ids": [
+      5394,
+      6375,
+      6377,
+      10462,
+      10463
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_5675",
+    "class": "SHAMAN",
+    "name": "Mana Spring Totem",
+    "ids": [
+      5675,
+      10495,
+      10496,
+      10497
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_5730",
+    "class": "SHAMAN",
+    "name": "Stoneclaw Totem",
+    "ids": [
+      5730,
+      6390,
+      6391,
+      6392,
+      10427,
+      10428
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_6196",
+    "class": "SHAMAN",
+    "name": "Far Sight",
+    "ids": [
+      6196
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_6495",
+    "class": "SHAMAN",
+    "name": "Sentry Totem",
+    "ids": [
+      6495
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8004",
+    "class": "SHAMAN",
+    "name": "Lesser Healing Wave",
+    "ids": [
+      8004,
+      8008,
+      8010,
+      10466,
+      10467,
+      10468
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8017",
+    "class": "SHAMAN",
+    "name": "Rockbiter Weapon",
+    "ids": [
+      8017,
+      8018,
+      8019,
+      10399,
+      16314,
+      16315,
+      16316
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8024",
+    "class": "SHAMAN",
+    "name": "Flametongue Weapon",
+    "ids": [
+      8024,
+      8027,
+      8030,
+      16339,
+      16341,
+      16342
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8033",
+    "class": "SHAMAN",
+    "name": "Frostbrand Weapon",
+    "ids": [
+      8033,
+      8038,
+      10456,
+      16355,
+      16356
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8042",
+    "class": "SHAMAN",
+    "name": "Earth Shock",
+    "ids": [
+      8042,
+      8044,
+      8045,
+      8046,
+      10412,
+      10413,
+      10414
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8050",
+    "class": "SHAMAN",
+    "name": "Flame Shock",
+    "ids": [
+      8050,
+      8052,
+      8053,
+      10447,
+      10448
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8056",
+    "class": "SHAMAN",
+    "name": "Frost Shock",
+    "ids": [
+      8056,
+      8058,
+      10472,
+      10473
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8071",
+    "class": "SHAMAN",
+    "name": "Stoneskin Totem",
+    "ids": [
+      8071,
+      8154,
+      8155,
+      10406,
+      10407,
+      10408
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8075",
+    "class": "SHAMAN",
+    "name": "Strength of Earth Totem",
+    "ids": [
+      8075,
+      8160,
+      8161,
+      10442
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8143",
+    "class": "SHAMAN",
+    "name": "Tremor Totem",
+    "ids": [
+      8143
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8166",
+    "class": "SHAMAN",
+    "name": "Poison Cleansing Totem",
+    "ids": [
+      8166
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8170",
+    "class": "SHAMAN",
+    "name": "Disease Cleansing Totem",
+    "ids": [
+      8170
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8177",
+    "class": "SHAMAN",
+    "name": "Grounding Totem",
+    "ids": [
+      8177
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8181",
+    "class": "SHAMAN",
+    "name": "Frost Resistance Totem",
+    "ids": [
+      8181,
+      10478,
+      10479
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8184",
+    "class": "SHAMAN",
+    "name": "Fire Resistance Totem",
+    "ids": [
+      8184,
+      10537,
+      10538
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8190",
+    "class": "SHAMAN",
+    "name": "Magma Totem",
+    "ids": [
+      8190,
+      10585,
+      10586,
+      10587
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8227",
+    "class": "SHAMAN",
+    "name": "Flametongue Totem",
+    "ids": [
+      8227,
+      8249,
+      10526,
+      16387
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8232",
+    "class": "SHAMAN",
+    "name": "Windfury Weapon",
+    "ids": [
+      8232,
+      8235,
+      10486,
+      16362
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8512",
+    "class": "SHAMAN",
+    "name": "Windfury Totem",
+    "ids": [
+      8512,
+      10613,
+      10614
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8737",
+    "class": "SHAMAN",
+    "name": "Mail",
+    "ids": [
+      8737
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_8835",
+    "class": "SHAMAN",
+    "name": "Grace of Air Totem",
+    "ids": [
+      8835,
+      10627
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_10595",
+    "class": "SHAMAN",
+    "name": "Nature Resistance Totem",
+    "ids": [
+      10595,
+      10600,
+      10601
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_15107",
+    "class": "SHAMAN",
+    "name": "Windwall Totem",
+    "ids": [
+      15107,
+      15111,
+      15112
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_16188",
+    "class": "SHAMAN",
+    "name": "Nature's Swiftness",
+    "ids": [
+      16188
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_16190",
+    "class": "SHAMAN",
+    "name": "Mana Tide Totem",
+    "ids": [
+      16190,
+      17354,
+      17359,
+      1325256
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_17364",
+    "class": "SHAMAN",
+    "name": "Stormstrike",
+    "ids": [
+      17364
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_20608",
+    "class": "SHAMAN",
+    "name": "Reincarnation",
+    "ids": [
+      20608
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_36936",
+    "class": "SHAMAN",
+    "name": "Totemic Recall",
+    "ids": [
+      36936
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_66842",
+    "class": "SHAMAN",
+    "name": "Call of the Elements",
+    "ids": [
+      66842
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_66843",
+    "class": "SHAMAN",
+    "name": "Call of the Ancestors",
+    "ids": [
+      66843
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_66844",
+    "class": "SHAMAN",
+    "name": "Call of the Spirits",
+    "ids": [
+      66844
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_408341",
+    "class": "SHAMAN",
+    "name": "Fire Nova",
+    "ids": [
+      408341,
+      408342,
+      408343,
+      408344,
+      408345
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_408521",
+    "class": "SHAMAN",
+    "name": "Riptide",
+    "ids": [
+      408521,
+      1239242,
+      1239243
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_437009",
+    "class": "SHAMAN",
+    "name": "Totemic Call",
+    "ids": [
+      437009
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_126",
+    "class": "WARLOCK",
+    "name": "Eye of Kilrogg",
+    "ids": [
+      126
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_132",
+    "class": "WARLOCK",
+    "name": "Detect Invisibility",
+    "ids": [
+      132,
+      2970,
+      11743
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_172",
+    "class": "WARLOCK",
+    "name": "Corruption",
+    "ids": [
+      172,
+      6222,
+      6223,
+      7648,
+      11671,
+      11672
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_348",
+    "class": "WARLOCK",
+    "name": "Immolate",
+    "ids": [
+      348,
+      707,
+      1094,
+      2941,
+      11665,
+      11667,
+      11668
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_603",
+    "class": "WARLOCK",
+    "name": "Bane of Doom",
+    "ids": [
+      603
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_686",
+    "class": "WARLOCK",
+    "name": "Shadow Bolt",
+    "ids": [
+      686,
+      695,
+      705,
+      1088,
+      1106,
+      7641,
+      11659,
+      11660,
+      11661
+    ],
+    "cast_seconds": 1.7,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_687",
+    "class": "WARLOCK",
+    "name": "Demon Skin",
+    "ids": [
+      687,
+      696
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_688",
+    "class": "WARLOCK",
+    "name": "Summon Imp",
+    "ids": [
+      688
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_689",
+    "class": "WARLOCK",
+    "name": "Drain Life",
+    "ids": [
+      689,
+      699,
+      709,
+      7651,
+      11699,
+      11700
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "warlock_691",
+    "class": "WARLOCK",
+    "name": "Summon Felhunter",
+    "ids": [
+      691
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_693",
+    "class": "WARLOCK",
+    "name": "Create Soulstone",
+    "ids": [
+      693,
+      20752,
+      20755,
+      20756,
+      20757
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_697",
+    "class": "WARLOCK",
+    "name": "Summon Voidwalker",
+    "ids": [
+      697
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_698",
+    "class": "WARLOCK",
+    "name": "Ritual of Summoning",
+    "ids": [
+      698
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_702",
+    "class": "WARLOCK",
+    "name": "Curse of Weakness",
+    "ids": [
+      702,
+      1108,
+      6205,
+      7646,
+      11707,
+      11708
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_704",
+    "class": "WARLOCK",
+    "name": "Curse of Recklessness",
+    "ids": [
+      704,
+      7658,
+      7659,
+      11717
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_706",
+    "class": "WARLOCK",
+    "name": "Demon Armor",
+    "ids": [
+      706,
+      1086,
+      11733,
+      11734,
+      11735
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_710",
+    "class": "WARLOCK",
+    "name": "Banish",
+    "ids": [
+      710,
+      18647
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_712",
+    "class": "WARLOCK",
+    "name": "Summon Succubus",
+    "ids": [
+      712
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_713",
+    "class": "WARLOCK",
+    "name": "Summon Incubus",
+    "ids": [
+      713
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_755",
+    "class": "WARLOCK",
+    "name": "Health Funnel",
+    "ids": [
+      755,
+      3698,
+      3699,
+      3700,
+      11693,
+      11694,
+      11695
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "warlock_980",
+    "class": "WARLOCK",
+    "name": "Bane of Agony",
+    "ids": [
+      980,
+      1014,
+      6217,
+      11711,
+      11712,
+      11713
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_1098",
+    "class": "WARLOCK",
+    "name": "Subjugate Demon",
+    "ids": [
+      1098,
+      11725,
+      11726
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_1120",
+    "class": "WARLOCK",
+    "name": "Drain Soul",
+    "ids": [
+      1120,
+      8288,
+      8289,
+      11675
+    ],
+    "cast_seconds": 15.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "warlock_1122",
+    "class": "WARLOCK",
+    "name": "Inferno",
+    "ids": [
+      1122
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_1454",
+    "class": "WARLOCK",
+    "name": "Life Tap",
+    "ids": [
+      1454,
+      1455,
+      1456,
+      11687,
+      11688,
+      11689
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_1714",
+    "class": "WARLOCK",
+    "name": "Curse of Tongues",
+    "ids": [
+      1714,
+      11719
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_1949",
+    "class": "WARLOCK",
+    "name": "Hellfire",
+    "ids": [
+      1949,
+      11683,
+      11684
+    ],
+    "cast_seconds": 15.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "warlock_2362",
+    "class": "WARLOCK",
+    "name": "Create Spellstone",
+    "ids": [
+      2362,
+      17727,
+      17728
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5138",
+    "class": "WARLOCK",
+    "name": "Drain Mana",
+    "ids": [
+      5138,
+      6226,
+      11703,
+      11704
+    ],
+    "cast_seconds": 5.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "warlock_5484",
+    "class": "WARLOCK",
+    "name": "Howl of Terror",
+    "ids": [
+      5484,
+      17928
+    ],
+    "cast_seconds": 2.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5500",
+    "class": "WARLOCK",
+    "name": "Sense Demons",
+    "ids": [
+      5500
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5676",
+    "class": "WARLOCK",
+    "name": "Searing Pain",
+    "ids": [
+      5676,
+      17919,
+      17920,
+      17921,
+      17922,
+      17923
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5697",
+    "class": "WARLOCK",
+    "name": "Unending Breath",
+    "ids": [
+      5697
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5699",
+    "class": "WARLOCK",
+    "name": "Create Healthstone",
+    "ids": [
+      5699,
+      6201,
+      6202,
+      11729,
+      11730
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5740",
+    "class": "WARLOCK",
+    "name": "Rain of Fire",
+    "ids": [
+      5740,
+      6219,
+      11677,
+      11678
+    ],
+    "cast_seconds": 8.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "warlock_5782",
+    "class": "WARLOCK",
+    "name": "Fear",
+    "ids": [
+      5782,
+      6213,
+      6215
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_5784",
+    "class": "WARLOCK",
+    "name": "Summon Felsteed",
+    "ids": [
+      5784
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_6229",
+    "class": "WARLOCK",
+    "name": "Shadow Ward",
+    "ids": [
+      6229,
+      11739,
+      11740
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_6353",
+    "class": "WARLOCK",
+    "name": "Soul Fire",
+    "ids": [
+      6353,
+      17924
+    ],
+    "cast_seconds": 6.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_6366",
+    "class": "WARLOCK",
+    "name": "Create Firestone",
+    "ids": [
+      6366,
+      17951,
+      17952,
+      17953
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_6789",
+    "class": "WARLOCK",
+    "name": "Death Coil",
+    "ids": [
+      6789,
+      17925,
+      17926
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_17877",
+    "class": "WARLOCK",
+    "name": "Shadowburn",
+    "ids": [
+      17877,
+      18867,
+      18868,
+      18869,
+      18870,
+      18871
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_17962",
+    "class": "WARLOCK",
+    "name": "Conflagrate",
+    "ids": [
+      17962,
+      18930,
+      18931,
+      18932,
+      1293817,
+      1293818
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_18265",
+    "class": "WARLOCK",
+    "name": "Siphon Life",
+    "ids": [
+      18265,
+      18879,
+      18880,
+      18881
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_18288",
+    "class": "WARLOCK",
+    "name": "Amplify Curse",
+    "ids": [
+      18288
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_18540",
+    "class": "WARLOCK",
+    "name": "Ritual of Doom",
+    "ids": [
+      18540
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_18708",
+    "class": "WARLOCK",
+    "name": "Fel Domination",
+    "ids": [
+      18708
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_23161",
+    "class": "WARLOCK",
+    "name": "Summon Dreadsteed",
+    "ids": [
+      23161
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_412758",
+    "class": "WARLOCK",
+    "name": "Incinerate",
+    "ids": [
+      412758,
+      1293812,
+      1293813
+    ],
+    "cast_seconds": 2.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warlock_440892",
+    "class": "WARLOCK",
+    "name": "Curse of the Elements",
+    "ids": [
+      440892,
+      1311676,
+      1311677,
+      1311680
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_71",
+    "class": "WARRIOR",
+    "name": "Defensive Stance",
+    "ids": [
+      71
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_72",
+    "class": "WARRIOR",
+    "name": "Shield Bash",
+    "ids": [
+      72,
+      1671,
+      1672
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_78",
+    "class": "WARRIOR",
+    "name": "Heroic Strike",
+    "ids": [
+      78,
+      284,
+      285,
+      1608,
+      11564,
+      11565,
+      11566,
+      11567
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_100",
+    "class": "WARRIOR",
+    "name": "Charge",
+    "ids": [
+      100,
+      6178,
+      11578
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_355",
+    "class": "WARRIOR",
+    "name": "Taunt",
+    "ids": [
+      355
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_674",
+    "class": "WARRIOR",
+    "name": "Dual Wield",
+    "ids": [
+      674
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_676",
+    "class": "WARRIOR",
+    "name": "Disarm",
+    "ids": [
+      676
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_694",
+    "class": "WARRIOR",
+    "name": "Mocking Blow",
+    "ids": [
+      694,
+      7400,
+      7402,
+      20559,
+      20560
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_750",
+    "class": "WARRIOR",
+    "name": "Plate Mail",
+    "ids": [
+      750
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_772",
+    "class": "WARRIOR",
+    "name": "Rend",
+    "ids": [
+      772,
+      6546,
+      6547,
+      6548,
+      11572,
+      11573,
+      11574
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_845",
+    "class": "WARRIOR",
+    "name": "Cleave",
+    "ids": [
+      845,
+      7369,
+      11608,
+      11609,
+      20569
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_871",
+    "class": "WARRIOR",
+    "name": "Shield Wall",
+    "ids": [
+      871
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1160",
+    "class": "WARRIOR",
+    "name": "Demoralizing Shout",
+    "ids": [
+      1160,
+      6190,
+      11554,
+      11555,
+      11556
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1161",
+    "class": "WARRIOR",
+    "name": "Challenging Shout",
+    "ids": [
+      1161
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1464",
+    "class": "WARRIOR",
+    "name": "Slam",
+    "ids": [
+      1464,
+      8820,
+      11604,
+      11605,
+      1240193
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1680",
+    "class": "WARRIOR",
+    "name": "Whirlwind",
+    "ids": [
+      1680
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1715",
+    "class": "WARRIOR",
+    "name": "Hamstring",
+    "ids": [
+      1715,
+      7372,
+      7373
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1719",
+    "class": "WARRIOR",
+    "name": "Recklessness",
+    "ids": [
+      1719
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_2457",
+    "class": "WARRIOR",
+    "name": "Battle Stance",
+    "ids": [
+      2457
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_2458",
+    "class": "WARRIOR",
+    "name": "Berserker Stance",
+    "ids": [
+      2458
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_2565",
+    "class": "WARRIOR",
+    "name": "Shield Block",
+    "ids": [
+      2565
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_2687",
+    "class": "WARRIOR",
+    "name": "Bloodrage",
+    "ids": [
+      2687
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_3127",
+    "class": "WARRIOR",
+    "name": "Parry",
+    "ids": [
+      3127
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_5242",
+    "class": "WARRIOR",
+    "name": "Battle Shout",
+    "ids": [
+      5242,
+      6192,
+      6673,
+      11549,
+      11550,
+      11551
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_5246",
+    "class": "WARRIOR",
+    "name": "Intimidating Shout",
+    "ids": [
+      5246
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_5308",
+    "class": "WARRIOR",
+    "name": "Execute",
+    "ids": [
+      5308,
+      20658,
+      20660,
+      20661,
+      20662
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_6343",
+    "class": "WARRIOR",
+    "name": "Thunder Clap",
+    "ids": [
+      6343,
+      8198,
+      8204,
+      8205,
+      11580,
+      11581
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_6552",
+    "class": "WARRIOR",
+    "name": "Pummel",
+    "ids": [
+      6552,
+      6554
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_6572",
+    "class": "WARRIOR",
+    "name": "Revenge",
+    "ids": [
+      6572,
+      6574,
+      7379,
+      11600,
+      11601
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_6603",
+    "class": "WARRIOR",
+    "name": "Attack",
+    "ids": [
+      6603
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_7384",
+    "class": "WARRIOR",
+    "name": "Overpower",
+    "ids": [
+      7384,
+      7887,
+      11584,
+      11585
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_7386",
+    "class": "WARRIOR",
+    "name": "Sunder Armor",
+    "ids": [
+      7386,
+      7405,
+      8380,
+      11596,
+      11597
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_12294",
+    "class": "WARRIOR",
+    "name": "Mortal Strike",
+    "ids": [
+      12294,
+      21551,
+      21552,
+      21553
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_12323",
+    "class": "WARRIOR",
+    "name": "Piercing Howl",
+    "ids": [
+      12323
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_12809",
+    "class": "WARRIOR",
+    "name": "Concussion Blow",
+    "ids": [
+      12809
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_12975",
+    "class": "WARRIOR",
+    "name": "Last Stand",
+    "ids": [
+      12975
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_18499",
+    "class": "WARRIOR",
+    "name": "Berserker Rage",
+    "ids": [
+      18499
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_20230",
+    "class": "WARRIOR",
+    "name": "Retaliation",
+    "ids": [
+      20230
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_20252",
+    "class": "WARRIOR",
+    "name": "Intercept",
+    "ids": [
+      20252,
+      20616,
+      20617
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_23881",
+    "class": "WARRIOR",
+    "name": "Bloodthirst",
+    "ids": [
+      23881,
+      23892,
+      23893,
+      23894
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_23922",
+    "class": "WARRIOR",
+    "name": "Shield Slam",
+    "ids": [
+      23922,
+      23923,
+      23924,
+      23925
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_402927",
+    "class": "WARRIOR",
+    "name": "Victory Rush",
+    "ids": [
+      402927
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_1310185",
+    "class": "WARRIOR",
+    "name": "Tactical Mastery",
+    "ids": [
+      1310185
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "mage_11129",
+    "class": "MAGE",
+    "name": "Combustion",
+    "ids": [
+      11129
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "druid_16979",
+    "class": "DRUID",
+    "name": "Feral Charge (Bear)",
+    "ids": [
+      16979
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "shaman_16166",
+    "class": "SHAMAN",
+    "name": "Lightning Mastery",
+    "ids": [
+      16166
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_12292",
+    "class": "WARRIOR",
+    "name": "Sweeping Strikes",
+    "ids": [
+      12292
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "warrior_12328",
+    "class": "WARRIOR",
+    "name": "Death Wish",
+    "ids": [
+      12328
+    ],
+    "cast_seconds": 0,
+    "passive": false,
+    "channeled": false
   }
 ]

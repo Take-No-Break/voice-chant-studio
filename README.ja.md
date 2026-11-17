@@ -1,4 +1,4 @@
-# Voice Chant Studio v0.5 — Windows / WoW Forever
+# Voice Chant Studio v0.6 — Windows / WoW Forever
 
 自分で録音した詠唱を、WoW Foreverの元の効果音に重ねるアプリとアドオンです。ゲームの元の音は残ります。
 
@@ -6,7 +6,7 @@ English instructions: [README.en.md](README.en.md)
 
 ## 起動と言語
 
-`VoiceChantStudio-v0.5.exe` をダブルクリックしてください。配布版の実行にPythonは不要です。デスクトップの **Voice Chant Studio** ショートカットも更新版を開きます。更新前のアプリが開いている場合は、先に閉じてください。
+`VoiceChantStudio-v0.6.exe` をダブルクリックしてください。配布版の実行にPythonは不要です。デスクトップの **Voice Chant Studio** ショートカットも更新版を開きます。更新前のアプリが開いている場合は、先に閉じてください。
 
 右上の **日本語 / English** で表示言語を切り替えます。選んだ言語は次回起動時も引き継ぎます。Englishではボタン、設定、アプリの案内・エラーダイアログも英語になります。Windows標準のファイル選択画面のボタンなどは、Windowsの言語設定に従う場合があります。
 
@@ -14,7 +14,7 @@ English instructions: [README.en.md](README.en.md)
 
 ## 最初の音声を作る
 
-1. **PALADIN / MAGE / PRIEST** を選び、左の一覧からアビリティを選択します。検索も使えます。
+1. **PALADIN / MAGE / PRIEST / DRUID / HUNTER / ROGUE / SHAMAN / WARLOCK / WARRIOR** を選び、左の一覧からアビリティを選択します。検索も使えます。
 2. 声を鳴らすタイミングを選びます。
    - **詠唱開始**：詠唱やチャネルの開始時。詠唱を中断したら追加音声も止める設定があります。
    - **発動成功・瞬間技**：瞬間発動の技、または魔法の成功時。
@@ -40,7 +40,7 @@ English instructions: [README.en.md](README.en.md)
 
 ## アビリティとランク
 
-同梱のForever用初期一覧は **パラディン50項目・160 Spell ID、メイジ55項目・187 Spell ID、プリースト52項目・226 Spell ID** です。同じアビリティのランクは1行にまとめ、その行に設定した音声を共有します。パッシブは通常の詠唱イベントがないため、初期状態では非表示です。
+同梱のForever用初期一覧は **9クラス491項目** です。同じアビリティのランクは1行にまとめ、その行に設定した音声を共有します。パッシブは通常の詠唱イベントがないため、初期状態では非表示です。
 
 この一覧が、今後追加される技やクライアント独自の技を含めてすべてを網羅するという保証はありません。ゲーム内で `/voicechant` を開き、**Ctrl+A → Ctrl+C**。アプリの **ゲームの一覧を取り込む** に貼り付けると、クライアントが返すアビリティとランクを追加できます。同じクラス・同じ英語名のランクはまとめます。
 
@@ -98,14 +98,14 @@ Program Filesへの書き込みが拒否された場合は、アプリを管理�
 
 初めての録音では、短いテイクを1本作り、試聴とゲーム内の `/voicechant test` でマイク・音量・再生を確認してから音声を増やしてください。
 
-## ゲーム内の専用音量設定（v0.5）
+## ゲーム内の専用音量設定（v0.6）
 
 アドオン一覧では **Voice Chant Studio - Voice Effects**、設定ページでは **Voice Chant Studio** です。
 **Esc → Options → AddOns → Voice Chant Studio**、または `/vcs` / `/voicechant settings` で開きます。
 このアドオンの声だけを0〜100%、10%刻みで変更できます。ゲームの効果音やNPCの音量は変更しません。
 `/vcs volume 50` は50%、`/voicechant test` は試聴です。音量とミュートは次回ログインにも引き継ぎます。
 100%はアプリで書き出した音量が基準です。元の録音は変更しません。新しい音量用ファイルの追加後はWoWを完全に再起動してください。
-設定を保つには、今後の書き出しに更新版v0.5を使用してください。
+設定を保つには、今後の書き出しに更新版v0.6を使用してください。
 
 ## Success voice variations / 発動成功の音声バリエーション
 
@@ -114,3 +114,13 @@ Choose Successful cast / Instant ability, set Success voices to 1–5, select a 
 「発動成功・瞬間技」を選び、成功音声数を1〜5に設定 → 録音枠を選ぶ → 各枠で録音・編集・完成を保存 → ゲームへ書き出す。登録済みの有効な枠から均等にランダム再生します。同じ声が続く場合もあります。音声数を減らしても録音は削除しません。
 
 Game discovery checks Blizzard registration and common local install folders. If missing, use Browse: Battle.net gear → Show in Explorer → select _forever_ containing Wow.exe (or its parent folder). No AI is required. See AI-SETUP.md for detailed user/AI setup instructions.
+
+## v0.6: User spell links and offline Voice FX
+
+All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, Mage: 56, Paladin: 50, Priest: 52, Rogue: 58, Shaman: 55, Warlock: 50, Warrior: 45. Data comes from installed Camelot trainer/quest/rank lists and Forever-specific tooltips. Two unavailable IDs were excluded (see all-classes-report.json); this does not promise every future, item, pet or talent spell. Import the actual client spellbook for your character.
+
+**Create spell link / 連携リンクを作成**: select a class, choose condition spell 1 and replacement spell 2, then choose player buff, your target debuff, or previous successful spell (1–30 seconds). Record on the [LINK] row, save and export. The link replaces the normal voice; unassigned phases fall back. If multiple links match, the first exported match wins. See LINK-EXAMPLES.md for retained research and condition limits. No spellcasting automation is included.
+
+**Voice FX / EQ**: select a recorded clip. Pitch ±12 semitones preserves duration; low/mid/high EQ ±12 dB; vibrato and tremolo adjust voice pitch/loudness modulation. Preview → Apply → Save finished clip. Original takes stay intact. Processing happens offline in the editor, not in WoW. Strong effects can introduce artifacts. This is a basic voice editor, not a multitrack or plugin-host DAW.
+
+日本語：クラスを選び「連携リンクを作成」で技1・条件・技2を指定し、追加されたLINK行に録音します。「音声FX / EQ」で加工を試聴し、適用後に「完成を保存」を押してください。音声ファイル追加後はWoWを再起動してください。

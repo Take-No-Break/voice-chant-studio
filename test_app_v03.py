@@ -161,7 +161,7 @@ class StudioV03Tests(unittest.TestCase):
             self.ui.populate()
             self.assertIsNone(self.ui.selected_class())
             self.assertEqual({r['class'] for r in self.visible_rows()},
-                             {'PALADIN', 'MAGE', 'PRIEST'})
+                             {r['class'] for r in app.CATALOG if not r.get('passive')})
             self.assertIn('class', self.ui.tree['columns'])
             for row in self.visible_rows():
                 self.assertEqual(self.ui.tree.set(row['key'], 'class'),

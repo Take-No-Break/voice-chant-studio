@@ -17,25 +17,44 @@ local function bind(target,event,file)
     for _,existing in ipairs(choices) do if existing==file then return end end
     if #choices<5 then choices[#choices+1]=file end
 end
+local function bindRow(target,row)
+    if not row.condition then bind(target,row.event,row.file);return end
+    target.rules=target.rules or {}
+    local rule
+    for _,r in ipairs(target.rules) do if r.condition.tag==row.condition.tag then rule=r;break end end
+    if not rule then rule={condition=row.condition};target.rules[#target.rules+1]=rule end
+    bind(rule,row.event,row.file)
+end
 if UnitClass then _, playerClass = UnitClass("player") end
 for _, row in ipairs(cfg.bindings or {}) do
     -- Older exports did not include class. Keep those working as well.
     if not row.class or not playerClass or row.class == playerClass then
     if row.volumes then volumeFiles[row.file] = row.volumes end
     for _, id in ipairs(row.ids) do
-        byID[id] = byID[id] or {}; bind(byID[id],row.event,row.file)
+        byID[id] = byID[id] or {}; bindRow(byID[id],row)
         if C_Spell and C_Spell.GetSpellName then
             local name = C_Spell.GetSpellName(id)
-            if readable(name) and name then byName[name] = byName[name] or {}; bind(byName[name],row.event,row.file) end
+            if readable(name) and name then byName[name] = byName[name] or {}; bindRow(byName[name],row) end
         end
     end
     end
 end
-local function lookup(id)
+if VoiceChantConditions then VoiceChantConditions.Initialize(cfg.bindings) end
+local function lookup(id,context)
     if not readable(id) or type(id) ~= "number" then return end
-    if byID[id] then return byID[id] end
-    local name = C_Spell and C_Spell.GetSpellName and C_Spell.GetSpellName(id)
-    if readable(name) and name then return byName[name] end
+    local binding=byID[id]
+    if not binding then
+        local name = C_Spell and C_Spell.GetSpellName and C_Spell.GetSpellName(id)
+        if readable(name) and name then binding=byName[name] end
+    end
+    if not binding or not context or not binding.rules or not VoiceChantConditions then return binding end
+    local chosen={start=binding.start,success=binding.success,cancel=binding.cancel}
+    for _,phase in ipairs({'start','success','cancel'}) do
+        for _,rule in ipairs(binding.rules) do
+            if rule[phase] and VoiceChantConditions.Matches(rule.condition,context) then chosen[phase]=rule[phase];break end
+        end
+    end
+    return chosen
 end
 local function stop()
     if active and active.handle then StopSound(active.handle, 100) end
@@ -79,6 +98,7 @@ frame:RegisterEvent("ADDON_LOADED")
 for _, event in ipairs({"UNIT_SPELLCAST_START", "UNIT_SPELLCAST_CHANNEL_START", "UNIT_SPELLCAST_CHANNEL_UPDATE", "UNIT_SPELLCAST_SUCCEEDED", "UNIT_SPELLCAST_FAILED", "UNIT_SPELLCAST_INTERRUPTED", "UNIT_SPELLCAST_STOP", "UNIT_SPELLCAST_CHANNEL_STOP"}) do
     frame:RegisterUnitEvent(event, "player")
 end
+frame:RegisterUnitEvent('UNIT_SPELLCAST_SENT','player')
 -- Cast state is separate from audio state: a cancellation clip must also work
 -- when no preparation clip was recorded, or its playback was throttled.
 local casts, recentByID = {}, {}
@@ -116,7 +136,7 @@ local function cancel(cast, binding)
     if cfg.stopOnCancel and active and active.cast == cast then stop() end
     play(binding.cancel, cast.id, cast.guid, "cancel", cast)
 end
-frame:SetScript("OnEvent", function(_, event, unit, guid, id)
+frame:SetScript("OnEvent", function(_, event, unit, guid, id, extra)
     if event == "ADDON_LOADED" then
         if unit == "VoiceChantStudio" then
             VoiceChantStudioDB = VoiceChantStudioDB or {}
@@ -125,10 +145,21 @@ frame:SetScript("OnEvent", function(_, event, unit, guid, id)
         end
         return
     end
+    if event=='UNIT_SPELLCAST_SENT' then
+        if readable(unit) and unit=='player' and VoiceChantConditions then VoiceChantConditions.Sent(extra,id,guid) end
+        return
+    end
     if not readable(unit) or unit ~= "player" or not readable(id) or not readable(guid) then return end
     local binding = lookup(id)
-    if not binding then return end
+    if not binding then
+        if event=='UNIT_SPELLCAST_SUCCEEDED' and VoiceChantConditions then VoiceChantConditions.Complete(id,guid) end
+        return
+    end
     local cast = castFor(id, guid, event)
+    if VoiceChantConditions then
+        cast.context=cast.context or VoiceChantConditions.Snapshot(id,guid)
+        binding=lookup(id,cast.context)
+    end
     if event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" then
         if event == "UNIT_SPELLCAST_CHANNEL_START" then cast.channel = true; channelEnd(cast) end
         if cast.started or cast.cancelled or cast.ended then return end
@@ -141,6 +172,7 @@ frame:SetScript("OnEvent", function(_, event, unit, guid, id)
     elseif event == "UNIT_SPELLCAST_SUCCEEDED" then
         if cast.succeeded or cast.cancelled then return end
         cast.succeeded = true
+        if VoiceChantConditions then VoiceChantConditions.Complete(id,guid) end
         channelEnd(cast)
         if binding.success then
             -- A completion clip deliberately replaces this addon's preparation clip only.

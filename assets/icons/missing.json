@@ -1,14 +1,20 @@
 {
-  "catalog_rows": 157,
-  "spell_ids": 573,
-  "resolved_spell_ids": 573,
-  "unique_icons": 155,
-  "rows_with_real_icons": 157,
+  "catalog_rows": 491,
+  "spell_ids": 1535,
+  "resolved_spell_ids": 1535,
+  "unique_icons": 399,
+  "rows_with_real_icons": 491,
   "missing_rows": [],
   "unresolved": [],
   "class_counts": {
-    "MAGE": 55,
+    "DRUID": 58,
+    "HUNTER": 67,
+    "MAGE": 56,
     "PALADIN": 50,
-    "PRIEST": 52
+    "PRIEST": 52,
+    "ROGUE": 58,
+    "SHAMAN": 55,
+    "WARLOCK": 50,
+    "WARRIOR": 45
   }
 }

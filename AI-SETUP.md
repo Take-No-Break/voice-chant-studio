@@ -16,3 +16,9 @@ Verification: use synthetic audio and fake devices, `python -m unittest discover
 Build: Python, dependencies in requirements.txt; `python -m PyInstaller --noconfirm VoiceChantStudio.spec`. Build helpers may require Pillow; Lua tests require lupa and luaparser. Build scripts referencing local trainer files require an installed Forever client. The shipped catalog works offline without running builders.
 
 Publication: distribute the clean source archive and application ZIP; do not include Projects, originals, user Config.lua, WTF, caches, local logs, access tokens or any game installation. Bundled spell artwork is third-party game artwork; review its redistribution terms before public release. No redistribution license is granted by this document. Choose a repository/license and review source asset provenance before publishing.
+
+## v0.6 workflows
+
+The catalog includes all 9 original classes (491 entries), not every possible future/item/pet/talent spell. Check all-classes-report.json for coverage/exclusions. The user creates conditional rows through Create spell link; see LINK-EXAMPLES.md. Do not assume Classic talent names/IDs match Forever. Conditions are read-only observations and must not automate gameplay. Only exported links activate aura tracking; no OnUpdate is used. For hidden/secret aura IDs, fall back rather than guessing. Use the game's actual aura ID where it differs from its cast spell.
+
+Voice FX/EQ renders pitch/EQ/vibrato/tremolo offline. Preserve each clip's effects dictionary and original source. Apply marks a clip as draft until Save finished clip. Link rows retain base_key and condition; never merge them into ordinary rows by spell ID during migration or spellbook import. Tests cover phase snapshots, fallback, sequence expiry, user link creation, source preservation, pitch frequency and duration. Native v0.6 GUI/audio/game verification is separate.

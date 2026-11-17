@@ -8,7 +8,7 @@ from recording import RecordingController
 from i18n import translate
 from icons import SpellIcons
 from game_paths import detect_game, resolve_game
-VERSION = '0.5'
+VERSION = '0.6'
 BASE = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
 HOME = Path(os.environ.get('LOCALAPPDATA', str(Path.home()))) / 'VoiceChantStudio'
 CATALOG = json.loads((BASE / 'assets/catalog.json').read_text(encoding='utf-8'))
@@ -124,16 +124,20 @@ class Studio:
 
     def ability_label(self, row, combined=False):
         jp = row.get('name_ja') or JP.get(row['name'])
-        if self.language == 'ja' and jp:
-            return jp + ' / ' + row['name'] if combined else jp
-        return row['name']
+        text=(jp + ' / ' + row['name'] if combined else jp) if self.language=='ja' and jp else row['name']
+        if row.get('condition'):
+            c=row['condition'];text+=' [LINK: '+c['source_name']+' / '+self.link_kind_label(c['kind'])+']'
+        return text
+
+    def link_kind_label(self,kind):
+        return {'player_aura':self.bi('自分に効果中','Buff on player'),'target_aura':self.bi('対象に自分の効果中','Your debuff on target'),'previous_spell':self.bi('直前に使用','Previous successful spell')}[kind]
 
     def selected_class(self):
         value = self.class_filter.get()
         return None if value in ('*', 'すべて', 'All', self.tr('すべて')) else value
 
     def class_label(self, token):
-        return {'PALADIN':self.bi('パラディン','Paladin'), 'MAGE':self.bi('メイジ','Mage'), 'PRIEST':self.bi('プリースト','Priest')}.get(token, token)
+        return {c:self.bi(ja,c.title()) for c,ja in [('PALADIN','パラディン'),('MAGE','メイジ'),('PRIEST','プリースト'),('DRUID','ドルイド'),('HUNTER','ハンター'),('ROGUE','ローグ'),('SHAMAN','シャーマン'),('WARLOCK','ウォーロック'),('WARRIOR','ウォリアー')]}.get(token,token)
 
     def icon_for(self, row):
         return self.icon_library.for_row(row)
@@ -200,13 +204,16 @@ class Studio:
         ttk.Checkbutton(left, text=self.tr('パッシブを隠す'), variable=self.hide_passive, command=self.populate).pack(anchor='w')
         self.class_hint=ttk.Label(left,style='Sub.TLabel',wraplength=400)
         self.class_hint.pack(anchor='w',pady=(5,0))
+        linkbar=ttk.Frame(left);linkbar.pack(fill='x',pady=(5,0))
+        ttk.Button(linkbar,text=self.bi('連携リンクを作成','Create spell link'),command=self.create_link).pack(side='left')
+        ttk.Button(linkbar,text=self.bi('音声FX / EQ','Voice FX / EQ'),command=self.open_effects).pack(side='left',padx=5)
         tree_frame = ttk.Frame(left)
         tree_frame.pack(fill='both', expand=True, pady=(8, 0))
         self.tree = ttk.Treeview(tree_frame, columns=('class','state'), show='tree headings', selectmode='browse')
         self.tree.heading('#0', text=self.tr('アビリティ / ランクは共通'))
         self.tree.heading('state', text=self.tr('音声'))
         self.tree.heading('class',text=self.bi('クラス','Class'))
-        self.tree.column('class',width=60,stretch=False)
+        self.tree.column('class',width=84,stretch=False)
         self.tree.column('#0', width=240)
         self.tree.column('state', width=40, stretch=False)
         tree_scroll = ttk.Scrollbar(tree_frame, orient='vertical', command=self.tree.yview)
@@ -356,7 +363,7 @@ class Studio:
         self.class_hint.config(text=hint)
         for row in sorted(self.project.data['catalog'], key=lambda r: r['name']):
             label = self.ability_label(row, combined=True)
-            if query and query not in (row['name'] + ' ' + row.get('name_ja', '') + ' ' + JP.get(row['name'], '') + ' ' + ','.join(map(str, row['ids']))).casefold():
+            if query and query not in (label+' '+row['name'] + ' ' + row.get('name_ja', '') + ' ' + JP.get(row['name'], '') + ' ' + ','.join(map(str, row['ids']))).casefold():
                 continue
             if selected_class and row.get('class') != selected_class:
                 continue
@@ -572,7 +579,7 @@ class Studio:
     def rendered(self):
         if self.audio is None:
             raise ValueError(self.tr('先に録音するか音声を読み込んでください。'))
-        return render_audio(self.audio, self.rate, float(self.start.get()), float(self.end.get()), float(self.gain.get()), self.normalize.get())
+        return render_audio(self.audio, self.rate, float(self.start.get()), float(self.end.get()), float(self.gain.get()), self.normalize.get(),effects=self.clip.get('effects') if self.clip else None)
 
     def preview(self):
         if self.recording:
@@ -798,6 +805,39 @@ class Studio:
                 self.tree.selection_set(row['key']);self.tree.see(row['key']);self.select_row();self.save_preferences();window.destroy()
             except Exception as error:messagebox.showerror(self.tr('エラー'),self.tr(str(error)),parent=window)
         ttk.Button(form,text=self.tr('アビリティを追加'),command=save,style='Accent.TButton').pack(pady=(18,0))
+
+    def create_link(self):
+        if self.controller.busy:return
+        token=self.selected_class() or (self.row or {}).get('class')
+        if not token:
+            messagebox.showinfo('Voice Chant Studio',self.bi('最初にクラス、またはアビリティを選択してください。','Select a class or ability first.'));return
+        rows=sorted([r for r in self.project.data['catalog'] if r['class']==token and not r.get('condition') and not r.get('passive')],key=lambda r:r['name'])
+        choices={r['name']:r for r in rows}
+        w=tk.Toplevel(self.root);w.title(self.bi('ユーザー連携リンク','Custom spell link'));w.geometry('750x410');w.transient(self.root)
+        form=ttk.Frame(w,padding=18);form.pack(fill='both',expand=True)
+        ttk.Label(form,text=token+' · '+self.bi('条件に合う時だけ、技2の音声を切り替えます。','Replace spell 2 voice only when the condition matches.'),wraplength=680).pack(anchor='w')
+        editing=self.row if self.row and self.row.get('condition') else None
+        source=tk.StringVar(value=editing['condition']['source_name'] if editing else '');target=tk.StringVar(value=(self.row or {}).get('name',''))
+        kinds={self.link_kind_label(k):k for k in ['player_aura','target_aura','previous_spell']}
+        kind=tk.StringVar(value=next(iter(kinds)));seconds=tk.StringVar(value='8')
+        if editing:
+            kind.set(self.link_kind_label(editing['condition']['kind']));seconds.set(str(editing['condition'].get('seconds',8)))
+        for caption,var,values in [(self.bi('技1：条件の技','Spell 1: condition'),source,list(choices)),(self.bi('条件','Condition'),kind,list(kinds)),(self.bi('技2：声を変える技','Spell 2: replace voice'),target,list(choices))]:
+            ttk.Label(form,text=caption).pack(anchor='w',pady=(8,0));ttk.Combobox(form,textvariable=var,values=values,state='readonly',width=80).pack(fill='x')
+        line=ttk.Frame(form);line.pack(fill='x',pady=8)
+        ttk.Label(line,text=self.bi('直前の技の有効秒数（1〜30）','Previous-spell window in seconds (1–30)')).pack(side='left')
+        ttk.Spinbox(line,from_=1,to=30,textvariable=seconds,width=5).pack(side='left',padx=5)
+        ttk.Label(form,text=self.bi('効果中：実際に付与されるバフ／デバフを選択。直前：技1が最後の成功技であること。\nリンク行で録音し「完成を保存」→書き出し。未設定のタイミングは通常音声に戻ります。','Aura: select an actual buff/debuff spell. Previous: spell 1 must be the last successful spell.\nRecord on the LINK row, save and export. Unassigned phases fall back to the normal voice.'),wraplength=680).pack(anchor='w',pady=5)
+        def create():
+            try:
+                self.stash();row=self.project.add_link(choices[target.get()]['key'],choices[source.get()]['key'],kinds[kind.get()],float(seconds.get()),replace_key=editing['key'] if editing else None)
+                self.search.set('');self.assigned_only.set(False);self.class_filter.set(token);self.populate();self.tree.selection_set(row['key']);self.tree.see(row['key']);self.select_row();w.destroy()
+            except Exception as error:messagebox.showerror(self.tr('エラー'),str(error),parent=w)
+        ttk.Button(form,text=self.bi('リンクを更新して録音へ','Update link and record') if editing else self.bi('リンクを作成して録音へ','Create link and record'),command=create,style='Accent.TButton').pack(pady=5)
+
+    def open_effects(self):
+        from effects_ui import open_effects
+        open_effects(self)
 
     def help(self):
         messagebox.showinfo(self.tr('使い方'),self.bi(
