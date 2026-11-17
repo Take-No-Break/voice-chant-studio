@@ -11,3 +11,4 @@ tooltip-cache*/
 icon-source-cache/
 *.log
 .env*
+*.voicepack.zip

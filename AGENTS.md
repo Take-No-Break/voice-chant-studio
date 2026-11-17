@@ -9,3 +9,4 @@ Read AI-SETUP.md and README.en.md before assisting users. This is a local Window
 - Do not publish user audio, account files, local paths or secrets. Public release is a separate action from preparing source archives. Preserve third-party notices and verify asset redistribution rights.
 
 - Preserve link base_key/condition and clip effects fields. Conditional rows must stay separate from normal abilities during migration/import. Effects render offline, never in Lua. Read LINK-EXAMPLES.md before explaining links.
+- Voice sharing uses voicepacks.py and VOICE-PACKS.md. Default to rendered finished audio; editable mode shares full originals and needs an explicit user choice. Never upload private packs as release assets. Preserve recipient keys and originals, remap link dependencies, keep conflicts by default and back up settings before committing imports.

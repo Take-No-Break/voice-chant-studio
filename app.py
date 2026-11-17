@@ -9,7 +9,7 @@ from i18n import translate
 from icons import SpellIcons
 from game_paths import detect_game, resolve_game
 from theme import apply_theme
-VERSION = '0.6.1'
+VERSION = '0.7'
 BASE = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
 HOME = Path(os.environ.get('LOCALAPPDATA', str(Path.home()))) / 'VoiceChantStudio'
 CATALOG = json.loads((BASE / 'assets/catalog.json').read_text(encoding='utf-8'))
@@ -204,6 +204,7 @@ class Studio:
         linkbar=ttk.Frame(left);linkbar.pack(fill='x',pady=(5,0))
         ttk.Button(linkbar,text=self.bi('連携リンクを作成','Create spell link'),command=self.create_link).pack(side='left')
         ttk.Button(linkbar,text=self.bi('音声FX / EQ','Voice FX / EQ'),command=self.open_effects).pack(side='left',padx=5)
+        ttk.Button(linkbar,text=self.bi('音声パック共有','Voice packs'),command=self.open_voicepacks).pack(side='left')
         tree_frame = ttk.Frame(left)
         tree_frame.pack(fill='both', expand=True, pady=(8, 0))
         self.tree = ttk.Treeview(tree_frame, columns=('class','state'), show='tree headings', selectmode='browse')
@@ -835,6 +836,10 @@ class Studio:
     def open_effects(self):
         from effects_ui import open_effects
         open_effects(self)
+
+    def open_voicepacks(self):
+        from voicepacks_ui import open_voicepacks
+        return open_voicepacks(self)
 
     def help(self):
         messagebox.showinfo(self.tr('使い方'),self.bi(
