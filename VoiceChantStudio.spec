@@ -32,6 +32,7 @@ exe = EXE(
     a.datas,
     [],
     name='VoiceChantStudio',
+    icon='assets/branding/app-icon.ico',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

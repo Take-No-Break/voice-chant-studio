@@ -283,7 +283,7 @@ class StudioV02Tests(unittest.TestCase):
                             widget = parent
                     self.assertTrue(self.ui.canvas.winfo_ismapped())
                     self.assertGreater(self.ui.canvas.winfo_width(), 1)
-                    self.assertGreater(self.ui.canvas.winfo_height(), 1)
+                    self.assertGreater(self.ui.canvas.winfo_height(), 40)
 
 
 if __name__ == '__main__':

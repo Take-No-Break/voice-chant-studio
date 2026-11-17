@@ -8,7 +8,8 @@ from recording import RecordingController
 from i18n import translate
 from icons import SpellIcons
 from game_paths import detect_game, resolve_game
-VERSION = '0.6'
+from theme import apply_theme
+VERSION = '0.6.1'
 BASE = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
 HOME = Path(os.environ.get('LOCALAPPDATA', str(Path.home()))) / 'VoiceChantStudio'
 CATALOG = json.loads((BASE / 'assets/catalog.json').read_text(encoding='utf-8'))
@@ -32,6 +33,10 @@ class Studio:
         self.variant = tk.StringVar(value='1')
         self.variant_count = tk.StringVar(value='1')
         self.root = root
+        try:
+            root.iconbitmap(default=str(BASE/'assets/branding/app-icon.ico'))
+        except tk.TclError:
+            pass
         root.title(self.tr('Voice Chant Studio — 自分の声で、魔法を唱える')+' · '+VERSION)
         root.studio_language=self.language
         root.geometry('1240x840')
@@ -69,17 +74,7 @@ class Studio:
         self.devices = []
         self.mic = tk.StringVar()
         self.refresh_devices()
-        style = ttk.Style()
-        style.theme_use('clam')
-        style.configure('.', font=('Yu Gothic UI', 10), background='#f5f4ef', foreground='#172c38')
-        style.configure('TFrame', background='#f5f4ef')
-        style.configure('TLabel', background='#f5f4ef')
-        style.configure('Title.TLabel', font=('Yu Gothic UI', 22, 'bold'))
-        style.configure('Sub.TLabel', foreground='#657883')
-        style.configure('TButton', padding=(12, 8))
-        style.configure('Accent.TButton', background='#137c75', foreground='white')
-        style.map('Accent.TButton', background=[('active', '#0d625d')])
-        style.configure('Treeview', rowheight=30, fieldbackground='white', background='white')
+        apply_theme(root)
         self.controller = RecordingController(root, on_state=self.on_record_state, on_level=self.on_record_level, on_take=self.on_record_take, on_error=self.on_record_error, on_warning=lambda text: self.status.set(self.tr('録音機器の警告: ') + text))
         self.build()
         self.populate()
@@ -167,8 +162,10 @@ class Studio:
         if not self.devices:
             self.device_names=[self.tr('マイクを認識できません（ファイル読込は使用可）')]
             self.mic.set(self.device_names[0])
-        top = ttk.Frame(self.root, padding=(24, 18))
+        top = ttk.Frame(self.root, padding=(24, 10),borderwidth=1,relief='ridge')
         top.pack(fill='x')
+        self.brand_image=tk.PhotoImage(master=self.root,file=str(BASE/'assets/branding/app-icon.png')).subsample(8,8)
+        ttk.Label(top,image=self.brand_image).pack(side='left',padx=(0,10))
         ttk.Label(top, text='VOICE CHANT STUDIO · '+VERSION, style='Title.TLabel').pack(side='left')
         ttk.Button(top, text=self.tr('使い方'), command=self.help).pack(side='right')
         lang = ttk.Combobox(top, textvariable=self.language_choice, values=['日本語', 'English'], state='readonly', width=10)
@@ -186,8 +183,8 @@ class Studio:
         self.project_label.pack(side='right')
         body = ttk.Panedwindow(self.root, orient='horizontal')
         body.pack(fill='both', expand=True, padx=24, pady=15)
-        left = ttk.Frame(body, padding=(0, 0, 16, 0))
-        right = ttk.Frame(body, padding=(16, 0, 0, 0))
+        left = ttk.Frame(body, padding=(8, 6, 12, 6),borderwidth=1,relief='solid')
+        right = ttk.Frame(body, padding=(12, 6, 8, 6),borderwidth=1,relief='solid')
         body.add(left, weight=1)
         body.add(right, weight=3)
         filters = ttk.Frame(left)
@@ -226,7 +223,7 @@ class Studio:
         self.heading = ttk.Label(right, text=self.tr('アビリティを選択'), font=('Yu Gothic UI', 19, 'bold'))
         self.heading.pack(anchor='w')
         self.detail = ttk.Label(right, text=self.tr('初期一覧 + ゲームのスペルブックを取り込んで拡張'), style='Sub.TLabel')
-        self.detail.pack(anchor='w', pady=(3, 12))
+        self.detail.pack(anchor='w', pady=(3, 8))
         phase = ttk.Frame(right)
         phase.pack(fill='x')
         ttk.Label(phase, text=self.tr('声を鳴らすタイミング')).pack(side='left')
@@ -241,7 +238,7 @@ class Studio:
         self.voice_slot_box=ttk.Combobox(variants,textvariable=self.variant,values=['1'],state='readonly',width=3)
         self.voice_slot_box.pack(side='left',padx=5);self.voice_slot_box.bind('<<ComboboxSelected>>',self.change_variant)
         ttk.Label(variants,text=self.bi('保存済みから均等にランダム再生','Random choice among saved voices'),style='Sub.TLabel').pack(side='left')
-        ttk.Label(right, text=self.tr('詠唱のある魔法 → 開始 ／ 瞬間発動 → 発動成功。元の効果音はそのまま。'), style='Sub.TLabel').pack(anchor='w', pady=(8, 10))
+        ttk.Label(right, text=self.tr('詠唱のある魔法 → 開始 ／ 瞬間発動 → 発動成功。元の効果音はそのまま。'), style='Sub.TLabel').pack(anchor='w', pady=(4, 6))
         microw = ttk.Frame(right)
         microw.pack(fill='x')
         ttk.Label(microw, text=self.tr('マイク')).pack(side='left')
@@ -250,17 +247,17 @@ class Studio:
         self.level = ttk.Progressbar(microw, maximum=1, length=100)
         self.level.pack(side='right')
         actions = ttk.Frame(right)
-        actions.pack(fill='x', pady=12)
+        actions.pack(fill='x', pady=8)
         self.record_button = ttk.Button(actions, text=self.tr('● 録音'), command=self.record)
         self.record_button.pack(side='left')
         ttk.Button(actions, text=self.tr('■ 停止'), command=self.stop).pack(side='left', padx=6)
         ttk.Button(actions, text=self.tr('音声を読み込む'), command=self.import_audio).pack(side='left')
         ttk.Button(actions, text=self.tr('▶ 選択範囲を試聴'), command=self.preview).pack(side='left', padx=6)
         recopts = ttk.Frame(right)
-        recopts.pack(fill='x', pady=(0, 8))
+        recopts.pack(fill='x', pady=(0, 4))
         ttk.Label(recopts, text=self.bi('3秒前から合図音 · F8で録音／停止', '3-second beep countdown · F8 to record / stop'), style='Sub.TLabel').pack(side='left')
         ttk.Checkbutton(recopts, text=self.bi('末尾150msを除く', 'Trim last 150 ms'), variable=self.tail_guard, command=self.save_preferences).pack(side='right')
-        self.canvas = tk.Canvas(right, bg='#122b38', height=185, highlightthickness=0)
+        self.canvas = tk.Canvas(right, bg='#101719', height=185, highlightthickness=1,highlightbackground='#826137')
         self.canvas.pack(fill='both', expand=True)
         self.canvas.bind('<Configure>', lambda e: self.draw())
         self.canvas.bind('<Button-1>', self.wave_click)
@@ -312,7 +309,7 @@ class Studio:
         ttk.Button(pathrow, text=self.tr('ゲームへ書き出す'), style='Accent.TButton', command=self.export_game).pack(side='left', padx=8)
         ttk.Button(pathrow, text=self.tr('配布用ZIP'), command=self.export_zip).pack(side='right')
         ttk.Label(bottom, text=self.tr('新しい音声ファイルを追加した後は、WoWを完全に終了して起動し直してください。/reload だけでは反映されない場合があります。'), style='Sub.TLabel').pack(anchor='w', pady=(8, 0))
-        ttk.Label(self.root, textvariable=self.status, anchor='w', padding=(24, 10), background='#dfece8').pack(fill='x', side='bottom')
+        ttk.Label(self.root, textvariable=self.status, anchor='w', padding=(24, 10), background='#382a1d',foreground='#e9bf6a').pack(fill='x', side='bottom')
         # Reserve the footer before the expanding editor, including on small windows.
         bottom.pack_forget();body.pack_forget()
         bottom.pack(fill='x',side='bottom')
@@ -626,7 +623,7 @@ class Studio:
         w = max(1, c.winfo_width())
         h = max(1, c.winfo_height())
         if self.audio is None:
-            c.create_text(w / 2, h / 2, text=self.tr('あなたの声を録音、または音声ファイルを読み込む'), fill='#a6c6cf', font=('Yu Gothic UI', 12))
+            c.create_text(w / 2, h / 2, text=self.tr('あなたの声を録音、または音声ファイルを読み込む'), fill='#c4b38c', font=('Yu Gothic UI', 12))
             return
         try:
             duration = len(self.audio) / self.rate
@@ -634,7 +631,7 @@ class Studio:
             e = float(self.end.get())
         except (ValueError, tk.TclError):
             return
-        c.create_rectangle(s / duration * w, 0, e / duration * w, h, fill='#204a53', outline='')
+        c.create_rectangle(s / duration * w, 0, e / duration * w, h, fill='#263c38', outline='')
         step = max(1, len(self.audio) // max(1, w))
         points = self.audio[::step][:w]
         for i, v in enumerate(points):

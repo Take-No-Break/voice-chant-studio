@@ -293,7 +293,7 @@ class Project:
                     bindings.append('  {ids={'+','.join(str(int(i)) for i in row['ids'])+'}, class='+lua_string(row.get('class','PALADIN'))+', name='+lua_string(row['name'])+', event='+lua_string(event)+', file='+lua_string(path)+', volumes='+volume_lua(volumes)+condition+'},')
                     count += 1
             for f in Path(template).iterdir():
-                if f.is_file() and f.suffix in ('.lua', '.toc') and f.name != 'Config.lua':
+                if f.is_file() and f.suffix in ('.lua', '.toc', '.tga') and f.name != 'Config.lua':
                     shutil.copy2(f, prepared/f.name)
             catalog_lua = 'VoiceChantCatalog = {\n' + '\n'.join('  {id='+str(int(i))+', class='+lua_string(r.get('class','PALADIN'))+', name='+lua_string(r['name'])+'},' for r in self.data['catalog'] for i in r['ids']) + '\n}\n'
             (prepared/'Catalog.lua').write_text(catalog_lua, encoding='utf-8')

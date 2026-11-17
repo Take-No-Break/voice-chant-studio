@@ -1,4 +1,4 @@
-# Voice Chant Studio v0.6 — Windows / WoW Forever
+# Voice Chant Studio v0.6.1 — Windows / WoW Forever
 
 Record your own spell chants and play them over WoW Forever's original effects. The original game sounds remain audible.
 
@@ -6,7 +6,7 @@ Record your own spell chants and play them over WoW Forever's original effects. 
 
 ## Start and choose a language
 
-Double-click `VoiceChantStudio-v0.6.exe`. The packaged Windows app does not require Python. The desktop **Voice Chant Studio** shortcut opens this update. Close an already open older version before launching the update.
+Double-click `VoiceChantStudio-v0.6.1.exe`. The packaged Windows app does not require Python. The desktop **Voice Chant Studio** shortcut opens this update. Close an already open older version before launching the update.
 
 Use **日本語 / English** at the top right to switch languages. Your choice is remembered for the next launch. English also changes the app's settings, instructions, and error dialogs. Buttons in native Windows file pickers may follow your Windows display language.
 
@@ -98,14 +98,14 @@ Use **New project / Open project** to manage other projects. To move your editab
 
 Start with one short test take. Preview it in the app and use `/voicechant test` in game to check your microphone, volume, and playback before recording more clips.
 
-## Dedicated in-game voice volume (v0.6)
+## Dedicated in-game voice volume (v0.6.1)
 
 The addon list displays **Voice Chant Studio - Voice Effects**. Its settings category is **Voice Chant Studio**.
 Open **Esc → Options → AddOns → Voice Chant Studio**, or type `/vcs` / `/voicechant settings`.
 The slider adjusts only this addon's voices from 0–100% in 10% steps. It does not change game effects or NPC voice volume.
 `/vcs volume 50` sets 50%; `/voicechant test` previews a voice. Volume and mute persist across logins.
 100% is the clip volume exported from the editor. Original recordings remain intact. Fully restart WoW after new volume files are added.
-Use editor v0.6 for future exports so the new settings remain installed.
+Use editor v0.6.1 for future exports so the new settings remain installed.
 
 ## Success voice variations / 発動成功の音声バリエーション
 
@@ -115,7 +115,7 @@ Choose Successful cast / Instant ability, set Success voices to 1–5, select a 
 
 Game discovery checks Blizzard registration and common local install folders. If missing, use Browse: Battle.net gear → Show in Explorer → select _forever_ containing Wow.exe (or its parent folder). No AI is required. See AI-SETUP.md for detailed user/AI setup instructions.
 
-## v0.6: User spell links and offline Voice FX
+## v0.6.1: User spell links and offline Voice FX
 
 All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, Mage: 56, Paladin: 50, Priest: 52, Rogue: 58, Shaman: 55, Warlock: 50, Warrior: 45. Data comes from installed Camelot trainer/quest/rank lists and Forever-specific tooltips. Two unavailable IDs were excluded (see all-classes-report.json); this does not promise every future, item, pet or talent spell. Import the actual client spellbook for your character.
 
@@ -124,3 +124,11 @@ All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, 
 **Voice FX / EQ**: select a recorded clip. Pitch ±12 semitones preserves duration; low/mid/high EQ ±12 dB; vibrato and tremolo adjust voice pitch/loudness modulation. Preview → Apply → Save finished clip. Original takes stay intact. Processing happens offline in the editor, not in WoW. Strong effects can introduce artifacts. This is a basic voice editor, not a multitrack or plugin-host DAW.
 
 日本語：クラスを選び「連携リンクを作成」で技1・条件・技2を指定し、追加されたLINK行に録音します。「音声FX / EQ」で加工を試聴し、適用後に「完成を保存」を押してください。音声ファイル追加後はWoWを再起動してください。
+
+## Shared app and addon icon
+
+The original microphone/spark icon is shared by the Windows EXE, window and desktop shortcut, and the WoW AddOns list via IconTexture. Use editor v0.6.1 for future exports. Close older editor windows before opening the updated desktop shortcut. Fully restart WoW to refresh addon metadata/icon files.
+
+## Fantasy interface / WoWライクなデザイン
+
+Original dark-leather/stone-inspired colors, bronze/gold borders, gold headings, red primary buttons and a dark waveform editor. No Blizzard UI textures are used for the app theme. Japanese and English layouts retain editing/export controls at the supported minimum size. The original microphone/spark mark is shared by the EXE, shortcut and WoW addon.

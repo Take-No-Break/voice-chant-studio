@@ -1,4 +1,4 @@
-# Voice Chant Studio v0.6 — Windows / WoW Forever
+# Voice Chant Studio v0.6.1 — Windows / WoW Forever
 
 自分で録音した詠唱を、WoW Foreverの元の効果音に重ねるアプリとアドオンです。ゲームの元の音は残ります。
 
@@ -6,7 +6,7 @@ English instructions: [README.en.md](README.en.md)
 
 ## 起動と言語
 
-`VoiceChantStudio-v0.6.exe` をダブルクリックしてください。配布版の実行にPythonは不要です。デスクトップの **Voice Chant Studio** ショートカットも更新版を開きます。更新前のアプリが開いている場合は、先に閉じてください。
+`VoiceChantStudio-v0.6.1.exe` をダブルクリックしてください。配布版の実行にPythonは不要です。デスクトップの **Voice Chant Studio** ショートカットも更新版を開きます。更新前のアプリが開いている場合は、先に閉じてください。
 
 右上の **日本語 / English** で表示言語を切り替えます。選んだ言語は次回起動時も引き継ぎます。Englishではボタン、設定、アプリの案内・エラーダイアログも英語になります。Windows標準のファイル選択画面のボタンなどは、Windowsの言語設定に従う場合があります。
 
@@ -98,14 +98,14 @@ Program Filesへの書き込みが拒否された場合は、アプリを管理�
 
 初めての録音では、短いテイクを1本作り、試聴とゲーム内の `/voicechant test` でマイク・音量・再生を確認してから音声を増やしてください。
 
-## ゲーム内の専用音量設定（v0.6）
+## ゲーム内の専用音量設定（v0.6.1）
 
 アドオン一覧では **Voice Chant Studio - Voice Effects**、設定ページでは **Voice Chant Studio** です。
 **Esc → Options → AddOns → Voice Chant Studio**、または `/vcs` / `/voicechant settings` で開きます。
 このアドオンの声だけを0〜100%、10%刻みで変更できます。ゲームの効果音やNPCの音量は変更しません。
 `/vcs volume 50` は50%、`/voicechant test` は試聴です。音量とミュートは次回ログインにも引き継ぎます。
 100%はアプリで書き出した音量が基準です。元の録音は変更しません。新しい音量用ファイルの追加後はWoWを完全に再起動してください。
-設定を保つには、今後の書き出しに更新版v0.6を使用してください。
+設定を保つには、今後の書き出しに更新版v0.6.1を使用してください。
 
 ## Success voice variations / 発動成功の音声バリエーション
 
@@ -115,7 +115,7 @@ Choose Successful cast / Instant ability, set Success voices to 1–5, select a 
 
 Game discovery checks Blizzard registration and common local install folders. If missing, use Browse: Battle.net gear → Show in Explorer → select _forever_ containing Wow.exe (or its parent folder). No AI is required. See AI-SETUP.md for detailed user/AI setup instructions.
 
-## v0.6: User spell links and offline Voice FX
+## v0.6.1: User spell links and offline Voice FX
 
 All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, Mage: 56, Paladin: 50, Priest: 52, Rogue: 58, Shaman: 55, Warlock: 50, Warrior: 45. Data comes from installed Camelot trainer/quest/rank lists and Forever-specific tooltips. Two unavailable IDs were excluded (see all-classes-report.json); this does not promise every future, item, pet or talent spell. Import the actual client spellbook for your character.
 
@@ -124,3 +124,11 @@ All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, 
 **Voice FX / EQ**: select a recorded clip. Pitch ±12 semitones preserves duration; low/mid/high EQ ±12 dB; vibrato and tremolo adjust voice pitch/loudness modulation. Preview → Apply → Save finished clip. Original takes stay intact. Processing happens offline in the editor, not in WoW. Strong effects can introduce artifacts. This is a basic voice editor, not a multitrack or plugin-host DAW.
 
 日本語：クラスを選び「連携リンクを作成」で技1・条件・技2を指定し、追加されたLINK行に録音します。「音声FX / EQ」で加工を試聴し、適用後に「完成を保存」を押してください。音声ファイル追加後はWoWを再起動してください。
+
+## Shared app and addon icon
+
+The original microphone/spark icon is shared by the Windows EXE, window and desktop shortcut, and the WoW AddOns list via IconTexture. Use editor v0.6.1 for future exports. Close older editor windows before opening the updated desktop shortcut. Fully restart WoW to refresh addon metadata/icon files.
+
+## Fantasy interface / WoWライクなデザイン
+
+Original dark-leather/stone-inspired colors, bronze/gold borders, gold headings, red primary buttons and a dark waveform editor. No Blizzard UI textures are used for the app theme. Japanese and English layouts retain editing/export controls at the supported minimum size. The original microphone/spark mark is shared by the EXE, shortcut and WoW addon.
