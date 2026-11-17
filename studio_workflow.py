@@ -51,7 +51,7 @@ def export_plan(project):
         try:
             info=sf.info(str(project.asset(clip['source'])))
             if not 0<=clip['start']<clip['end']<=info.duration+.001:raise ValueError('Invalid trim')
-            settings(clip.get('effects'));bytes_total+=int((clip['end']-clip['start'])*info.samplerate)*2*10*(2.08 if project.data.get('options',{}).get('ducking',False) else 1)
+            settings(clip.get('effects'));bytes_total+=int((clip['end']-clip['start'])*info.samplerate)*2*10*(3.88 if project.data.get('options',{}).get('ducking',False) else 1)
         except Exception as e:errors.append(row['name']+': '+str(e))
     return {'finished':len(clips),'excluded':len(project.data['clips'])-len(clips),'bytes':bytes_total,'errors':errors}
 def diagnostics(project):

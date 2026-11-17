@@ -23,7 +23,7 @@
 
 **試験モードの制限**：再生中の任意の音声ハンドルの音量変更を公開APIで確認できなかったため、0.25秒単位・20msの重なりを持つ音声区間を事前に作り、再生時に音量別ファイルを選びます。通常の連続音声の途中を直接調整する方式ではありません。音量の追従に最大約0.25秒とフレーム/タイマー遅延があり、負荷状況によって継ぎ目が聞こえる可能性があります。実ゲームでの聴感・FPS/CPU負荷は未検証です。音量はアドオン音量と掛け合わせて10%刻みに丸めるため、小さい設定では3声目が無音になる場合があります。
 
-区間再生は音声が鳴っている間だけタイマーを使い、OnUpdateは使いません。最大3声・1声あたり毎秒4区間です。出力容量は通常の音量別ファイルに加え区間分が必要で、おおむね約2.1倍、ファイル数も増えます。書き出し確認で容量を確認できます。これらは設計上の上限/見積りで、実ゲームでの性能測定結果ではありません。気になる場合は「前の声を止める」へ切り替えてください。ゲーム全体やNPCの音量は変更しません。
+区間再生は音声が鳴っている間だけタイマーを使い、OnUpdateは使いません。最大3声・1声あたり毎秒4区間です。出力容量は通常の音量別ファイルに加え区間分が必要で、おおむね約3.9倍、ファイル数も増えます。書き出し確認で容量を確認できます。これらは設計上の上限/見積りで、実ゲームでの性能測定結果ではありません。気になる場合は「前の声を止める」へ切り替えてください。ゲーム全体やNPCの音量は変更しません。
 
 成功音声の選び方は **均等ランダム / 連続重複を避ける / 順番** の3つです。設定はゲーム側に保存されます。
 
@@ -41,8 +41,23 @@ Normal saves retain the preceding 30 project snapshots without deleting original
 
 In game, `/vcs` offers **Stop previous**, **Overlap** (up to eight voices), and **Newest priority (beta)**: newest 100%, previous 50%, third 20%, older voices stopped. Interruptions stop only the relevant cast. Start/success phases of one cast replace each other. Finished voices leave the ranking; voices stopped as fourth-or-older do not resume.
 
-**Beta limitation:** this is pre-rendered 0.25-second segment playback with 20ms overlaps, not direct volume adjustment of an already-playing sound handle. Gain changes take up to ~0.25s plus frame/timer delay; seams are possible. Global addon gain is multiplied and rounded to existing 10% variants; low master settings can silence the third voice. No shared game CVars are changed. At most three voice timelines schedule four segments per second each; no OnUpdate is used. Actual in-game listening quality, FPS and CPU load have not been measured. Full clips plus segments use roughly 2.1x normal export storage and more files. Switch to Stop previous if quality is unsuitable.
+**Beta limitation:** this is pre-rendered 0.25-second segment playback with 20ms overlaps, not direct volume adjustment of an already-playing sound handle. Gain changes take up to ~0.25s plus frame/timer delay; seams are possible. Global addon gain is multiplied and rounded to existing 10% variants; low master settings can silence the third voice. No shared game CVars are changed. At most three voice timelines schedule four segments per second each; no OnUpdate is used. Actual in-game listening quality, FPS and CPU load have not been measured. Full clips plus segments use roughly 3.9x normal export storage and more files. Switch to Stop previous if quality is unsuitable.
 
 Re-export from v0.8 and fully restart WoW to add segment files. Segment-enabled exports default to newest priority unless a game playback preference was already saved. Legacy exports continue their old behavior until re-exported. Success variations also support **Random / Avoid repeats / Sequence**. `/vcs debug` toggles a bounded 60-entry in-memory trace; `/vcs diagnostics` prints settings and recent playback/condition results.
 
 Voice packs support author/description, selected-voice preview and selective import. They carry full finished takes (or explicitly selected editable originals), not the game's generated segment files. Close older editor versions before upgrading: they do not participate in the new project lock.
+
+
+## v0.8.1: A/B fade test / 音量の下げ方を比較
+
+最新版の「ゲームへ書き出す」を行い、WoWを完全に終了して再起動してください。`/vcs` → 最新優先 → 下げ方の **一気に下げる / なだらかに下げる（0.20秒）** で切り替えます。設定はゲームに保存され、方式変更時には再生中の追加音声を止めます。コマンドは `/vcs fade step` と `/vcs fade smooth`。以前の区間だけの出力では smooth 用の再書き出しが必要です。
+
+- 一気に：次の0.25秒区切りで、20msの短いクロスフェードで目標音量へ。
+- なだらかに：同じ区切りから、200ms（0.20秒）のクロスフェードで目標音量へ。100%→50%なら、中間の約0.10秒で約75%、0.20秒で50%になります。
+- 次のアビリティで声が追加されてから、まず最大約0.25秒＋フレーム/タイマー遅延の待ちがあります。その後に上記の変化が始まります。smooth は新しい技から必ず0.20秒以内に完了する方式ではありません。追加の意図的な0.20秒待ちはありません。0.25秒待ち＋0.20秒フェードで最大約0.45秒＋処理遅延が目安です。
+- フェードは下がる時だけでなく、先行する声が終了して順位が上がる時にも使います。最新100%・前50%・前々20%・それ以前停止は共通です。4声目で古い声を停止する時や、明示的な中断/ミュートの停止フェードはこの選択とは別です。
+- 両方の区間データを事前生成します。通常出力と比較した容量の目安は合計約3.9倍（短い音声・重複排除・ヘッダで変わります）。元録音は保持します。ゲーム中のDSPや共有音量CVarの変更はありません。実ゲームの継ぎ目・聴感・FPS/CPU負荷はまだ未検証です。
+
+比較は同じ声・同じ音量・同じ技順で行ってください。「声の継ぎ目」「新しい声の聞き取りやすさ」「音量変更の遅さ」「カクつき」を記録すると調整しやすくなります。録音を5秒程度にすると、次の技が使える時点でも声が残るため比較しやすくなります。
+
+English: Re-export with v0.8.1, fully restart WoW, open `/vcs`, choose Newest priority, then **Step down** or **Smooth down (0.20s)**. `/vcs fade step|smooth` also works. Both wait for the next 0.25s boundary (plus frame/timer delay). Step uses a ~20ms crossfade; smooth transitions over 200ms starting at that boundary, with no additional intentional wait. A 100→50 change is ~75 halfway through the 200ms transition. Worst nominal event-to-target timing is ~0.45s plus scheduling delay for smooth. Mode changes stop current added voices. Fade applies to rank promotions too; explicit stops/fourth-voice removal use their own short stop fade. Both pre-rendered banks increase total export storage to roughly 3.9x ordinary full-clip volume variants. Actual live-game quality and performance are unverified. Compare the same voices, master gain and ability sequence; report seams, intelligibility, response delay and stutter.

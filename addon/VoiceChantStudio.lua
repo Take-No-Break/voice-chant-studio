@@ -6,6 +6,7 @@ local durations={}
 local segmentedFiles={}
 local voices,selectionState,trace = {},{},{}
 local function mode() return VoiceChantStudioDB and VoiceChantStudioDB.playbackMode or (cfg.ducking and 'duck' or 'replace') end
+local function fadeMode() return VoiceChantStudioDB and VoiceChantStudioDB.duckFade or 'step' end
 local function log(text)
     if not (VoiceChantStudioDB and VoiceChantStudioDB.debug) then return end
     trace[#trace+1]=string.format('%.2f %s',GetTime(),text)
@@ -39,7 +40,7 @@ for _, row in ipairs(cfg.bindings or {}) do
     -- Older exports did not include class. Keep those working as well.
     if not row.class or not playerClass or row.class == playerClass then
     durations[row.file]=tonumber(row.duration) or 600
-    if row.segments then segmentedFiles[row.file]={segments=row.segments,step=row.segmentStep or .25,duration=durations[row.file]} end
+    if row.segments then segmentedFiles[row.file]={segments=row.segments,smoothSegments=row.smoothSegments,step=row.segmentStep or .25,overlap=row.segmentOverlap or .02,smoothOverlap=row.smoothOverlap or .20,duration=durations[row.file]} end
     for _,path in pairs(row.volumes or {}) do durations[path]=durations[row.file] end
     if row.volumes then volumeFiles[row.file] = row.volumes end
     for _, id in ipairs(row.ids) do
@@ -82,6 +83,10 @@ end
 local function duckVoice(file,id,guid,phase,cast)
     local source=segmentedFiles[file]
     if not source then say('Ducking needs segmented audio. Export again from editor v0.8.');log('SKIP missing duck segments');return end
+    if fadeMode()=='smooth' then
+        if not source.smoothSegments then say('Smooth ducking needs new audio. Export again from editor v0.8.1.');log('SKIP missing smooth segments');return end
+        source={segments=source.smoothSegments,step=source.step,overlap=source.smoothOverlap,duration=source.duration}
+    end
     if cast then stop(cast) end
     while #voices>=3 do
         local oldest=table.remove(voices,1);oldest.ended=true
@@ -109,7 +114,7 @@ local function duckVoice(file,id,guid,phase,cast)
                 local ok,handle=PlaySoundFile(path,'Dialog')
                 if ok and handle then
                     voice.handles[handle]=true
-                    C_Timer.After(source.step+.06,function() voice.handles[handle]=nil end)
+                    C_Timer.After(source.step+(source.overlap or .02)+.04,function() voice.handles[handle]=nil end)
                 else log('SEGMENT FAILED '..tostring(index)) end
             end
         end
@@ -389,12 +394,17 @@ local function setSelection(value)
     if value~='random' and value~='norepeat' and value~='sequence' then return false end
     VoiceChantStudioDB=VoiceChantStudioDB or {};VoiceChantStudioDB.selectionMode=value;selectionState={};return true
 end
+local function setFade(value)
+    if value~='step' and value~='smooth' then return false end
+    VoiceChantStudioDB=VoiceChantStudioDB or {};VoiceChantStudioDB.duckFade=value;stop();return true
+end
 local function diagnostics()
     say('Mode: '..mode()..' / '..(VoiceChantStudioDB.selectionMode or 'random')..' / Volume '..getVolume()..'%')
+    say('Ducking: '..fadeMode()..'; wait <=0.25s + timer delay, then '..(fadeMode()=='smooth' and '0.20s ramp' or '~0.02s edge'))
     say('Debug '..(VoiceChantStudioDB.debug and 'ON' or 'OFF')..'; /vcs debug toggles capture. /vcs test previews a voice.')
     for i=math.max(1,#trace-11),#trace do say(trace[i]) end
 end
-VoiceChantStudioAPI = {GetVolume=getVolume, SetVolume=setVolume, Test=testVoice, Stop=function() stop() end, GetPlayback=mode, SetPlayback=setPlayback, SetSelection=setSelection, Diagnostics=diagnostics}
+VoiceChantStudioAPI = {GetVolume=getVolume, SetVolume=setVolume, Test=testVoice, Stop=function() stop() end, GetPlayback=mode, SetPlayback=setPlayback, GetFade=fadeMode, SetFade=setFade, SetSelection=setSelection, Diagnostics=diagnostics}
 SlashCmdList.VOICECHANTSTUDIO = function(msg)
     msg = (msg or ""):lower():match("^%s*(.-)%s*$")
     VoiceChantStudioDB = VoiceChantStudioDB or {}
@@ -402,6 +412,7 @@ SlashCmdList.VOICECHANTSTUDIO = function(msg)
     elseif msg=='debug' then VoiceChantStudioDB.debug=not VoiceChantStudioDB.debug;diagnostics()
     elseif msg=='diagnostics' then diagnostics()
     elseif msg:match('^mode%s+') then setPlayback(msg:match('^mode%s+(.+)$'));diagnostics()
+    elseif msg:match('^fade%s+') then setFade(msg:match('^fade%s+(.+)$'));diagnostics()
     elseif msg:match('^variation%s+') then setSelection(msg:match('^variation%s+(.+)$'));diagnostics()
     elseif msg == "unmute" then VoiceChantStudioDB.muted=false; say("Extra voice enabled.")
     elseif msg == "test" then testVoice()

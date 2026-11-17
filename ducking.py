@@ -6,8 +6,10 @@ import soundfile as sf
 from core import ADDON,write_volume_variants,lua_string,volume_lua
 STEP=.25
 OVERLAP=.02
-def write_segments(audio,rate,directory):
-    directory=Path(directory);segments=[];stride=max(1,round(STEP*rate));overlap=max(1,round(OVERLAP*rate))
+SMOOTH_OVERLAP=.20
+def write_segments(audio,rate,directory,overlap_seconds=OVERLAP):
+    if not 0<overlap_seconds<STEP:raise ValueError('Overlap must be between zero and segment step')
+    directory=Path(directory);segments=[];stride=max(1,round(STEP*rate));overlap=max(1,round(overlap_seconds*rate))
     for start in range(0,len(audio),stride):
         part=np.asarray(audio[start:min(start+stride+overlap,len(audio))],dtype='float32').copy()
         if start:

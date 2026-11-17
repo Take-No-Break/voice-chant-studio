@@ -9,7 +9,7 @@ from i18n import translate
 from icons import SpellIcons
 from game_paths import detect_game, resolve_game
 from theme import apply_theme
-VERSION = '0.8'
+VERSION = '0.8.1'
 BASE = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
 HOME = Path(os.environ.get('LOCALAPPDATA', str(Path.home()))) / 'VoiceChantStudio'
 CATALOG = json.loads((BASE / 'assets/catalog.json').read_text(encoding='utf-8'))

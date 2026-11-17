@@ -3,7 +3,7 @@
 ## IconTexture: Interface\AddOns\VoiceChantStudio\Icon.tga
 ## Notes: Plays your recorded chants alongside original game audio. /voicechant
 ## Author: Eric
-## Version: 0.8.0
+## Version: 0.8.1
 ## SavedVariables: VoiceChantStudioDB
 Catalog.lua
 Config.lua

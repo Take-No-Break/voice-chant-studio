@@ -1,11 +1,12 @@
 -- In-game settings for this addon's voice files only. No shared volume CVars.
 VoiceChantStudioOptions = {}
-local panel, category, slider, percent, mute, status, overlap, variation, playback
+local panel, content, category, slider, percent, mute, status, overlap, variation, playback, fadeText
 local syncing = false
 local jp = GetLocale and GetLocale() == "jaJP"
 local function L(ja,en) return jp and ja or en end
 local api = VoiceChantStudioAPI
 local function label(parent,text,x,y,font)
+    if parent==panel and content then parent=content end
     local f=parent:CreateFontString(nil,"ARTWORK",font or "GameFontHighlight")
     f:SetPoint("TOPLEFT",x,y); f:SetText(text)
     return f
@@ -19,6 +20,9 @@ function VoiceChantStudioOptions.Refresh()
     if overlap then overlap:SetChecked(VoiceChantStudioDB and VoiceChantStudioDB.playbackMode=='overlap' or false) end
     if variation then variation:SetText(L('現在：','Current: ')..(VoiceChantStudioDB.selectionMode or 'random')) end
     if playback then playback:SetText(L('現在：','Current: ')..api.GetPlayback()..L('  最新100% / 前50% / 前々20% / それ以前は無音','  Newest 100% / previous 50% / third 20% / older silent')) end
+    if fadeText then
+        fadeText:SetText(api.GetFade()=='smooth' and L('現在：なだらか。次の区切りまで最大0.25秒＋処理遅延、その後0.20秒かけて目標音量へ。','Current: Smooth. Wait up to 0.25s + timer delay for the next boundary, then ramp to target over 0.20s.') or L('現在：一気に。次の区切りまで最大0.25秒＋処理遅延、その後約0.02秒の短い切り替え。','Current: Step. Wait up to 0.25s + timer delay for the next boundary, then a brief ~0.02s transition.'))
+    end
     local enabled=not GetCVar or (GetCVar("Sound_EnableAllSound")~="0" and GetCVar("Sound_EnableDialog")~="0")
     status:SetText(enabled and L("Dialog: オン","Dialog: enabled") or L("Options > Audio で Sound と Dialog をオンにしてください。","Enable Sound and Dialog in Options > Audio to hear your voice."))
     syncing=false
@@ -28,10 +32,13 @@ function VoiceChantStudioOptions.Initialize()
     panel=CreateFrame("Frame","VoiceChantStudioSettings",UIParent)
     panel.name="Voice Chant Studio"
     panel:Hide()
+    local scroll=CreateFrame('ScrollFrame',nil,panel,'UIPanelScrollFrameTemplate')
+    scroll:SetPoint('TOPLEFT',0,-10);scroll:SetPoint('BOTTOMRIGHT',-30,10)
+    content=CreateFrame('Frame',nil,scroll);content:SetSize(650,810);scroll:SetScrollChild(content)
     label(panel,"Voice Chant Studio",20,-20,"GameFontNormalLarge")
     label(panel,L("自分の声による詠唱・効果音","Your recorded spell chants and voice effects"),20,-50)
     label(panel,L("このアドオンの声の音量","Voice Chant Studio volume"),20,-90,"GameFontNormal")
-    slider=CreateFrame("Slider","VoiceChantStudioVolumeSlider",panel,"OptionsSliderTemplate")
+    slider=CreateFrame("Slider","VoiceChantStudioVolumeSlider",content,"OptionsSliderTemplate")
     slider:SetPoint("TOPLEFT",24,-125); slider:SetSize(300,20)
     slider:SetMinMaxValues(0,100); slider:SetValueStep(10); slider:SetObeyStepOnDrag(true)
     _G[slider:GetName().."Low"]:SetText("0%")
@@ -42,7 +49,7 @@ function VoiceChantStudioOptions.Initialize()
         if not syncing then api.SetVolume(value) end
     end)
     label(panel,L("10%刻み。ゲームの効果音やNPCの音量は変わりません。","10% steps. Does not change game effects or NPC voice volume."),20,-175)
-    mute=CreateFrame("CheckButton",nil,panel,"UICheckButtonTemplate")
+    mute=CreateFrame("CheckButton",nil,content,"UICheckButtonTemplate")
     mute:SetPoint("TOPLEFT",18,-205)
     label(panel,L("このアドオンの声をミュート","Mute Voice Chant Studio"),54,-214)
     mute:SetScript("OnClick",function(self)
@@ -50,10 +57,10 @@ function VoiceChantStudioOptions.Initialize()
         VoiceChantStudioDB.muted=self:GetChecked() and true or false
         api.Stop(); VoiceChantStudioOptions.Refresh()
     end)
-    local test=CreateFrame("Button",nil,panel,"UIPanelButtonTemplate")
+    local test=CreateFrame("Button",nil,content,"UIPanelButtonTemplate")
     test:SetPoint("TOPLEFT",20,-255); test:SetSize(200,28)
     test:SetText(L("録音した声を試聴","Test recorded voice")); test:SetScript("OnClick",api.Test)
-    local reset=CreateFrame("Button",nil,panel,"UIPanelButtonTemplate")
+    local reset=CreateFrame("Button",nil,content,"UIPanelButtonTemplate")
     reset:SetPoint("LEFT",test,"RIGHT",12,0); reset:SetSize(160,28)
     reset:SetText(L("音量を100%に戻す","Reset to 100%")); reset:SetScript("OnClick",function() api.SetVolume(100) end)
     status=label(panel,"",20,-310)
@@ -62,7 +69,7 @@ function VoiceChantStudioOptions.Initialize()
     local modeLabels={L('前の声を止める','Stop previous'),L('通常の重ね再生','Overlap'),L('最新優先（試験）','Newest priority (beta)')}
     local modeValues={'replace','overlap','duck'}
     for i,text in ipairs(modeLabels) do
-        local button=CreateFrame('Button',nil,panel,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*175,-410);button:SetSize(165,26);button:SetText(text)
+        local button=CreateFrame('Button',nil,content,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*175,-410);button:SetSize(165,26);button:SetText(text)
         button:SetScript('OnClick',function() api.SetPlayback(modeValues[i]);VoiceChantStudioOptions.Refresh() end)
     end
     playback=label(panel,'',20,-445)
@@ -70,12 +77,19 @@ function VoiceChantStudioOptions.Initialize()
     local labels={L('均等ランダム','Random'),L('連続重複を避ける','Avoid repeats'),L('順番に再生','Sequence')}
     local values={'random','norepeat','sequence'}
     for i,text in ipairs(labels) do
-        local button=CreateFrame('Button',nil,panel,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*175,-495);button:SetSize(165,26);button:SetText(text)
+        local button=CreateFrame('Button',nil,content,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*175,-495);button:SetSize(165,26);button:SetText(text)
         button:SetScript('OnClick',function() api.SetSelection(values[i]);VoiceChantStudioOptions.Refresh() end)
     end
     variation=label(panel,'',20,-535)
-    local diag=CreateFrame('Button',nil,panel,'UIPanelButtonTemplate');diag:SetPoint('TOPLEFT',20,-565);diag:SetSize(230,26);diag:SetText(L('再生状態・ログをチャットへ表示','Print playback diagnostics'));diag:SetScript('OnClick',api.Diagnostics)
-    label(panel,'/vcs debug | /vcs diagnostics',20,-605,'GameFontNormal')
+    label(panel,L('最新優先：音量の下げ方（A/B比較）','Newest priority: gain transition (A/B comparison)'),20,-565,'GameFontNormal')
+    local fadeLabels={L('一気に下げる','Step down'),L('なだらかに下げる（0.20秒）','Smooth down (0.20s)')};local fadeValues={'step','smooth'}
+    for i,text in ipairs(fadeLabels) do
+        local button=CreateFrame('Button',nil,content,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*260,-590);button:SetSize(250,26);button:SetText(text)
+        button:SetScript('OnClick',function() api.SetFade(fadeValues[i]);VoiceChantStudioOptions.Refresh() end)
+    end
+    fadeText=label(panel,'',20,-630);fadeText:SetWidth(600);fadeText:SetJustifyH('LEFT')
+    local diag=CreateFrame('Button',nil,content,'UIPanelButtonTemplate');diag:SetPoint('TOPLEFT',20,-710);diag:SetSize(230,26);diag:SetText(L('再生状態・ログをチャットへ表示','Print playback diagnostics'));diag:SetScript('OnClick',api.Diagnostics)
+    label(panel,'/vcs fade step | /vcs fade smooth | /vcs diagnostics',20,-750,'GameFontNormal')
     panel:SetScript("OnShow",VoiceChantStudioOptions.Refresh)
     if Settings and Settings.RegisterCanvasLayoutCategory and Settings.RegisterAddOnCategory then
         category=Settings.RegisterCanvasLayoutCategory(panel,"Voice Chant Studio")

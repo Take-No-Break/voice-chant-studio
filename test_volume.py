@@ -87,6 +87,11 @@ assert(VoiceChantStudioDB.volume==90)
 for _,w in ipairs(widgets) do if w.text=="Test recorded voice" then w.scripts.OnClick(w) end end
 assert(plays[1].file=="ninety.wav")
 VoiceChantStudioOptions.Initialize(); assert(VoiceChantStudioDB.volume==90)
+local smooth,step=false,false
+for _,w in ipairs(widgets) do if w.text=='Smooth down (0.20s)' then w.scripts.OnClick(w);smooth=true end end
+assert(smooth and VoiceChantStudioDB.duckFade=='smooth')
+for _,w in ipairs(widgets) do if w.text=='Step down' then w.scripts.OnClick(w);step=true end end
+assert(step and VoiceChantStudioDB.duckFade=='step')
 ''')
 
     def test_export_has_real_pcm_gain_variants_preserves_sources_and_ready_flags(self):

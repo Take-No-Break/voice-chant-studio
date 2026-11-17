@@ -1,12 +1,12 @@
 # Download and start
 
-**Windows users:** [Download the Windows ZIP](https://github.com/Take-No-Break/voice-chant-studio/releases/latest/download/VoiceChantStudio-Windows.zip), extract it, then launch `VoiceChantStudio-v0.8.exe`. Python and an AI assistant are not required.
+**Windows users:** [Download the Windows ZIP](https://github.com/Take-No-Break/voice-chant-studio/releases/latest/download/VoiceChantStudio-Windows.zip), extract it, then launch `VoiceChantStudio-v0.8.1.exe`. Python and an AI assistant are not required.
 
 **Desktop AI assistants:** read [AI-SETUP.md](AI-SETUP.md) and [AGENTS.md](AGENTS.md) before operating the app. [日本語の説明](README.ja.md).
 
 WoW Forever only. The game must already be installed. Automatic discovery is best effort; use Browse and Battle.net's Show in Explorer to select the `_forever_` folder containing `Wow.exe` when needed.
 
-**Studio tools:** presets/batch FX, recording scripts, condition simulation, diagnostics/restore/storage and pack management. `/vcs` adds stop/overlap/newest-priority playback and variation selection modes. Newest priority is experimental segmented playback with up to ~0.25s gain response plus timer delay and possible seams. See V08-GUIDE.md.
+**Studio tools:** presets/batch FX, recording scripts, condition simulation, diagnostics/restore/storage and pack management. `/vcs` adds stop/overlap/newest-priority playback and variation selection modes. Newest priority is experimental segmented playback with up to ~0.25s gain response plus timer delay and possible seams. Step / smooth gain transitions are selectable in game; smooth ramps over 0.20s after the boundary wait. Re-export and restart WoW. See V08-GUIDE.md.
 
 All **9 original classes** are included (491 entries). **Create spell link** lets users select player-buff, target-debuff or previous-successful-spell conditions. **Voice FX / EQ** provides offline pitch, 3-band EQ, vibrato and tremolo. See LINK-EXAMPLES.md for setup examples and limits.
 
@@ -14,7 +14,7 @@ All **9 original classes** are included (491 entries). **Create spell link** let
 
 Successful cast / Instant abilities support **1–5 voices**, chosen randomly with equal probability among finished enabled clips. Repeats are allowed. Start/cancel retain one voice each. Dedicated in-game volume: `/vcs`.
 
-Validation: 94 automated tests passed for v0.8 (synthetic audio and simulated events). Standalone v0.8 GUI verification is reported in the release notes. Live-game playback was not rechecked. Source takes and current game account data are not included.
+Validation: 99 automated tests passed for v0.8.1 (synthetic audio and simulated events). Standalone v0.8.1 GUI verification is reported in the release notes. Live-game playback was not rechecked. Source takes and current game account data are not included.
 
 # Voice Chant Studio v0.8 — Windows / WoW Forever
 
@@ -24,7 +24,7 @@ Record your own spell chants and play them over WoW Forever's original effects. 
 
 ## Start and choose a language
 
-Double-click `VoiceChantStudio-v0.8.exe`. The packaged Windows app does not require Python. The desktop **Voice Chant Studio** shortcut opens this update. Close an already open older version before launching the update.
+Double-click `VoiceChantStudio-v0.8.1.exe`. The packaged Windows app does not require Python. The desktop **Voice Chant Studio** shortcut opens this update. Close an already open older version before launching the update.
 
 Use **日本語 / English** at the top right to switch languages. Your choice is remembered for the next launch. English also changes the app's settings, instructions, and error dialogs. Buttons in native Windows file pickers may follow your Windows display language.
 
@@ -164,3 +164,10 @@ Original dark-leather/stone-inspired colors, bronze/gold borders, gold headings,
 Open **制作ツール / Studio tools** for voice presets, batch FX, recording scripts, condition simulation, diagnostics, snapshot restoration, storage archival and pack management. `/vcs` offers stop/overlap/newest-priority playback and random/no-repeat/sequential variations. **Newest priority is beta segmented playback, with up to ~0.25s gain response plus timer delay and possible seams; live game quality/performance is unverified.** Re-export and restart WoW to add segment files. See [V08-GUIDE.md](V08-GUIDE.md) for limits and bilingual instructions.
 
 「制作ツール」に声のプリセット・一括適用・録音アシスト・連携テスト・診断・履歴復元・容量/パック管理を追加しました。最新の声を100%、前を50%、前々を20%にするゲーム内の「最新優先」は試験機能です。再書き出しとWoWの完全な再起動が必要です。詳しい操作と制約はV08-GUIDE.mdをご覧ください。
+
+
+## v0.8.1: Step / Smooth ducking
+
+`/vcs` now offers **Step down** and **Smooth down (0.20s)** for Newest priority. Both start at the next 0.25s segment boundary; smooth then ramps over 0.20s. Re-export and fully restart WoW to add both banks. See V08-GUIDE.md for timing, storage and A/B testing limits.
+
+「最新優先」の音量を一気に下げる方式となだらかに下げる方式をゲーム内で選べます。区切り待ちの後、smooth は0.20秒かけて変化します。再書き出しとWoWの再起動が必要です。

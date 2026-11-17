@@ -309,8 +309,8 @@ class Project:
                     volumes = write_volume_variants(rendered, rate, prepared/'Audio')
                     segmented=''
                     if self.data.get('options',{}).get('ducking',False):
-                        from ducking import write_segments,segments_lua,STEP
-                        segmented=',segmentStep='+str(STEP)+',segments='+segments_lua(write_segments(rendered,rate,prepared/'Audio'))
+                        from ducking import write_segments,segments_lua,STEP,OVERLAP,SMOOTH_OVERLAP
+                        segmented=',segmentStep='+str(STEP)+',segmentOverlap='+str(OVERLAP)+',smoothOverlap='+str(SMOOTH_OVERLAP)+',segments='+segments_lua(write_segments(rendered,rate,prepared/'Audio'))+',smoothSegments='+segments_lua(write_segments(rendered,rate,prepared/'Audio',SMOOTH_OVERLAP))
                     condition=''
                     if row.get('condition'):
                         c=row['condition']

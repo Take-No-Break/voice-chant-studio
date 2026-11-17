@@ -6,7 +6,7 @@ English instructions: [README.en.md](README.en.md)
 
 ## 起動と言語
 
-`VoiceChantStudio-v0.8.exe` をダブルクリックしてください。配布版の実行にPythonは不要です。デスクトップの **Voice Chant Studio** ショートカットも更新版を開きます。更新前のアプリが開いている場合は、先に閉じてください。
+`VoiceChantStudio-v0.8.1.exe` をダブルクリックしてください。配布版の実行にPythonは不要です。デスクトップの **Voice Chant Studio** ショートカットも更新版を開きます。更新前のアプリが開いている場合は、先に閉じてください。
 
 右上の **日本語 / English** で表示言語を切り替えます。選んだ言語は次回起動時も引き継ぎます。Englishではボタン、設定、アプリの案内・エラーダイアログも英語になります。Windows標準のファイル選択画面のボタンなどは、Windowsの言語設定に従う場合があります。
 
@@ -146,3 +146,10 @@ Original dark-leather/stone-inspired colors, bronze/gold borders, gold headings,
 Open **制作ツール / Studio tools** for voice presets, batch FX, recording scripts, condition simulation, diagnostics, snapshot restoration, storage archival and pack management. `/vcs` offers stop/overlap/newest-priority playback and random/no-repeat/sequential variations. **Newest priority is beta segmented playback, with up to ~0.25s gain response plus timer delay and possible seams; live game quality/performance is unverified.** Re-export and restart WoW to add segment files. See [V08-GUIDE.md](V08-GUIDE.md) for limits and bilingual instructions.
 
 「制作ツール」に声のプリセット・一括適用・録音アシスト・連携テスト・診断・履歴復元・容量/パック管理を追加しました。最新の声を100%、前を50%、前々を20%にするゲーム内の「最新優先」は試験機能です。再書き出しとWoWの完全な再起動が必要です。詳しい操作と制約はV08-GUIDE.mdをご覧ください。
+
+
+## v0.8.1: Step / Smooth ducking
+
+`/vcs` now offers **Step down** and **Smooth down (0.20s)** for Newest priority. Both start at the next 0.25s segment boundary; smooth then ramps over 0.20s. Re-export and fully restart WoW to add both banks. See V08-GUIDE.md for timing, storage and A/B testing limits.
+
+「最新優先」の音量を一気に下げる方式となだらかに下げる方式をゲーム内で選べます。区切り待ちの後、smooth は0.20秒かけて変化します。再書き出しとWoWの再起動が必要です。
