@@ -1,0 +1,14 @@
+{
+  "catalog_rows": 157,
+  "spell_ids": 573,
+  "resolved_spell_ids": 573,
+  "unique_icons": 155,
+  "rows_with_real_icons": 157,
+  "missing_rows": [],
+  "unresolved": [],
+  "class_counts": {
+    "MAGE": 55,
+    "PALADIN": 50,
+    "PRIEST": 52
+  }
+}

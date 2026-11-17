@@ -1,0 +1,1487 @@
+{
+  "version": "0.3.0",
+  "built_utc": "2026-11-17T00:52:10.927259+00:00",
+  "sources": [
+    {
+      "path": "C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\WhatsTraining\\Classes\\Camelot\\Priest.lua",
+      "sha256": "410442859f1334e3330b0b186af4af10b89e56ff2ee4466945ca3d65a17025d7"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\WhatsTraining\\Classes\\Camelot\\QuestSpells.lua",
+      "sha256": "3ed8fa275ad2f7ebce06039dbb09bb4aca57552df0fbc099395b0da9a4b57291"
+    },
+    {
+      "path": "C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\WhatsTraining\\Classes\\Camelot\\Mage.lua",
+      "sha256": "b0c7ac86d21a75cc2fddffa38312f695f11290a753a7e23e11de5c07e90799a1"
+    }
+  ],
+  "tooltip_endpoint": "https://nether.wowhead.com/forever/tooltip/spell/{}",
+  "priest_trainer_and_prerequisite_ids": [
+    17,
+    139,
+    453,
+    527,
+    528,
+    552,
+    585,
+    586,
+    588,
+    589,
+    591,
+    592,
+    594,
+    596,
+    598,
+    600,
+    602,
+    605,
+    970,
+    976,
+    984,
+    988,
+    992,
+    996,
+    1004,
+    1006,
+    1243,
+    1244,
+    1245,
+    1706,
+    2006,
+    2010,
+    2050,
+    2052,
+    2053,
+    2054,
+    2055,
+    2060,
+    2061,
+    2096,
+    2652,
+    2767,
+    2791,
+    2944,
+    3747,
+    6060,
+    6063,
+    6064,
+    6065,
+    6066,
+    6074,
+    6075,
+    6076,
+    6077,
+    6078,
+    6346,
+    7128,
+    8092,
+    8102,
+    8103,
+    8104,
+    8105,
+    8106,
+    8122,
+    8124,
+    8129,
+    8131,
+    8192,
+    9035,
+    9472,
+    9473,
+    9474,
+    9484,
+    9485,
+    9578,
+    9579,
+    9592,
+    10797,
+    10874,
+    10875,
+    10876,
+    10880,
+    10881,
+    10888,
+    10890,
+    10892,
+    10893,
+    10894,
+    10898,
+    10899,
+    10900,
+    10901,
+    10909,
+    10911,
+    10912,
+    10915,
+    10916,
+    10917,
+    10927,
+    10928,
+    10929,
+    10933,
+    10934,
+    10937,
+    10938,
+    10941,
+    10942,
+    10945,
+    10946,
+    10947,
+    10951,
+    10952,
+    10953,
+    10955,
+    10957,
+    10958,
+    10960,
+    10961,
+    10963,
+    10964,
+    10965,
+    13896,
+    13908,
+    14752,
+    14818,
+    14819,
+    14914,
+    15237,
+    15261,
+    15262,
+    15263,
+    15264,
+    15265,
+    15266,
+    15267,
+    15407,
+    15430,
+    15431,
+    17311,
+    17312,
+    17313,
+    17314,
+    18137,
+    18807,
+    19236,
+    19238,
+    19240,
+    19241,
+    19242,
+    19243,
+    19261,
+    19262,
+    19264,
+    19265,
+    19266,
+    19271,
+    19273,
+    19274,
+    19275,
+    19276,
+    19277,
+    19278,
+    19279,
+    19280,
+    19281,
+    19282,
+    19283,
+    19284,
+    19285,
+    19296,
+    19299,
+    19302,
+    19303,
+    19304,
+    19305,
+    19308,
+    19309,
+    19310,
+    19311,
+    19312,
+    20770,
+    27681,
+    27799,
+    27800,
+    27801,
+    27841,
+    401859,
+    402174,
+    1240720,
+    1240721,
+    1240826,
+    1240827,
+    1277324,
+    1277325,
+    1277326,
+    1277327,
+    1277328,
+    1277331,
+    1277332,
+    1277333,
+    1277334,
+    1277335,
+    1277370,
+    1277371,
+    1277372,
+    1277374,
+    1277376,
+    1277377,
+    1277378,
+    1277462,
+    1277634,
+    1277638,
+    1277639,
+    1277640,
+    1309595,
+    1309633,
+    1309635,
+    1309636,
+    1316995
+  ],
+  "quest_ids": {
+    "PRIEST": [
+      2651,
+      2652,
+      9035,
+      10797,
+      13896,
+      13908,
+      18137,
+      1277324,
+      1277331,
+      1277370,
+      1277455,
+      1277462
+    ],
+    "MAGE": [
+      10140,
+      28272
+    ]
+  },
+  "verified_starting_and_unranked_active_ids": {
+    "2050": "Lesser Heal",
+    "585": "Smite",
+    "1243": "Power Word: Fortitude",
+    "14751": "Inner Focus",
+    "10060": "Power Infusion",
+    "15487": "Silence",
+    "15286": "Vampiric Embrace",
+    "15473": "Shadowform"
+  },
+  "classes": {
+    "PALADIN": {
+      "abilities": 50,
+      "rank_ids": 160
+    },
+    "MAGE": {
+      "abilities": 55,
+      "rank_ids": 187
+    },
+    "PRIEST": {
+      "abilities": 52,
+      "rank_ids": 226
+    }
+  },
+  "new_rows": [
+    "priest_17",
+    "priest_139",
+    "priest_453",
+    "priest_527",
+    "priest_528",
+    "priest_552",
+    "priest_585",
+    "priest_586",
+    "priest_588",
+    "priest_589",
+    "priest_596",
+    "priest_605",
+    "priest_976",
+    "priest_1243",
+    "priest_1706",
+    "priest_2006",
+    "priest_2050",
+    "priest_2054",
+    "priest_2060",
+    "priest_2061",
+    "priest_2096",
+    "priest_2651",
+    "priest_2652",
+    "priest_2944",
+    "priest_6346",
+    "priest_8092",
+    "priest_8122",
+    "priest_8129",
+    "priest_9035",
+    "priest_9484",
+    "priest_10060",
+    "priest_10797",
+    "priest_13896",
+    "priest_13908",
+    "priest_14751",
+    "priest_14752",
+    "priest_14914",
+    "priest_15237",
+    "priest_15286",
+    "priest_15407",
+    "priest_15473",
+    "priest_15487",
+    "priest_18137",
+    "priest_27681",
+    "priest_401859",
+    "priest_402174",
+    "priest_1277324",
+    "priest_1277331",
+    "priest_1277370",
+    "priest_1277455",
+    "priest_1277462",
+    "priest_1309595"
+  ],
+  "unresolved_ids": [],
+  "spells": {
+    "17": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/17"
+    },
+    "139": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/139"
+    },
+    "453": {
+      "name": "Mind Soothe",
+      "icon": "spell_holy_mindsooth",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/453"
+    },
+    "527": {
+      "name": "Dispel Magic",
+      "icon": "spell_holy_dispelmagic",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/527"
+    },
+    "528": {
+      "name": "Cure Disease",
+      "icon": "spell_holy_nullifydisease",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/528"
+    },
+    "552": {
+      "name": "Abolish Disease",
+      "icon": "spell_nature_nullifydisease",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/552"
+    },
+    "585": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/585"
+    },
+    "586": {
+      "name": "Fade",
+      "icon": "spell_magic_lesserinvisibilty",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/586"
+    },
+    "588": {
+      "name": "Inner Fire",
+      "icon": "spell_holy_innerfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/588"
+    },
+    "589": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/589"
+    },
+    "591": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/591"
+    },
+    "592": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/592"
+    },
+    "594": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/594"
+    },
+    "596": {
+      "name": "Prayer of Healing",
+      "icon": "spell_holy_prayerofhealing02",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/596"
+    },
+    "598": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/598"
+    },
+    "600": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/600"
+    },
+    "602": {
+      "name": "Inner Fire",
+      "icon": "spell_holy_innerfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/602"
+    },
+    "605": {
+      "name": "Mind Control",
+      "icon": "spell_shadow_shadowworddominate",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/605"
+    },
+    "970": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/970"
+    },
+    "976": {
+      "name": "Shadow Protection",
+      "icon": "spell_shadow_antishadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/976"
+    },
+    "984": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/984"
+    },
+    "988": {
+      "name": "Dispel Magic",
+      "icon": "spell_holy_dispelmagic",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/988"
+    },
+    "992": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/992"
+    },
+    "996": {
+      "name": "Prayer of Healing",
+      "icon": "spell_holy_prayerofhealing02",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/996"
+    },
+    "1004": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1004"
+    },
+    "1006": {
+      "name": "Inner Fire",
+      "icon": "spell_holy_innerfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1006"
+    },
+    "1243": {
+      "name": "Power Word: Fortitude",
+      "icon": "spell_holy_wordfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1243"
+    },
+    "1244": {
+      "name": "Power Word: Fortitude",
+      "icon": "spell_holy_wordfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1244"
+    },
+    "1245": {
+      "name": "Power Word: Fortitude",
+      "icon": "spell_holy_wordfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1245"
+    },
+    "1706": {
+      "name": "Levitate",
+      "icon": "spell_holy_layonhands",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1706"
+    },
+    "2006": {
+      "name": "Resurrection",
+      "icon": "spell_holy_resurrection",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2006"
+    },
+    "2010": {
+      "name": "Resurrection",
+      "icon": "spell_holy_resurrection",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2010"
+    },
+    "2050": {
+      "name": "Lesser Heal",
+      "icon": "spell_holy_lesserheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2050"
+    },
+    "2052": {
+      "name": "Lesser Heal",
+      "icon": "spell_holy_lesserheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2052"
+    },
+    "2053": {
+      "name": "Lesser Heal",
+      "icon": "spell_holy_lesserheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2053"
+    },
+    "2054": {
+      "name": "Heal",
+      "icon": "spell_holy_heal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2054"
+    },
+    "2055": {
+      "name": "Heal",
+      "icon": "spell_holy_heal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2055"
+    },
+    "2060": {
+      "name": "Greater Heal",
+      "icon": "spell_holy_greaterheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2060"
+    },
+    "2061": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2061"
+    },
+    "2096": {
+      "name": "Mind Vision",
+      "icon": "spell_holy_mindvision",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2096"
+    },
+    "2651": {
+      "name": "Elune's Grace",
+      "icon": "spell_holy_elunesgrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2651"
+    },
+    "2652": {
+      "name": "Touch of Weakness",
+      "icon": "spell_shadow_deadofnight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2652"
+    },
+    "2767": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2767"
+    },
+    "2791": {
+      "name": "Power Word: Fortitude",
+      "icon": "spell_holy_wordfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2791"
+    },
+    "2944": {
+      "name": "Devouring Plague",
+      "icon": "spell_shadow_devouringplague",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/2944"
+    },
+    "3747": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/3747"
+    },
+    "6060": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6060"
+    },
+    "6063": {
+      "name": "Heal",
+      "icon": "spell_holy_heal02",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6063"
+    },
+    "6064": {
+      "name": "Heal",
+      "icon": "spell_holy_heal02",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6064"
+    },
+    "6065": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6065"
+    },
+    "6066": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6066"
+    },
+    "6074": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6074"
+    },
+    "6075": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6075"
+    },
+    "6076": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6076"
+    },
+    "6077": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6077"
+    },
+    "6078": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6078"
+    },
+    "6346": {
+      "name": "Fear Ward",
+      "icon": "spell_holy_excorcism",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/6346"
+    },
+    "7128": {
+      "name": "Inner Fire",
+      "icon": "spell_holy_innerfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/7128"
+    },
+    "8092": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8092"
+    },
+    "8102": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8102"
+    },
+    "8103": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8103"
+    },
+    "8104": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8104"
+    },
+    "8105": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8105"
+    },
+    "8106": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8106"
+    },
+    "8122": {
+      "name": "Psychic Scream",
+      "icon": "spell_shadow_psychicscream",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8122"
+    },
+    "8124": {
+      "name": "Psychic Scream",
+      "icon": "spell_shadow_psychicscream",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8124"
+    },
+    "8129": {
+      "name": "Mana Burn",
+      "icon": "spell_shadow_manaburn",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8129"
+    },
+    "8131": {
+      "name": "Mana Burn",
+      "icon": "spell_shadow_manaburn",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8131"
+    },
+    "8192": {
+      "name": "Mind Soothe",
+      "icon": "spell_holy_mindsooth",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/8192"
+    },
+    "9035": {
+      "name": "Hex of Weakness",
+      "icon": "spell_shadow_fingerofdeath",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9035"
+    },
+    "9472": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9472"
+    },
+    "9473": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9473"
+    },
+    "9474": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9474"
+    },
+    "9484": {
+      "name": "Shackle Undead",
+      "icon": "spell_nature_slow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9484"
+    },
+    "9485": {
+      "name": "Shackle Undead",
+      "icon": "spell_nature_slow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9485"
+    },
+    "9578": {
+      "name": "Fade",
+      "icon": "spell_magic_lesserinvisibilty",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9578"
+    },
+    "9579": {
+      "name": "Fade",
+      "icon": "spell_magic_lesserinvisibilty",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9579"
+    },
+    "9592": {
+      "name": "Fade",
+      "icon": "spell_magic_lesserinvisibilty",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/9592"
+    },
+    "10060": {
+      "name": "Power Infusion",
+      "icon": "spell_holy_powerinfusion",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10060"
+    },
+    "10140": {
+      "name": "Conjure Water",
+      "icon": "inv_drink_18",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10140"
+    },
+    "10797": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10797"
+    },
+    "10874": {
+      "name": "Mana Burn",
+      "icon": "spell_shadow_manaburn",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10874"
+    },
+    "10875": {
+      "name": "Mana Burn",
+      "icon": "spell_shadow_manaburn",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10875"
+    },
+    "10876": {
+      "name": "Mana Burn",
+      "icon": "spell_shadow_manaburn",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10876"
+    },
+    "10880": {
+      "name": "Resurrection",
+      "icon": "spell_holy_resurrection",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10880"
+    },
+    "10881": {
+      "name": "Resurrection",
+      "icon": "spell_holy_resurrection",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10881"
+    },
+    "10888": {
+      "name": "Psychic Scream",
+      "icon": "spell_shadow_psychicscream",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10888"
+    },
+    "10890": {
+      "name": "Psychic Scream",
+      "icon": "spell_shadow_psychicscream",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10890"
+    },
+    "10892": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10892"
+    },
+    "10893": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10893"
+    },
+    "10894": {
+      "name": "Shadow Word: Pain",
+      "icon": "spell_shadow_shadowwordpain",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10894"
+    },
+    "10898": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10898"
+    },
+    "10899": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10899"
+    },
+    "10900": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10900"
+    },
+    "10901": {
+      "name": "Power Word: Shield",
+      "icon": "spell_holy_powerwordshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10901"
+    },
+    "10909": {
+      "name": "Mind Vision",
+      "icon": "spell_holy_mindvision",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10909"
+    },
+    "10911": {
+      "name": "Mind Control",
+      "icon": "spell_shadow_shadowworddominate",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10911"
+    },
+    "10912": {
+      "name": "Mind Control",
+      "icon": "spell_shadow_shadowworddominate",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10912"
+    },
+    "10915": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10915"
+    },
+    "10916": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10916"
+    },
+    "10917": {
+      "name": "Flash Heal",
+      "icon": "spell_holy_flashheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10917"
+    },
+    "10927": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10927"
+    },
+    "10928": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10928"
+    },
+    "10929": {
+      "name": "Renew",
+      "icon": "spell_holy_renew",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10929"
+    },
+    "10933": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10933"
+    },
+    "10934": {
+      "name": "Smite",
+      "icon": "spell_holy_holysmite",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10934"
+    },
+    "10937": {
+      "name": "Power Word: Fortitude",
+      "icon": "spell_holy_wordfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10937"
+    },
+    "10938": {
+      "name": "Power Word: Fortitude",
+      "icon": "spell_holy_wordfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10938"
+    },
+    "10941": {
+      "name": "Fade",
+      "icon": "spell_magic_lesserinvisibilty",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10941"
+    },
+    "10942": {
+      "name": "Fade",
+      "icon": "spell_magic_lesserinvisibilty",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10942"
+    },
+    "10945": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10945"
+    },
+    "10946": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10946"
+    },
+    "10947": {
+      "name": "Mind Blast",
+      "icon": "spell_shadow_unholyfrenzy",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10947"
+    },
+    "10951": {
+      "name": "Inner Fire",
+      "icon": "spell_holy_innerfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10951"
+    },
+    "10952": {
+      "name": "Inner Fire",
+      "icon": "spell_holy_innerfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10952"
+    },
+    "10953": {
+      "name": "Mind Soothe",
+      "icon": "spell_holy_mindsooth",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10953"
+    },
+    "10955": {
+      "name": "Shackle Undead",
+      "icon": "spell_nature_slow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10955"
+    },
+    "10957": {
+      "name": "Shadow Protection",
+      "icon": "spell_shadow_antishadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10957"
+    },
+    "10958": {
+      "name": "Shadow Protection",
+      "icon": "spell_shadow_antishadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10958"
+    },
+    "10960": {
+      "name": "Prayer of Healing",
+      "icon": "spell_holy_prayerofhealing02",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10960"
+    },
+    "10961": {
+      "name": "Prayer of Healing",
+      "icon": "spell_holy_prayerofhealing02",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10961"
+    },
+    "10963": {
+      "name": "Greater Heal",
+      "icon": "spell_holy_greaterheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10963"
+    },
+    "10964": {
+      "name": "Greater Heal",
+      "icon": "spell_holy_greaterheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10964"
+    },
+    "10965": {
+      "name": "Greater Heal",
+      "icon": "spell_holy_greaterheal",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/10965"
+    },
+    "13896": {
+      "name": "Feedback",
+      "icon": "spell_shadow_ritualofsacrifice",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/13896"
+    },
+    "13908": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/13908"
+    },
+    "14751": {
+      "name": "Inner Focus",
+      "icon": "spell_frost_windwalkon",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/14751"
+    },
+    "14752": {
+      "name": "Divine Spirit",
+      "icon": "spell_holy_divinespirit",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/14752"
+    },
+    "14818": {
+      "name": "Divine Spirit",
+      "icon": "spell_holy_divinespirit",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/14818"
+    },
+    "14819": {
+      "name": "Divine Spirit",
+      "icon": "spell_holy_divinespirit",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/14819"
+    },
+    "14914": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/14914"
+    },
+    "15237": {
+      "name": "Holy Nova",
+      "icon": "spell_holy_holynova",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15237"
+    },
+    "15261": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15261"
+    },
+    "15262": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15262"
+    },
+    "15263": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15263"
+    },
+    "15264": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15264"
+    },
+    "15265": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15265"
+    },
+    "15266": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15266"
+    },
+    "15267": {
+      "name": "Holy Fire",
+      "icon": "spell_holy_searinglight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15267"
+    },
+    "15286": {
+      "name": "Vampiric Embrace",
+      "icon": "spell_shadow_unsummonbuilding",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15286"
+    },
+    "15407": {
+      "name": "Mind Flay",
+      "icon": "spell_shadow_siphonmana",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15407"
+    },
+    "15430": {
+      "name": "Holy Nova",
+      "icon": "spell_holy_holynova",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15430"
+    },
+    "15431": {
+      "name": "Holy Nova",
+      "icon": "spell_holy_holynova",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15431"
+    },
+    "15473": {
+      "name": "Shadowform",
+      "icon": "spell_shadow_shadowform",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15473"
+    },
+    "15487": {
+      "name": "Silence",
+      "icon": "spell_shadow_impphaseshift",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/15487"
+    },
+    "17311": {
+      "name": "Mind Flay",
+      "icon": "spell_shadow_siphonmana",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/17311"
+    },
+    "17312": {
+      "name": "Mind Flay",
+      "icon": "spell_shadow_siphonmana",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/17312"
+    },
+    "17313": {
+      "name": "Mind Flay",
+      "icon": "spell_shadow_siphonmana",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/17313"
+    },
+    "17314": {
+      "name": "Mind Flay",
+      "icon": "spell_shadow_siphonmana",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/17314"
+    },
+    "18137": {
+      "name": "Shadowguard",
+      "icon": "spell_nature_lightningshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/18137"
+    },
+    "18807": {
+      "name": "Mind Flay",
+      "icon": "spell_shadow_siphonmana",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/18807"
+    },
+    "19236": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19236"
+    },
+    "19238": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19238"
+    },
+    "19240": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19240"
+    },
+    "19241": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19241"
+    },
+    "19242": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19242"
+    },
+    "19243": {
+      "name": "Desperate Prayer",
+      "icon": "spell_holy_restoration",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19243"
+    },
+    "19261": {
+      "name": "Touch of Weakness",
+      "icon": "spell_shadow_deadofnight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19261"
+    },
+    "19262": {
+      "name": "Touch of Weakness",
+      "icon": "spell_shadow_deadofnight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19262"
+    },
+    "19264": {
+      "name": "Touch of Weakness",
+      "icon": "spell_shadow_deadofnight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19264"
+    },
+    "19265": {
+      "name": "Touch of Weakness",
+      "icon": "spell_shadow_deadofnight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19265"
+    },
+    "19266": {
+      "name": "Touch of Weakness",
+      "icon": "spell_shadow_deadofnight",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19266"
+    },
+    "19271": {
+      "name": "Feedback",
+      "icon": "spell_shadow_ritualofsacrifice",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19271"
+    },
+    "19273": {
+      "name": "Feedback",
+      "icon": "spell_shadow_ritualofsacrifice",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19273"
+    },
+    "19274": {
+      "name": "Feedback",
+      "icon": "spell_shadow_ritualofsacrifice",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19274"
+    },
+    "19275": {
+      "name": "Feedback",
+      "icon": "spell_shadow_ritualofsacrifice",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19275"
+    },
+    "19276": {
+      "name": "Devouring Plague",
+      "icon": "spell_shadow_devouringplague",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19276"
+    },
+    "19277": {
+      "name": "Devouring Plague",
+      "icon": "spell_shadow_devouringplague",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19277"
+    },
+    "19278": {
+      "name": "Devouring Plague",
+      "icon": "spell_shadow_devouringplague",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19278"
+    },
+    "19279": {
+      "name": "Devouring Plague",
+      "icon": "spell_shadow_devouringplague",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19279"
+    },
+    "19280": {
+      "name": "Devouring Plague",
+      "icon": "spell_shadow_devouringplague",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19280"
+    },
+    "19281": {
+      "name": "Hex of Weakness",
+      "icon": "spell_shadow_fingerofdeath",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19281"
+    },
+    "19282": {
+      "name": "Hex of Weakness",
+      "icon": "spell_shadow_fingerofdeath",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19282"
+    },
+    "19283": {
+      "name": "Hex of Weakness",
+      "icon": "spell_shadow_fingerofdeath",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19283"
+    },
+    "19284": {
+      "name": "Hex of Weakness",
+      "icon": "spell_shadow_fingerofdeath",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19284"
+    },
+    "19285": {
+      "name": "Hex of Weakness",
+      "icon": "spell_shadow_fingerofdeath",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19285"
+    },
+    "19296": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19296"
+    },
+    "19299": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19299"
+    },
+    "19302": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19302"
+    },
+    "19303": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19303"
+    },
+    "19304": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19304"
+    },
+    "19305": {
+      "name": "Starshards",
+      "icon": "spell_arcane_starfire",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19305"
+    },
+    "19308": {
+      "name": "Shadowguard",
+      "icon": "spell_nature_lightningshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19308"
+    },
+    "19309": {
+      "name": "Shadowguard",
+      "icon": "spell_nature_lightningshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19309"
+    },
+    "19310": {
+      "name": "Shadowguard",
+      "icon": "spell_nature_lightningshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19310"
+    },
+    "19311": {
+      "name": "Shadowguard",
+      "icon": "spell_nature_lightningshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19311"
+    },
+    "19312": {
+      "name": "Shadowguard",
+      "icon": "spell_nature_lightningshield",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/19312"
+    },
+    "20770": {
+      "name": "Resurrection",
+      "icon": "spell_holy_resurrection",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/20770"
+    },
+    "27681": {
+      "name": "Prayer of Spirit",
+      "icon": "spell_holy_prayerofspirit",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/27681"
+    },
+    "27799": {
+      "name": "Holy Nova",
+      "icon": "spell_holy_holynova",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/27799"
+    },
+    "27800": {
+      "name": "Holy Nova",
+      "icon": "spell_holy_holynova",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/27800"
+    },
+    "27801": {
+      "name": "Holy Nova",
+      "icon": "spell_holy_holynova",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/27801"
+    },
+    "27841": {
+      "name": "Divine Spirit",
+      "icon": "spell_holy_divinespirit",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/27841"
+    },
+    "28272": {
+      "name": "Polymorph",
+      "icon": "spell_magic_polymorphpig",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/28272"
+    },
+    "401859": {
+      "name": "Prayer of Mending",
+      "icon": "spell_holy_prayerofmendingtga",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/401859"
+    },
+    "402174": {
+      "name": "Penance",
+      "icon": "spell_holy_penance",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/402174"
+    },
+    "1240720": {
+      "name": "Penance",
+      "icon": "spell_holy_penance",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1240720"
+    },
+    "1240721": {
+      "name": "Penance",
+      "icon": "spell_holy_penance",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1240721"
+    },
+    "1240826": {
+      "name": "Prayer of Mending",
+      "icon": "spell_holy_prayerofmendingtga",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1240826"
+    },
+    "1240827": {
+      "name": "Prayer of Mending",
+      "icon": "spell_holy_prayerofmendingtga",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1240827"
+    },
+    "1277324": {
+      "name": "Dark Sacrifice",
+      "icon": "spell_holy_powerinfusion_shadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277324"
+    },
+    "1277325": {
+      "name": "Dark Sacrifice",
+      "icon": "spell_holy_powerinfusion_shadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277325"
+    },
+    "1277326": {
+      "name": "Dark Sacrifice",
+      "icon": "spell_holy_powerinfusion_shadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277326"
+    },
+    "1277327": {
+      "name": "Dark Sacrifice",
+      "icon": "spell_holy_powerinfusion_shadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277327"
+    },
+    "1277328": {
+      "name": "Dark Sacrifice",
+      "icon": "spell_holy_powerinfusion_shadow",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277328"
+    },
+    "1277331": {
+      "name": "Chastise",
+      "icon": "spell_holy_chastise",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277331"
+    },
+    "1277332": {
+      "name": "Chastise",
+      "icon": "spell_holy_chastise",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277332"
+    },
+    "1277333": {
+      "name": "Chastise",
+      "icon": "spell_holy_chastise",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277333"
+    },
+    "1277334": {
+      "name": "Chastise",
+      "icon": "spell_holy_chastise",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277334"
+    },
+    "1277335": {
+      "name": "Chastise",
+      "icon": "spell_holy_chastise",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277335"
+    },
+    "1277370": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277370"
+    },
+    "1277371": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277371"
+    },
+    "1277372": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277372"
+    },
+    "1277374": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277374"
+    },
+    "1277376": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277376"
+    },
+    "1277377": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277377"
+    },
+    "1277378": {
+      "name": "Divine Grace",
+      "icon": "ability_priest_savinggrace",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277378"
+    },
+    "1277455": {
+      "name": "Confounding Flash",
+      "icon": "ability_paladin_blindinglight2",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277455"
+    },
+    "1277462": {
+      "name": "Contingency Plan",
+      "icon": "ability_priest_soulwarding",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277462"
+    },
+    "1277634": {
+      "name": "Contingency Plan",
+      "icon": "ability_priest_soulwarding",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277634"
+    },
+    "1277638": {
+      "name": "Contingency Plan",
+      "icon": "ability_priest_soulwarding",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277638"
+    },
+    "1277639": {
+      "name": "Contingency Plan",
+      "icon": "ability_priest_soulwarding",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277639"
+    },
+    "1277640": {
+      "name": "Contingency Plan",
+      "icon": "ability_priest_soulwarding",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1277640"
+    },
+    "1309595": {
+      "name": "Shadow Word: Death",
+      "icon": "spell_shadow_demonicfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1309595"
+    },
+    "1309633": {
+      "name": "Shadow Word: Death",
+      "icon": "spell_shadow_demonicfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1309633"
+    },
+    "1309635": {
+      "name": "Shadow Word: Death",
+      "icon": "spell_shadow_demonicfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1309635"
+    },
+    "1309636": {
+      "name": "Shadow Word: Death",
+      "icon": "spell_shadow_demonicfortitude",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1309636"
+    },
+    "1316995": {
+      "name": "Penance",
+      "icon": "spell_holy_penance",
+      "url": "https://nether.wowhead.com/forever/tooltip/spell/1316995"
+    }
+  },
+  "limits": [
+    "Includes unlearned and race-specific abilities; not the current character spellbook.",
+    "Does not promise every future, item-granted, talent-passive or build-specific spell.",
+    "Starting and unranked active talent IDs are name-checked against Forever tooltips; full passive talent tree is not included.",
+    "Use /voicechant import for actual client spells. Existing Paladin catalog retained; Mage trainer data audited separately in MAGE-CATALOG.md."
+  ]
+}

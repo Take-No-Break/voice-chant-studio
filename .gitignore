@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+build/
+dist/
+.venv/
+Projects/
+originals/
+Config.lua
+*.wav
+tooltip-cache*/
+icon-source-cache/
+*.log
+.env*

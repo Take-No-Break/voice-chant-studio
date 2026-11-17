@@ -1,0 +1,2202 @@
+[
+  {
+    "name": "Blessing of Freedom",
+    "class": "PALADIN",
+    "ids": [
+      1044
+    ],
+    "passive": false,
+    "key": "paladin_1044",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Blessing of Kings",
+    "class": "PALADIN",
+    "ids": [
+      20217
+    ],
+    "passive": false,
+    "key": "paladin_20217",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Blessing of Might",
+    "class": "PALADIN",
+    "ids": [
+      19740,
+      19834,
+      19835,
+      19836,
+      19837,
+      19838
+    ],
+    "passive": false,
+    "key": "paladin_19740",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Blessing of Protection",
+    "class": "PALADIN",
+    "ids": [
+      1022,
+      5599,
+      10278
+    ],
+    "passive": false,
+    "key": "paladin_1022",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Blessing of Sacrifice",
+    "class": "PALADIN",
+    "ids": [
+      6940,
+      20729
+    ],
+    "passive": false,
+    "key": "paladin_6940",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Blessing of Wisdom",
+    "class": "PALADIN",
+    "ids": [
+      19742,
+      19850,
+      19852,
+      19853,
+      19854
+    ],
+    "passive": false,
+    "key": "paladin_19742",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Cleanse",
+    "class": "PALADIN",
+    "ids": [
+      4987
+    ],
+    "passive": false,
+    "key": "paladin_4987",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Concentration Aura",
+    "class": "PALADIN",
+    "ids": [
+      19746
+    ],
+    "passive": false,
+    "key": "paladin_19746",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Consecration",
+    "class": "PALADIN",
+    "ids": [
+      20116,
+      20922,
+      20923,
+      20924,
+      26573
+    ],
+    "passive": false,
+    "key": "paladin_20116",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Devotion Aura",
+    "class": "PALADIN",
+    "ids": [
+      465,
+      643,
+      1032,
+      10290,
+      10291,
+      10292,
+      10293
+    ],
+    "passive": false,
+    "key": "paladin_465",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Divine Favor",
+    "class": "PALADIN",
+    "ids": [
+      20216
+    ],
+    "passive": false,
+    "key": "paladin_20216",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Divine Intervention",
+    "class": "PALADIN",
+    "ids": [
+      19752
+    ],
+    "passive": false,
+    "key": "paladin_19752",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Divine Protection",
+    "class": "PALADIN",
+    "ids": [
+      498,
+      5573
+    ],
+    "passive": false,
+    "key": "paladin_498",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Divine Shield",
+    "class": "PALADIN",
+    "ids": [
+      642,
+      1020
+    ],
+    "passive": false,
+    "key": "paladin_642",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Exorcism",
+    "class": "PALADIN",
+    "ids": [
+      879,
+      5614,
+      5615,
+      10312,
+      10313,
+      10314
+    ],
+    "passive": false,
+    "key": "paladin_879",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Fire Resistance Aura",
+    "class": "PALADIN",
+    "ids": [
+      19891,
+      19899,
+      19900
+    ],
+    "passive": false,
+    "key": "paladin_19891",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Flash of Light",
+    "class": "PALADIN",
+    "ids": [
+      19750,
+      19939,
+      19940,
+      19941,
+      19942,
+      19943
+    ],
+    "passive": false,
+    "key": "paladin_19750",
+    "cast_seconds": 1.5
+  },
+  {
+    "name": "Frost Resistance Aura",
+    "class": "PALADIN",
+    "ids": [
+      19888,
+      19897,
+      19898
+    ],
+    "passive": false,
+    "key": "paladin_19888",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Greater Blessing of Kings",
+    "class": "PALADIN",
+    "ids": [
+      25898
+    ],
+    "passive": false,
+    "key": "paladin_25898",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Greater Blessing of Might",
+    "class": "PALADIN",
+    "ids": [
+      25782,
+      25916
+    ],
+    "passive": false,
+    "key": "paladin_25782",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Greater Blessing of Wisdom",
+    "class": "PALADIN",
+    "ids": [
+      25894,
+      25918
+    ],
+    "passive": false,
+    "key": "paladin_25894",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Hammer of Justice",
+    "class": "PALADIN",
+    "ids": [
+      853,
+      5588,
+      5589,
+      10308
+    ],
+    "passive": false,
+    "key": "paladin_853",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Hammer of Wrath",
+    "class": "PALADIN",
+    "ids": [
+      24239,
+      24274,
+      24275
+    ],
+    "passive": false,
+    "key": "paladin_24239",
+    "cast_seconds": 1.0
+  },
+  {
+    "name": "Holy Light",
+    "class": "PALADIN",
+    "ids": [
+      635,
+      639,
+      647,
+      1026,
+      1042,
+      3472,
+      10328,
+      10329
+    ],
+    "passive": false,
+    "key": "paladin_635",
+    "cast_seconds": 2.5
+  },
+  {
+    "name": "Holy Shield",
+    "class": "PALADIN",
+    "ids": [
+      20925,
+      20927,
+      20928,
+      1239570
+    ],
+    "passive": false,
+    "key": "paladin_20925",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Holy Shock",
+    "class": "PALADIN",
+    "ids": [
+      20473,
+      20929,
+      20930,
+      1311606
+    ],
+    "passive": false,
+    "key": "paladin_20473",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Holy Strike",
+    "class": "PALADIN",
+    "ids": [
+      678,
+      679,
+      680,
+      1866,
+      2495,
+      5569,
+      10332,
+      10333
+    ],
+    "passive": false,
+    "key": "paladin_678",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Holy Wrath",
+    "class": "PALADIN",
+    "ids": [
+      2812,
+      10318
+    ],
+    "passive": false,
+    "key": "paladin_2812",
+    "cast_seconds": 2.0
+  },
+  {
+    "name": "Judgement",
+    "class": "PALADIN",
+    "ids": [
+      20271
+    ],
+    "passive": false,
+    "key": "paladin_20271",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Lay on Hands",
+    "class": "PALADIN",
+    "ids": [
+      633,
+      2800,
+      10310
+    ],
+    "passive": false,
+    "key": "paladin_633",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Light's Vigil",
+    "class": "PALADIN",
+    "ids": [
+      1310911,
+      1311590,
+      1311595
+    ],
+    "passive": false,
+    "key": "paladin_1310911",
+    "cast_seconds": 1.5
+  },
+  {
+    "name": "Parry",
+    "class": "PALADIN",
+    "ids": [
+      3127
+    ],
+    "passive": true,
+    "key": "paladin_3127",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Plate Mail",
+    "class": "PALADIN",
+    "ids": [
+      750
+    ],
+    "passive": true,
+    "key": "paladin_750",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Purify",
+    "class": "PALADIN",
+    "ids": [
+      1152
+    ],
+    "passive": false,
+    "key": "paladin_1152",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Redemption",
+    "class": "PALADIN",
+    "ids": [
+      7328,
+      10322,
+      10324,
+      20772,
+      20773
+    ],
+    "passive": false,
+    "key": "paladin_7328",
+    "cast_seconds": 10.0
+  },
+  {
+    "name": "Repentance",
+    "class": "PALADIN",
+    "ids": [
+      20066
+    ],
+    "passive": false,
+    "key": "paladin_20066",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Retribution Aura",
+    "class": "PALADIN",
+    "ids": [
+      7294,
+      10298,
+      10299,
+      10300,
+      10301
+    ],
+    "passive": false,
+    "key": "paladin_7294",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Righteous Fury",
+    "class": "PALADIN",
+    "ids": [
+      25780
+    ],
+    "passive": false,
+    "key": "paladin_25780",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of Command",
+    "class": "PALADIN",
+    "ids": [
+      20375,
+      20915,
+      20918,
+      20919,
+      20920
+    ],
+    "passive": false,
+    "key": "paladin_20375",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of Fury",
+    "class": "PALADIN",
+    "ids": [
+      20163,
+      20419,
+      20421,
+      20422,
+      20423,
+      1311649,
+      1311656
+    ],
+    "passive": false,
+    "key": "paladin_20163",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of Justice",
+    "class": "PALADIN",
+    "ids": [
+      20164
+    ],
+    "passive": false,
+    "key": "paladin_20164",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of Light",
+    "class": "PALADIN",
+    "ids": [
+      20165,
+      20347,
+      20348,
+      20349
+    ],
+    "passive": false,
+    "key": "paladin_20165",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of Righteousness",
+    "class": "PALADIN",
+    "ids": [
+      20154,
+      20287,
+      20288,
+      20289,
+      20290,
+      20291,
+      20292,
+      20293,
+      21084
+    ],
+    "passive": false,
+    "key": "paladin_20154",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of Wisdom",
+    "class": "PALADIN",
+    "ids": [
+      20166,
+      20356,
+      20357
+    ],
+    "passive": false,
+    "key": "paladin_20166",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Seal of the Crusader",
+    "class": "PALADIN",
+    "ids": [
+      20162,
+      20305,
+      20306,
+      20307,
+      20308,
+      21082
+    ],
+    "passive": false,
+    "key": "paladin_20162",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Sense Undead",
+    "class": "PALADIN",
+    "ids": [
+      5502
+    ],
+    "passive": false,
+    "key": "paladin_5502",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Shadow Resistance Aura",
+    "class": "PALADIN",
+    "ids": [
+      19876,
+      19895,
+      19896
+    ],
+    "passive": false,
+    "key": "paladin_19876",
+    "cast_seconds": 0
+  },
+  {
+    "name": "Summon Charger",
+    "class": "PALADIN",
+    "ids": [
+      23214
+    ],
+    "passive": false,
+    "key": "paladin_23214",
+    "cast_seconds": 3.0
+  },
+  {
+    "name": "Summon Warhorse",
+    "class": "PALADIN",
+    "ids": [
+      13819
+    ],
+    "passive": false,
+    "key": "paladin_13819",
+    "cast_seconds": 3.0
+  },
+  {
+    "name": "Turn Undead",
+    "class": "PALADIN",
+    "ids": [
+      2878,
+      5627,
+      10326
+    ],
+    "passive": false,
+    "key": "paladin_2878",
+    "cast_seconds": 1.5
+  },
+  {
+    "name": "Amplify Magic",
+    "class": "MAGE",
+    "ids": [
+      1008,
+      8455,
+      10169,
+      10170
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_1008",
+    "name_ja": "魔法増幅"
+  },
+  {
+    "name": "Arcane Blast",
+    "class": "MAGE",
+    "ids": [
+      400574,
+      1239696,
+      1239697,
+      1239699,
+      1239700
+    ],
+    "passive": false,
+    "cast_seconds": 1.5,
+    "channeled": false,
+    "key": "mage_400574",
+    "name_ja": "アーケイン・ブラスト"
+  },
+  {
+    "name": "Arcane Explosion",
+    "class": "MAGE",
+    "ids": [
+      1449,
+      8437,
+      8438,
+      8439,
+      10201,
+      10202
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_1449",
+    "name_ja": "アーケイン・エクスプロージョン"
+  },
+  {
+    "name": "Arcane Intellect",
+    "class": "MAGE",
+    "ids": [
+      1459,
+      1460,
+      1461,
+      10156,
+      10157
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_1459",
+    "name_ja": "アーケイン・インテレクト"
+  },
+  {
+    "name": "Arcane Missiles",
+    "class": "MAGE",
+    "ids": [
+      5143,
+      5144,
+      5145,
+      8416,
+      8417,
+      10211,
+      10212
+    ],
+    "passive": false,
+    "cast_seconds": 5.0,
+    "channeled": true,
+    "key": "mage_5143",
+    "name_ja": "アーケイン・ミサイル"
+  },
+  {
+    "name": "Arcane Power",
+    "class": "MAGE",
+    "ids": [
+      12042
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_12042",
+    "name_ja": "アーケイン・パワー"
+  },
+  {
+    "name": "Arcane Wrath",
+    "class": "MAGE",
+    "ids": [
+      1326079,
+      1326080,
+      1326081,
+      1326082
+    ],
+    "passive": false,
+    "cast_seconds": 3.5,
+    "channeled": false,
+    "key": "mage_1326079",
+    "name_ja": "アーケイン・ラス"
+  },
+  {
+    "name": "Blast Wave",
+    "class": "MAGE",
+    "ids": [
+      11113,
+      13018,
+      13019,
+      13020,
+      13021
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_11113",
+    "name_ja": "ブラスト・ウェーブ"
+  },
+  {
+    "name": "Blink",
+    "class": "MAGE",
+    "ids": [
+      1953
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_1953",
+    "name_ja": "ブリンク"
+  },
+  {
+    "name": "Blizzard",
+    "class": "MAGE",
+    "ids": [
+      10,
+      6141,
+      8427,
+      10185,
+      10186,
+      10187
+    ],
+    "passive": false,
+    "cast_seconds": 8.0,
+    "channeled": true,
+    "key": "mage_10",
+    "name_ja": "ブリザード"
+  },
+  {
+    "name": "Cold Snap",
+    "class": "MAGE",
+    "ids": [
+      12472
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_12472",
+    "name_ja": "コールド・スナップ"
+  },
+  {
+    "name": "Comprehend Scroll",
+    "class": "MAGE",
+    "ids": [
+      1296017
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_1296017",
+    "name_ja": "巻物解読"
+  },
+  {
+    "name": "Cone of Cold",
+    "class": "MAGE",
+    "ids": [
+      120,
+      8492,
+      10159,
+      10160,
+      10161
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_120",
+    "name_ja": "コーン・オブ・コールド"
+  },
+  {
+    "name": "Conjure Food",
+    "class": "MAGE",
+    "ids": [
+      587,
+      597,
+      990,
+      6129,
+      10144,
+      10145
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_587",
+    "name_ja": "食料作成"
+  },
+  {
+    "name": "Conjure Mana Agate",
+    "class": "MAGE",
+    "ids": [
+      759
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_759",
+    "name_ja": "マナ・アゲート作成"
+  },
+  {
+    "name": "Conjure Mana Citrine",
+    "class": "MAGE",
+    "ids": [
+      10053
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_10053",
+    "name_ja": "マナ・シトリン作成"
+  },
+  {
+    "name": "Conjure Mana Jade",
+    "class": "MAGE",
+    "ids": [
+      3552
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_3552",
+    "name_ja": "マナ・ジェイド作成"
+  },
+  {
+    "name": "Conjure Mana Ruby",
+    "class": "MAGE",
+    "ids": [
+      10054
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_10054",
+    "name_ja": "マナ・ルビー作成"
+  },
+  {
+    "name": "Conjure Water",
+    "class": "MAGE",
+    "ids": [
+      5504,
+      5505,
+      5506,
+      6127,
+      10138,
+      10139,
+      10140
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_5504",
+    "name_ja": "飲料作成"
+  },
+  {
+    "name": "Counterspell",
+    "class": "MAGE",
+    "ids": [
+      2139
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_2139",
+    "name_ja": "カウンタースペル"
+  },
+  {
+    "name": "Dampen Magic",
+    "class": "MAGE",
+    "ids": [
+      604,
+      8450,
+      8451,
+      10173,
+      10174
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_604",
+    "name_ja": "魔法抑制"
+  },
+  {
+    "name": "Evocation",
+    "class": "MAGE",
+    "ids": [
+      12051
+    ],
+    "passive": false,
+    "cast_seconds": 8.0,
+    "channeled": true,
+    "key": "mage_12051",
+    "name_ja": "イヴォケーション"
+  },
+  {
+    "name": "Fire Blast",
+    "class": "MAGE",
+    "ids": [
+      2136,
+      2137,
+      2138,
+      8412,
+      8413,
+      10197,
+      10199
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_2136",
+    "name_ja": "ファイア・ブラスト"
+  },
+  {
+    "name": "Fire Ward",
+    "class": "MAGE",
+    "ids": [
+      543,
+      8457,
+      8458,
+      10223,
+      10225
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_543",
+    "name_ja": "炎の結界"
+  },
+  {
+    "name": "Fireball",
+    "class": "MAGE",
+    "ids": [
+      133,
+      143,
+      145,
+      3140,
+      8400,
+      8401,
+      8402,
+      10148,
+      10149,
+      10150,
+      10151
+    ],
+    "passive": false,
+    "cast_seconds": 3.5,
+    "channeled": false,
+    "key": "mage_133",
+    "name_ja": "ファイアボール"
+  },
+  {
+    "name": "Flamestrike",
+    "class": "MAGE",
+    "ids": [
+      2120,
+      2121,
+      8422,
+      8423,
+      10215,
+      10216
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_2120",
+    "name_ja": "フレイムストライク"
+  },
+  {
+    "name": "Frost Armor",
+    "class": "MAGE",
+    "ids": [
+      168,
+      7300,
+      7301
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_168",
+    "name_ja": "フロスト・アーマー"
+  },
+  {
+    "name": "Frost Nova",
+    "class": "MAGE",
+    "ids": [
+      122,
+      865,
+      6131,
+      10230
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_122",
+    "name_ja": "フロスト・ノヴァ"
+  },
+  {
+    "name": "Frost Ward",
+    "class": "MAGE",
+    "ids": [
+      6143,
+      8461,
+      8462,
+      10177
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_6143",
+    "name_ja": "氷の結界"
+  },
+  {
+    "name": "Frostbolt",
+    "class": "MAGE",
+    "ids": [
+      116,
+      205,
+      837,
+      7322,
+      8406,
+      8407,
+      8408,
+      10179,
+      10180,
+      10181
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_116",
+    "name_ja": "フロストボルト"
+  },
+  {
+    "name": "Frostfire Bolt",
+    "class": "MAGE",
+    "ids": [
+      401502,
+      1237312,
+      1237313
+    ],
+    "passive": false,
+    "cast_seconds": 3.0,
+    "channeled": false,
+    "key": "mage_401502",
+    "name_ja": "フロストファイア・ボルト"
+  },
+  {
+    "name": "Ice Armor",
+    "class": "MAGE",
+    "ids": [
+      7302,
+      7320,
+      10219,
+      10220
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_7302",
+    "name_ja": "アイス・アーマー"
+  },
+  {
+    "name": "Ice Barrier",
+    "class": "MAGE",
+    "ids": [
+      11426,
+      13031,
+      13032,
+      13033
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_11426",
+    "name_ja": "アイス・バリア"
+  },
+  {
+    "name": "Ice Block",
+    "class": "MAGE",
+    "ids": [
+      11958
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_11958",
+    "name_ja": "アイス・ブロック"
+  },
+  {
+    "name": "Ice Lance",
+    "class": "MAGE",
+    "ids": [
+      400640,
+      1240044,
+      1240045,
+      1240046,
+      1240047,
+      1312002
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_400640",
+    "name_ja": "アイス・ランス"
+  },
+  {
+    "name": "Mage Armor",
+    "class": "MAGE",
+    "ids": [
+      6117,
+      22782,
+      22783
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_6117",
+    "name_ja": "メイジ・アーマー"
+  },
+  {
+    "name": "Mana Shield",
+    "class": "MAGE",
+    "ids": [
+      1463,
+      8494,
+      8495,
+      10191,
+      10192,
+      10193
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_1463",
+    "name_ja": "マナ・シールド"
+  },
+  {
+    "name": "Polymorph",
+    "class": "MAGE",
+    "ids": [
+      118,
+      12824,
+      12825,
+      12826,
+      28272
+    ],
+    "passive": false,
+    "cast_seconds": 1.5,
+    "channeled": false,
+    "key": "mage_118",
+    "name_ja": "ポリモーフ"
+  },
+  {
+    "name": "Portal: Darnassus",
+    "class": "MAGE",
+    "ids": [
+      11419
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_11419",
+    "name_ja": "ポータル：ダーナサス"
+  },
+  {
+    "name": "Portal: Ironforge",
+    "class": "MAGE",
+    "ids": [
+      11416
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_11416",
+    "name_ja": "ポータル：アイアンフォージ"
+  },
+  {
+    "name": "Portal: Orgrimmar",
+    "class": "MAGE",
+    "ids": [
+      11417
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_11417",
+    "name_ja": "ポータル：オーグリマー"
+  },
+  {
+    "name": "Portal: Stormwind",
+    "class": "MAGE",
+    "ids": [
+      10059
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_10059",
+    "name_ja": "ポータル：ストームウィンド"
+  },
+  {
+    "name": "Portal: Thunder Bluff",
+    "class": "MAGE",
+    "ids": [
+      11420
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_11420",
+    "name_ja": "ポータル：サンダー・ブラフ"
+  },
+  {
+    "name": "Portal: Undercity",
+    "class": "MAGE",
+    "ids": [
+      11418
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_11418",
+    "name_ja": "ポータル：アンダーシティ"
+  },
+  {
+    "name": "Presence of Mind",
+    "class": "MAGE",
+    "ids": [
+      12043
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_12043",
+    "name_ja": "プレゼンス・オブ・マインド"
+  },
+  {
+    "name": "Pyroblast",
+    "class": "MAGE",
+    "ids": [
+      11366,
+      12505,
+      12522,
+      12523,
+      12524,
+      12525,
+      12526,
+      18809
+    ],
+    "passive": false,
+    "cast_seconds": 6.0,
+    "channeled": false,
+    "key": "mage_11366",
+    "name_ja": "パイロブラスト"
+  },
+  {
+    "name": "Remove Lesser Curse",
+    "class": "MAGE",
+    "ids": [
+      475
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_475",
+    "name_ja": "解呪"
+  },
+  {
+    "name": "Scorch",
+    "class": "MAGE",
+    "ids": [
+      2948,
+      8444,
+      8445,
+      8446,
+      10205,
+      10206,
+      10207
+    ],
+    "passive": false,
+    "cast_seconds": 1.5,
+    "channeled": false,
+    "key": "mage_2948",
+    "name_ja": "スコーチ"
+  },
+  {
+    "name": "Slow Fall",
+    "class": "MAGE",
+    "ids": [
+      130
+    ],
+    "passive": false,
+    "cast_seconds": 0.0,
+    "channeled": false,
+    "key": "mage_130",
+    "name_ja": "スローフォール"
+  },
+  {
+    "name": "Teleport: Darnassus",
+    "class": "MAGE",
+    "ids": [
+      3565
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_3565",
+    "name_ja": "テレポート：ダーナサス"
+  },
+  {
+    "name": "Teleport: Ironforge",
+    "class": "MAGE",
+    "ids": [
+      3562
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_3562",
+    "name_ja": "テレポート：アイアンフォージ"
+  },
+  {
+    "name": "Teleport: Orgrimmar",
+    "class": "MAGE",
+    "ids": [
+      3567
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_3567",
+    "name_ja": "テレポート：オーグリマー"
+  },
+  {
+    "name": "Teleport: Stormwind",
+    "class": "MAGE",
+    "ids": [
+      3561
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_3561",
+    "name_ja": "テレポート：ストームウィンド"
+  },
+  {
+    "name": "Teleport: Thunder Bluff",
+    "class": "MAGE",
+    "ids": [
+      3566
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_3566",
+    "name_ja": "テレポート：サンダー・ブラフ"
+  },
+  {
+    "name": "Teleport: Undercity",
+    "class": "MAGE",
+    "ids": [
+      3563
+    ],
+    "passive": false,
+    "cast_seconds": 10.0,
+    "channeled": false,
+    "key": "mage_3563",
+    "name_ja": "テレポート：アンダーシティ"
+  },
+  {
+    "key": "priest_17",
+    "class": "PRIEST",
+    "name": "Power Word: Shield",
+    "name_ja": "パワー・ワード：シールド",
+    "ids": [
+      17,
+      592,
+      600,
+      3747,
+      6065,
+      6066,
+      10898,
+      10899,
+      10900,
+      10901
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_139",
+    "class": "PRIEST",
+    "name": "Renew",
+    "name_ja": "リニュー",
+    "ids": [
+      139,
+      6074,
+      6075,
+      6076,
+      6077,
+      6078,
+      10927,
+      10928,
+      10929
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_453",
+    "class": "PRIEST",
+    "name": "Mind Soothe",
+    "name_ja": "マインド・スーズ",
+    "ids": [
+      453,
+      8192,
+      10953
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_527",
+    "class": "PRIEST",
+    "name": "Dispel Magic",
+    "name_ja": "ディスペル・マジック",
+    "ids": [
+      527,
+      988
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_528",
+    "class": "PRIEST",
+    "name": "Cure Disease",
+    "name_ja": "キュア・ディジーズ",
+    "ids": [
+      528
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_552",
+    "class": "PRIEST",
+    "name": "Abolish Disease",
+    "name_ja": "アボリッシュ・ディジーズ",
+    "ids": [
+      552
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_585",
+    "class": "PRIEST",
+    "name": "Smite",
+    "name_ja": "スマイト",
+    "ids": [
+      585,
+      591,
+      598,
+      984,
+      1004,
+      6060,
+      10933,
+      10934
+    ],
+    "cast_seconds": 2.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_586",
+    "class": "PRIEST",
+    "name": "Fade",
+    "name_ja": "フェード",
+    "ids": [
+      586,
+      9578,
+      9579,
+      9592,
+      10941,
+      10942
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_588",
+    "class": "PRIEST",
+    "name": "Inner Fire",
+    "name_ja": "インナー・ファイア",
+    "ids": [
+      588,
+      602,
+      1006,
+      7128,
+      10951,
+      10952
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_589",
+    "class": "PRIEST",
+    "name": "Shadow Word: Pain",
+    "name_ja": "シャドウ・ワード：ペイン",
+    "ids": [
+      589,
+      594,
+      970,
+      992,
+      2767,
+      10892,
+      10893,
+      10894
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_596",
+    "class": "PRIEST",
+    "name": "Prayer of Healing",
+    "name_ja": "プレイヤー・オブ・ヒーリング",
+    "ids": [
+      596,
+      996,
+      10960,
+      10961
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_605",
+    "class": "PRIEST",
+    "name": "Mind Control",
+    "name_ja": "マインド・コントロール",
+    "ids": [
+      605,
+      10911,
+      10912
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_976",
+    "class": "PRIEST",
+    "name": "Shadow Protection",
+    "name_ja": "シャドウ・プロテクション",
+    "ids": [
+      976,
+      10957,
+      10958
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1243",
+    "class": "PRIEST",
+    "name": "Power Word: Fortitude",
+    "name_ja": "パワー・ワード：フォーティチュード",
+    "ids": [
+      1243,
+      1244,
+      1245,
+      2791,
+      10937,
+      10938
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1706",
+    "class": "PRIEST",
+    "name": "Levitate",
+    "name_ja": "レヴィテート",
+    "ids": [
+      1706
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2006",
+    "class": "PRIEST",
+    "name": "Resurrection",
+    "name_ja": "リザレクション",
+    "ids": [
+      2006,
+      2010,
+      10880,
+      10881,
+      20770
+    ],
+    "cast_seconds": 10.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2050",
+    "class": "PRIEST",
+    "name": "Lesser Heal",
+    "name_ja": "レッサー・ヒール",
+    "ids": [
+      2050,
+      2052,
+      2053
+    ],
+    "cast_seconds": 2.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2054",
+    "class": "PRIEST",
+    "name": "Heal",
+    "name_ja": "ヒール",
+    "ids": [
+      2054,
+      2055,
+      6063,
+      6064
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2060",
+    "class": "PRIEST",
+    "name": "Greater Heal",
+    "name_ja": "グレーター・ヒール",
+    "ids": [
+      2060,
+      10963,
+      10964,
+      10965
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2061",
+    "class": "PRIEST",
+    "name": "Flash Heal",
+    "name_ja": "フラッシュ・ヒール",
+    "ids": [
+      2061,
+      9472,
+      9473,
+      9474,
+      10915,
+      10916,
+      10917
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2096",
+    "class": "PRIEST",
+    "name": "Mind Vision",
+    "name_ja": "マインド・ヴィジョン",
+    "ids": [
+      2096,
+      10909
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "priest_2651",
+    "class": "PRIEST",
+    "name": "Elune's Grace",
+    "name_ja": "エルーンの加護",
+    "ids": [
+      2651
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2652",
+    "class": "PRIEST",
+    "name": "Touch of Weakness",
+    "name_ja": "タッチ・オブ・ウィークネス",
+    "ids": [
+      2652,
+      19261,
+      19262,
+      19264,
+      19265,
+      19266
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_2944",
+    "class": "PRIEST",
+    "name": "Devouring Plague",
+    "name_ja": "Devouring Plague",
+    "ids": [
+      2944,
+      19276,
+      19277,
+      19278,
+      19279,
+      19280
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_6346",
+    "class": "PRIEST",
+    "name": "Fear Ward",
+    "name_ja": "Fear Ward",
+    "ids": [
+      6346
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_8092",
+    "class": "PRIEST",
+    "name": "Mind Blast",
+    "name_ja": "マインド・ブラスト",
+    "ids": [
+      8092,
+      8102,
+      8103,
+      8104,
+      8105,
+      8106,
+      10945,
+      10946,
+      10947
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_8122",
+    "class": "PRIEST",
+    "name": "Psychic Scream",
+    "name_ja": "サイキック・スクリーム",
+    "ids": [
+      8122,
+      8124,
+      10888,
+      10890
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_8129",
+    "class": "PRIEST",
+    "name": "Mana Burn",
+    "name_ja": "マナ・バーン",
+    "ids": [
+      8129,
+      8131,
+      10874,
+      10875,
+      10876
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_9035",
+    "class": "PRIEST",
+    "name": "Hex of Weakness",
+    "name_ja": "ヘックス・オブ・ウィークネス",
+    "ids": [
+      9035,
+      19281,
+      19282,
+      19283,
+      19284,
+      19285
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_9484",
+    "class": "PRIEST",
+    "name": "Shackle Undead",
+    "name_ja": "シャックル・アンデッド",
+    "ids": [
+      9484,
+      9485,
+      10955
+    ],
+    "cast_seconds": 1.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_10060",
+    "class": "PRIEST",
+    "name": "Power Infusion",
+    "name_ja": "パワー・インフュージョン",
+    "ids": [
+      10060
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_10797",
+    "class": "PRIEST",
+    "name": "Starshards",
+    "name_ja": "スターシャード",
+    "ids": [
+      10797,
+      19296,
+      19299,
+      19302,
+      19303,
+      19304,
+      19305
+    ],
+    "cast_seconds": 6.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "priest_13896",
+    "class": "PRIEST",
+    "name": "Feedback",
+    "name_ja": "フィードバック",
+    "ids": [
+      13896,
+      19271,
+      19273,
+      19274,
+      19275
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_13908",
+    "class": "PRIEST",
+    "name": "Desperate Prayer",
+    "name_ja": "デスパレート・プレイヤー",
+    "ids": [
+      13908,
+      19236,
+      19238,
+      19240,
+      19241,
+      19242,
+      19243
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_14751",
+    "class": "PRIEST",
+    "name": "Inner Focus",
+    "name_ja": "インナー・フォーカス",
+    "ids": [
+      14751
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_14752",
+    "class": "PRIEST",
+    "name": "Divine Spirit",
+    "name_ja": "ディヴァイン・スピリット",
+    "ids": [
+      14752,
+      14818,
+      14819,
+      27841
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_14914",
+    "class": "PRIEST",
+    "name": "Holy Fire",
+    "name_ja": "ホーリー・ファイア",
+    "ids": [
+      14914,
+      15261,
+      15262,
+      15263,
+      15264,
+      15265,
+      15266,
+      15267
+    ],
+    "cast_seconds": 3.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_15237",
+    "class": "PRIEST",
+    "name": "Holy Nova",
+    "name_ja": "ホーリー・ノヴァ",
+    "ids": [
+      15237,
+      15430,
+      15431,
+      27799,
+      27800,
+      27801
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_15286",
+    "class": "PRIEST",
+    "name": "Vampiric Embrace",
+    "name_ja": "ヴァンピリック・エンブレイス",
+    "ids": [
+      15286
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_15407",
+    "class": "PRIEST",
+    "name": "Mind Flay",
+    "name_ja": "マインド・フレイ",
+    "ids": [
+      15407,
+      17311,
+      17312,
+      17313,
+      17314,
+      18807
+    ],
+    "cast_seconds": 3.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "priest_15473",
+    "class": "PRIEST",
+    "name": "Shadowform",
+    "name_ja": "シャドウフォーム",
+    "ids": [
+      15473
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_15487",
+    "class": "PRIEST",
+    "name": "Silence",
+    "name_ja": "サイレンス",
+    "ids": [
+      15487
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_18137",
+    "class": "PRIEST",
+    "name": "Shadowguard",
+    "name_ja": "シャドウガード",
+    "ids": [
+      18137,
+      19308,
+      19309,
+      19310,
+      19311,
+      19312
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_27681",
+    "class": "PRIEST",
+    "name": "Prayer of Spirit",
+    "name_ja": "プレイヤー・オブ・スピリット",
+    "ids": [
+      27681
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_401859",
+    "class": "PRIEST",
+    "name": "Prayer of Mending",
+    "name_ja": "Prayer of Mending",
+    "ids": [
+      401859,
+      1240826,
+      1240827
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_402174",
+    "class": "PRIEST",
+    "name": "Penance",
+    "name_ja": "Penance",
+    "ids": [
+      402174,
+      1240720,
+      1240721,
+      1316995
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": true
+  },
+  {
+    "key": "priest_1277324",
+    "class": "PRIEST",
+    "name": "Dark Sacrifice",
+    "name_ja": "ダーク・サクリファイス",
+    "ids": [
+      1277324,
+      1277325,
+      1277326,
+      1277327,
+      1277328
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1277331",
+    "class": "PRIEST",
+    "name": "Chastise",
+    "name_ja": "チャスタイズ",
+    "ids": [
+      1277331,
+      1277332,
+      1277333,
+      1277334,
+      1277335
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1277370",
+    "class": "PRIEST",
+    "name": "Divine Grace",
+    "name_ja": "ディヴァイン・グレイス",
+    "ids": [
+      1277370,
+      1277371,
+      1277372,
+      1277374,
+      1277376,
+      1277377,
+      1277378
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1277455",
+    "class": "PRIEST",
+    "name": "Confounding Flash",
+    "name_ja": "コンファウンディング・フラッシュ",
+    "ids": [
+      1277455
+    ],
+    "cast_seconds": 0.5,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1277462",
+    "class": "PRIEST",
+    "name": "Contingency Plan",
+    "name_ja": "コンティンジェンシー・プラン",
+    "ids": [
+      1277462,
+      1277634,
+      1277638,
+      1277639,
+      1277640
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  },
+  {
+    "key": "priest_1309595",
+    "class": "PRIEST",
+    "name": "Shadow Word: Death",
+    "name_ja": "Shadow Word: Death",
+    "ids": [
+      1309595,
+      1309633,
+      1309635,
+      1309636
+    ],
+    "cast_seconds": 0.0,
+    "passive": false,
+    "channeled": false
+  }
+]

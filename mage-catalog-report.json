@@ -1,0 +1,13 @@
+{
+  "built_at": "2026-11-16T04:24:29.683095+00:00",
+  "source": "C:\\Program Files (x86)\\World of Warcraft\\_forever_\\Interface\\AddOns\\WhatsTraining\\Classes\\Camelot\\Mage.lua",
+  "tooltip_url_pattern": "https://nether.wowhead.com/forever/tooltip/spell/{id}",
+  "mage_abilities": 55,
+  "mage_rank_ids": 185,
+  "mage_passives": 0,
+  "mage_japanese_labels": 55,
+  "paladin_abilities_preserved": 50,
+  "fetch_errors": [],
+  "skipped_extra_ids": [],
+  "scope": "Initial trainer/rank-prerequisite snapshot plus tooltip-verified starting spells and selected active talents; learned spellbook and current-level candidates/talent imports in game remain authoritative. Japanese labels are descriptive translations, not an official Japanese WoW localization."
+}

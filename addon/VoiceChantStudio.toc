@@ -1,0 +1,10 @@
+## Interface: 16001
+## Title: Voice Chant Studio - Voice Effects
+## Notes: Plays your recorded chants alongside original game audio. /voicechant
+## Author: Eric
+## Version: 0.5.0
+## SavedVariables: VoiceChantStudioDB
+Catalog.lua
+Config.lua
+VoiceChantStudio.lua
+Options.lua
