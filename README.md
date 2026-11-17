@@ -10,7 +10,7 @@ All **9 original classes** are included (491 entries). **Create spell link** let
 
 Successful cast / Instant abilities support **1–5 voices**, chosen randomly with equal probability among finished enabled clips. Repeats are allowed. Start/cancel retain one voice each. Dedicated in-game volume: `/vcs`.
 
-Validation: 66 automated tests passed for v0.6.1 (synthetic audio and simulated events). Final v0.6.1 live-game playback and standalone GUI were not verified. Source takes and current game account data are not included.
+Validation: 66 automated tests passed for v0.6.1 (synthetic audio and simulated events). Windows EXE startup, title-bar icon and fantasy interface were visually checked. WoW icon rendering and live-game playback still need verification. Source takes and current game account data are not included.
 
 # Voice Chant Studio v0.6.1 — Windows / WoW Forever
 
