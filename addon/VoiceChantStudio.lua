@@ -2,6 +2,15 @@
 local cfg = VoiceChantConfig or {bindings={}, gap=.2, stopOnCancel=true}
 local byID, byName, active, lastPlayed = {}, {}, nil, -100
 local volumeFiles = {}
+local durations={}
+local segmentedFiles={}
+local voices,selectionState,trace = {},{},{}
+local function mode() return VoiceChantStudioDB and VoiceChantStudioDB.playbackMode or (cfg.ducking and 'duck' or 'replace') end
+local function log(text)
+    if not (VoiceChantStudioDB and VoiceChantStudioDB.debug) then return end
+    trace[#trace+1]=string.format('%.2f %s',GetTime(),text)
+    if #trace>60 then table.remove(trace,1) end
+end
 local function getVolume()
     local value = tonumber(VoiceChantStudioDB and VoiceChantStudioDB.volume) or 100
     if value ~= value then value = 100 end
@@ -29,6 +38,9 @@ if UnitClass then _, playerClass = UnitClass("player") end
 for _, row in ipairs(cfg.bindings or {}) do
     -- Older exports did not include class. Keep those working as well.
     if not row.class or not playerClass or row.class == playerClass then
+    durations[row.file]=tonumber(row.duration) or 600
+    if row.segments then segmentedFiles[row.file]={segments=row.segments,step=row.segmentStep or .25,duration=durations[row.file]} end
+    for _,path in pairs(row.volumes or {}) do durations[path]=durations[row.file] end
     if row.volumes then volumeFiles[row.file] = row.volumes end
     for _, id in ipairs(row.ids) do
         byID[id] = byID[id] or {}; bindRow(byID[id],row)
@@ -51,25 +63,79 @@ local function lookup(id,context)
     local chosen={start=binding.start,success=binding.success,cancel=binding.cancel}
     for _,phase in ipairs({'start','success','cancel'}) do
         for _,rule in ipairs(binding.rules) do
-            if rule[phase] and VoiceChantConditions.Matches(rule.condition,context) then chosen[phase]=rule[phase];break end
+            if rule[phase] and VoiceChantConditions.Matches(rule.condition,context) then chosen[phase]=rule[phase];chosen.matchedTag=rule.condition.tag;break end
         end
     end
     return chosen
 end
-local function stop()
-    if active and active.handle then StopSound(active.handle, 100) end
-    active = nil
+local function stop(cast)
+    for i=#voices,1,-1 do
+        if not cast or voices[i].cast==cast then
+            local voice=voices[i];voice.ended=true
+            if voice.handles then for handle in pairs(voice.handles) do StopSound(handle,20) end
+            elseif voice.handle then StopSound(voice.handle,100) end
+            table.remove(voices,i)
+        end
+    end
+    active=voices[#voices]
+end
+local function duckVoice(file,id,guid,phase,cast)
+    local source=segmentedFiles[file]
+    if not source then say('Ducking needs segmented audio. Export again from editor v0.8.');log('SKIP missing duck segments');return end
+    if cast then stop(cast) end
+    while #voices>=3 do
+        local oldest=table.remove(voices,1);oldest.ended=true
+        if oldest.handles then for handle in pairs(oldest.handles) do StopSound(handle,20) end
+        elseif oldest.handle then StopSound(oldest.handle,20) end
+    end
+    local voice={id=id,guid=guid,phase=phase,cast=cast,handles={},started=GetTime()};voices[#voices+1]=voice;active=voice
+    local tick
+    tick=function(nextIndex)
+        if voice.ended then return end
+        local index=math.max(nextIndex,math.floor((GetTime()-voice.started)/source.step+.0001)+1)
+        local chunk=source.segments[index]
+        if not chunk then
+            voice.ended=true
+            for i=#voices,1,-1 do if voices[i]==voice then table.remove(voices,i) end end
+            active=voices[#voices];return
+        end
+        local rank
+        for i,v in ipairs(voices) do if v==voice then rank=#voices-i+1 end end
+        if not rank then return end
+        local factors={1,.5,.2};local level=math.floor(getVolume()*(factors[rank] or 0)/10+.5)*10
+        if level>0 then
+            local path=level==100 and chunk.file or chunk.volumes and chunk.volumes[level]
+            if path then
+                local ok,handle=PlaySoundFile(path,'Dialog')
+                if ok and handle then
+                    voice.handles[handle]=true
+                    C_Timer.After(source.step+.06,function() voice.handles[handle]=nil end)
+                else log('SEGMENT FAILED '..tostring(index)) end
+            end
+        end
+        local due=voice.started+index*source.step
+        C_Timer.After(math.max(.001,due-GetTime()),function() tick(index+1) end)
+    end
+    tick(1);lastPlayed=GetTime();log('DUCK PLAY '..tostring(id));return true
 end
 local function play(file, id, guid, phase, cast)
-    if VoiceChantStudioDB and VoiceChantStudioDB.muted then return end
-    if not file then return end
-    if GetTime()-lastPlayed < (cfg.gap or .2) and phase ~= 'cancel' then return end
+    if VoiceChantStudioDB and VoiceChantStudioDB.muted then log('SKIP muted');return end
+    if not file then log('SKIP no voice for '..tostring(phase));return end
+    if GetTime()-lastPlayed < (cfg.gap or .2) and phase ~= 'cancel' then log('SKIP minimum interval');return end
     local volume = getVolume()
-    if volume == 0 then return end
+    if volume == 0 then log('SKIP volume 0');return end
     if type(file)=='table' then
         if #file==0 then return end
-        file=file[#file==1 and 1 or math.random(#file)]
+        local choices=file;local previous=selectionState[choices] or 0;local index=1
+        local selection=VoiceChantStudioDB and VoiceChantStudioDB.selectionMode or 'random'
+        if #choices>1 then
+            if selection=='sequence' then index=previous%#choices+1
+            elseif selection=='norepeat' and previous>0 then index=math.random(#choices-1);if index>=previous then index=index+1 end
+            else index=math.random(#choices) end
+        end
+        selectionState[choices]=index;file=choices[index]
     end
+    if mode()=='duck' then return duckVoice(file,id,guid,phase,cast) end
     if volume < 100 then
         local choices = volumeFiles[file]
         if not choices or not choices[volume] then
@@ -79,13 +145,22 @@ local function play(file, id, guid, phase, cast)
         file = choices[volume]
     end
     if GetTime()-lastPlayed < (cfg.gap or .2) and phase ~= "cancel" then return end
-    stop()
+    if mode()=='overlap' and cast then stop(cast) else stop() end
+    if #voices>=8 then StopSound(voices[1].handle,100);table.remove(voices,1) end
     local ok, handle = PlaySoundFile(file, "Dialog")
     if ok then
         active = {handle=handle, id=id, guid=guid, phase=phase, cast=cast}
+        voices[#voices+1]=active
+        local value=active
+        C_Timer.After((durations[file] or 600)+.1,function()
+            for i=#voices,1,-1 do if voices[i]==value then table.remove(voices,i) end end
+            active=voices[#voices]
+        end)
+        log('PLAY '..tostring(id)..' '..tostring(phase)..' '..file)
         lastPlayed = GetTime()
         return true
     else
+        log('PLAY FAILED '..file)
         if GetCVar and (GetCVar("Sound_EnableAllSound") == "0" or GetCVar("Sound_EnableDialog") == "0") then
             say("Enable Sound and Dialog in Options > Audio. Voice Chant Studio uses Dialog.")
         else
@@ -133,7 +208,7 @@ end
 local function cancel(cast, binding)
     if cast.cancelled then return end
     cast.cancelled, cast.ended = true, true
-    if cfg.stopOnCancel and active and active.cast == cast then stop() end
+    if cfg.stopOnCancel then stop(cast) end
     play(binding.cancel, cast.id, cast.guid, "cancel", cast)
 end
 frame:SetScript("OnEvent", function(_, event, unit, guid, id, extra)
@@ -150,8 +225,11 @@ frame:SetScript("OnEvent", function(_, event, unit, guid, id, extra)
         return
     end
     if not readable(unit) or unit ~= "player" or not readable(id) or not readable(guid) then return end
+    log(event..' '..tostring(id))
+    if mode()=='replace' and active and (event=='UNIT_SPELLCAST_START' or event=='UNIT_SPELLCAST_CHANNEL_START' or event=='UNIT_SPELLCAST_SUCCEEDED') and ((guid and active.guid~=guid) or (not guid and active.id~=id)) then stop() end
     local binding = lookup(id)
     if not binding then
+        log('NO VOICE '..tostring(id))
         if event=='UNIT_SPELLCAST_SUCCEEDED' and VoiceChantConditions then VoiceChantConditions.Complete(id,guid) end
         return
     end
@@ -159,6 +237,7 @@ frame:SetScript("OnEvent", function(_, event, unit, guid, id, extra)
     if VoiceChantConditions then
         cast.context=cast.context or VoiceChantConditions.Snapshot(id,guid)
         binding=lookup(id,cast.context)
+        if binding.matchedTag then log('LINK '..binding.matchedTag) end
     end
     if event == "UNIT_SPELLCAST_START" or event == "UNIT_SPELLCAST_CHANNEL_START" then
         if event == "UNIT_SPELLCAST_CHANNEL_START" then cast.channel = true; channelEnd(cast) end
@@ -176,7 +255,9 @@ frame:SetScript("OnEvent", function(_, event, unit, guid, id, extra)
         channelEnd(cast)
         if binding.success then
             -- A completion clip deliberately replaces this addon's preparation clip only.
-            if active and active.cast == cast then stop(); lastPlayed=-100 end
+            local same=false
+            for _,voice in ipairs(voices) do if voice.cast==cast then same=true end end
+            if same then stop(cast); lastPlayed=-100 end
             cast.successPlayed = play(binding.success, id, guid, "success", cast) or false
         end
     elseif event == "UNIT_SPELLCAST_FAILED" or event == "UNIT_SPELLCAST_INTERRUPTED" then
@@ -300,11 +381,28 @@ local function setVolume(value)
     if VoiceChantStudioOptions then VoiceChantStudioOptions.Refresh() end
     return true
 end
-VoiceChantStudioAPI = {GetVolume=getVolume, SetVolume=setVolume, Test=testVoice, Stop=stop}
+local function setPlayback(value)
+    if value~='replace' and value~='overlap' and value~='duck' then return false end
+    VoiceChantStudioDB=VoiceChantStudioDB or {};VoiceChantStudioDB.playbackMode=value;stop();return true
+end
+local function setSelection(value)
+    if value~='random' and value~='norepeat' and value~='sequence' then return false end
+    VoiceChantStudioDB=VoiceChantStudioDB or {};VoiceChantStudioDB.selectionMode=value;selectionState={};return true
+end
+local function diagnostics()
+    say('Mode: '..mode()..' / '..(VoiceChantStudioDB.selectionMode or 'random')..' / Volume '..getVolume()..'%')
+    say('Debug '..(VoiceChantStudioDB.debug and 'ON' or 'OFF')..'; /vcs debug toggles capture. /vcs test previews a voice.')
+    for i=math.max(1,#trace-11),#trace do say(trace[i]) end
+end
+VoiceChantStudioAPI = {GetVolume=getVolume, SetVolume=setVolume, Test=testVoice, Stop=function() stop() end, GetPlayback=mode, SetPlayback=setPlayback, SetSelection=setSelection, Diagnostics=diagnostics}
 SlashCmdList.VOICECHANTSTUDIO = function(msg)
     msg = (msg or ""):lower():match("^%s*(.-)%s*$")
     VoiceChantStudioDB = VoiceChantStudioDB or {}
     if msg == "mute" then VoiceChantStudioDB.muted=true; stop(); say("Extra voice muted.")
+    elseif msg=='debug' then VoiceChantStudioDB.debug=not VoiceChantStudioDB.debug;diagnostics()
+    elseif msg=='diagnostics' then diagnostics()
+    elseif msg:match('^mode%s+') then setPlayback(msg:match('^mode%s+(.+)$'));diagnostics()
+    elseif msg:match('^variation%s+') then setSelection(msg:match('^variation%s+(.+)$'));diagnostics()
     elseif msg == "unmute" then VoiceChantStudioDB.muted=false; say("Extra voice enabled.")
     elseif msg == "test" then testVoice()
     elseif msg == "settings" or msg == "options" or msg == "volume" then

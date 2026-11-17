@@ -41,10 +41,10 @@ def selected_clips(project,class_name=None,ability_key=None):
         slots=[(e,1,e) for e in EVENTS]+[('success',n,'success:'+str(n)) for n in range(2,count+1)]
         for phase,slot,suffix in slots:
             clip=project.data['clips'].get(key+':'+suffix)
-            if clip and clip.get('ready',True):selected.append((row,phase,slot,clip))
+            if clip and clip.get('ready',True) and clip.get('enabled',True):selected.append((row,phase,slot,clip))
     return selected
 
-def export_voicepack(project,destination,*,class_name=None,ability_key=None,editable=False,title='Voice pack'):
+def export_voicepack(project,destination,*,class_name=None,ability_key=None,editable=False,title='Voice pack',author='',description=''):
     selected=selected_clips(project,class_name,ability_key)
     if not selected:raise ValueError('No finished enabled voices to share')
     rows={r['key']:r for r in project.data['catalog']}
@@ -65,6 +65,7 @@ def export_voicepack(project,destination,*,class_name=None,ability_key=None,edit
             row['condition']['source_key']=remap[source['condition']['source_key']]
         catalog.append(row)
     manifest={'format':FORMAT,'version':1,'title':_text(title),'mode':'editable' if editable else 'finished',
+              'author':_text(author,100) if author else '', 'description':_text(description,500) if description else '',
               'created_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'catalog':catalog,'clips':[],
               'success_variations':{remap[k]:int(project.data.get('success_variations',{}).get(k,1)) for k in needed}}
     destination=Path(destination)
@@ -125,6 +126,8 @@ def read_voicepack(path):
             manifest=json.loads(archive.read('manifest.json'))
             if not isinstance(manifest,dict) or manifest.get('format')!=FORMAT or type(manifest.get('version')) is not int or manifest['version']!=1:raise ValueError('Unsupported voice pack format/version')
             manifest['title']=_text(manifest.get('title'))
+            for field,limit in [('author',100),('description',500)]:
+                if manifest.get(field):_text(manifest[field],limit)
             if manifest.get('mode') not in ('finished','editable'):raise ValueError('Unsupported voice pack mode')
             catalog=manifest.get('catalog');clips=manifest.get('clips');counts=manifest.get('success_variations',{})
             if not isinstance(catalog,list) or not 1<=len(catalog)<=3000 or not isinstance(clips,list) or not 1<=len(clips)<=21000 or not isinstance(counts,dict):raise ValueError('Invalid voice pack manifest')
@@ -211,7 +214,7 @@ def _plan(project,pack,conflict):
             used={r['key'] for r in data['catalog']}
             while key in used:key=stem+'_'+str(n);n+=1
             row['key']=key;data['catalog'].append(row);mapping[original['key']]=key;added+=1
-    applied=[];skipped=0;conflicts=0
+    applied=[];keys=[];skipped=0;conflicts=0
     for clip in incoming['clips']:
         rowkey=mapping[clip['ability']];suffix=clip['phase']+(':'+str(clip['slot']) if clip['slot']>1 else '')
         key=rowkey+':'+suffix
@@ -221,9 +224,16 @@ def _plan(project,pack,conflict):
         item={k:copy.deepcopy(clip[k]) for k in ['start','end','gain','normalize','effects'] if k in clip}
         item.update(source='originals/pack_'+Path(clip['source']).name,ready=True)
         data['clips'][key]=item;applied.append((clip['source'],item['source']))
+        keys.append(key)
         count=incoming.get('success_variations',{}).get(clip['ability'],1)
-        data.setdefault('success_variations',{})[rowkey]=max(data.get('success_variations',{}).get(rowkey,1),count)
-    return data,applied,{'imported':len(applied),'skipped':skipped,'conflicts':conflicts,'added_abilities':added}
+        old_count=data.get('success_variations',{}).get(rowkey,1)
+        new_count=max(old_count,count)
+        for slot in range(old_count+1,new_count+1):
+            old_key=rowkey+':success:'+str(slot)
+            if old_key in project.data['clips'] and old_key!=key:data['clips'][old_key]['enabled']=False
+        item['enabled']=True
+        data.setdefault('success_variations',{})[rowkey]=new_count
+    return data,applied,{'imported':len(applied),'skipped':skipped,'conflicts':conflicts,'added_abilities':added,'keys':keys}
 
 def inspect_import(project,pack):return _plan(project,pack,'keep')[2]
 
@@ -234,6 +244,13 @@ def import_voicepack(project,pack,*,conflict='keep'):
     if not applied:
         report['added_abilities']=0
         return report
+    pack_id=hashlib.sha256(json.dumps(pack.manifest,sort_keys=True).encode()).hexdigest()
+    previous=copy.deepcopy(data.get('voicepacks',{}).get(pack_id,{}).get('previous',{}))
+    installed=copy.deepcopy(data.get('voicepacks',{}).get(pack_id,{}).get('installed',{}))
+    for key in report['keys']:
+        if key not in previous:previous[key]=copy.deepcopy(project.data['clips'].get(key))
+        installed[key]=copy.deepcopy(data['clips'][key])
+    data.setdefault('voicepacks',{})[pack_id]={'title':pack.manifest['title'],'author':pack.manifest.get('author',''),'description':pack.manifest.get('description',''),'previous':previous,'installed':installed}
     copied=[];backup=None
     try:
         for source,relative in set(applied):
@@ -247,6 +264,7 @@ def import_voicepack(project,pack,*,conflict='keep'):
         backup=project.root/('project-before-import-'+str(time.time_ns())+'.json');backup.write_bytes(before)
         atomic_json(project.path,data)
         project.data=data
+        project._disk=project.path.read_bytes()
         report['backup']=str(backup)
         return report
     except Exception:
@@ -254,3 +272,30 @@ def import_voicepack(project,pack,*,conflict='keep'):
         for path in copied:
             if path.is_file():path.unlink()
         raise
+
+def selected_pack(pack,indices):
+    from types import SimpleNamespace
+    if not indices or any(type(i) is not int or not 0<=i<len(pack.manifest['clips']) for i in indices):raise ValueError('Select at least one voice')
+    manifest=copy.deepcopy(pack.manifest);manifest['clips']=[manifest['clips'][i] for i in sorted(set(indices))]
+    rows={r['key']:r for r in manifest['catalog']};needed={c['ability'] for c in manifest['clips']}
+    for key in list(needed):
+        row=rows[key]
+        if row.get('condition'):needed.update([row['base_key'],row['condition']['source_key']])
+    manifest['catalog']=[r for r in manifest['catalog'] if r['key'] in needed]
+    manifest['success_variations']={k:v for k,v in manifest.get('success_variations',{}).items() if k in needed}
+    return SimpleNamespace(manifest=manifest,audio=pack.audio)
+
+def remove_pack(project,pack_id):
+    receipt=project.data.get('voicepacks',{}).get(pack_id)
+    if not receipt:raise ValueError('Choose an installed voice pack')
+    before=copy.deepcopy(project.data);restored=preserved=0
+    for key,installed in receipt['installed'].items():
+        if project.data['clips'].get(key)!=installed:preserved+=1;continue
+        previous=receipt['previous'].get(key)
+        if previous is None:project.data['clips'].pop(key,None)
+        else:project.data['clips'][key]=copy.deepcopy(previous)
+        restored+=1
+    del project.data['voicepacks'][pack_id]
+    try:project.save()
+    except Exception:project.data=before;raise
+    return {'restored':restored,'preserved_edits':preserved}

@@ -6,7 +6,8 @@ def open_effects(ui):
     if ui.controller.busy:return
     if ui.audio is None:
         messagebox.showinfo('Voice FX',ui.bi('先に録音するか音声を読み込んでください。','Record or import a clip first.'));return
-    w=tk.Toplevel(ui.root);w.title('Voice FX / EQ');w.geometry('650x570');w.transient(ui.root)
+    target_key=ui.key();target_project=ui.project
+    w=tk.Toplevel(ui.root);w.title('Voice FX / EQ — '+ui.row['name']);w.geometry('650x570');w.transient(ui.root);w.grab_set()
     form=ttk.Frame(w,padding=20);form.pack(fill='both',expand=True)
     initial=settings(ui.clip.get('effects',{}))
     variables={key:tk.DoubleVar(value=initial[key]) for key in LIMITS}
@@ -32,6 +33,7 @@ def open_effects(ui):
             else:ui.clip['effects']=old
     def apply():
         try:
+            if ui.project is not target_project or ui.key()!=target_key:raise ValueError('The selected voice changed. Reopen Voice FX.')
             ui.clip['effects']=values();ui.ready=False;ui.clip['ready']=False;ui.stash();ui.update_state();w.destroy()
             ui.status.set(ui.bi('音声FXを適用しました。「完成を保存」を押してください。','Effects applied. Click Save finished clip before exporting.'))
         except Exception as error:messagebox.showerror('Voice FX',str(error),parent=w)
@@ -41,3 +43,4 @@ def open_effects(ui):
     ttk.Button(buttons,text=ui.bi('原音設定に戻す','Reset effects'),command=lambda:[variables[k].set(v[2]) for k,v in LIMITS.items()]).pack(side='left')
     ttk.Button(buttons,text=ui.bi('適用','Apply'),command=apply,style='Accent.TButton').pack(side='right')
     ttk.Label(form,text=ui.bi('元の録音は変更しません。FXはアプリで加工し、ゲームでは完成音声のみ再生します。\nビブラート＝音程の揺れ、トレモロ＝音量の揺れ。大きな加工値は声に歪みやにじみが出る場合があります。','Original recordings are preserved. Effects are rendered offline; the game only plays finished files.\nVibrato changes pitch; tremolo changes loudness. Strong settings may introduce artifacts.'),wraplength=605).pack(anchor='w',pady=8)
+    return w

@@ -1,6 +1,6 @@
 -- In-game settings for this addon's voice files only. No shared volume CVars.
 VoiceChantStudioOptions = {}
-local panel, category, slider, percent, mute, status
+local panel, category, slider, percent, mute, status, overlap, variation, playback
 local syncing = false
 local jp = GetLocale and GetLocale() == "jaJP"
 local function L(ja,en) return jp and ja or en end
@@ -16,6 +16,9 @@ function VoiceChantStudioOptions.Refresh()
     local volume=api.GetVolume()
     slider:SetValue(volume); percent:SetText(volume.."%")
     mute:SetChecked(VoiceChantStudioDB and VoiceChantStudioDB.muted or false)
+    if overlap then overlap:SetChecked(VoiceChantStudioDB and VoiceChantStudioDB.playbackMode=='overlap' or false) end
+    if variation then variation:SetText(L('現在：','Current: ')..(VoiceChantStudioDB.selectionMode or 'random')) end
+    if playback then playback:SetText(L('現在：','Current: ')..api.GetPlayback()..L('  最新100% / 前50% / 前々20% / それ以前は無音','  Newest 100% / previous 50% / third 20% / older silent')) end
     local enabled=not GetCVar or (GetCVar("Sound_EnableAllSound")~="0" and GetCVar("Sound_EnableDialog")~="0")
     status:SetText(enabled and L("Dialog: オン","Dialog: enabled") or L("Options > Audio で Sound と Dialog をオンにしてください。","Enable Sound and Dialog in Options > Audio to hear your voice."))
     syncing=false
@@ -56,7 +59,23 @@ function VoiceChantStudioOptions.Initialize()
     status=label(panel,"",20,-310)
     local note=label(panel,L("0%は無音です。録音元ファイルは変更しません。\n書き出し時の音量が100%の基準になります。\n新しい音声を書き出した後はWoWを完全に再起動してください。","0% is silent. Original recordings are preserved.\n100% uses the volume saved when the clip was exported.\nFully restart WoW after exporting new audio files."),20,-345)
     note:SetJustifyH("LEFT")
-    label(panel,"/vcs  |  /voicechant settings  |  /vcs volume 50",20,-420,"GameFontNormal")
+    local modeLabels={L('前の声を止める','Stop previous'),L('通常の重ね再生','Overlap'),L('最新優先（試験）','Newest priority (beta)')}
+    local modeValues={'replace','overlap','duck'}
+    for i,text in ipairs(modeLabels) do
+        local button=CreateFrame('Button',nil,panel,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*175,-410);button:SetSize(165,26);button:SetText(text)
+        button:SetScript('OnClick',function() api.SetPlayback(modeValues[i]);VoiceChantStudioOptions.Refresh() end)
+    end
+    playback=label(panel,'',20,-445)
+    label(panel,L('成功音声の選び方：','Success variation selection:'),20,-470)
+    local labels={L('均等ランダム','Random'),L('連続重複を避ける','Avoid repeats'),L('順番に再生','Sequence')}
+    local values={'random','norepeat','sequence'}
+    for i,text in ipairs(labels) do
+        local button=CreateFrame('Button',nil,panel,'UIPanelButtonTemplate');button:SetPoint('TOPLEFT',20+(i-1)*175,-495);button:SetSize(165,26);button:SetText(text)
+        button:SetScript('OnClick',function() api.SetSelection(values[i]);VoiceChantStudioOptions.Refresh() end)
+    end
+    variation=label(panel,'',20,-535)
+    local diag=CreateFrame('Button',nil,panel,'UIPanelButtonTemplate');diag:SetPoint('TOPLEFT',20,-565);diag:SetSize(230,26);diag:SetText(L('再生状態・ログをチャットへ表示','Print playback diagnostics'));diag:SetScript('OnClick',api.Diagnostics)
+    label(panel,'/vcs debug | /vcs diagnostics',20,-605,'GameFontNormal')
     panel:SetScript("OnShow",VoiceChantStudioOptions.Refresh)
     if Settings and Settings.RegisterCanvasLayoutCategory and Settings.RegisterAddOnCategory then
         category=Settings.RegisterCanvasLayoutCategory(panel,"Voice Chant Studio")

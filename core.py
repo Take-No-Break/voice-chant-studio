@@ -27,9 +27,14 @@ def volume_lua(paths):
 def atomic_json(path, data):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_suffix('.tmp')
-    temp.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding='utf-8')
-    os.replace(temp, path)
+    handle,name=tempfile.mkstemp(prefix='.'+path.name+'-',suffix='.tmp',dir=path.parent)
+    try:
+        with os.fdopen(handle,'w',encoding='utf8') as stream:
+            json.dump(data,stream,ensure_ascii=False,indent=2)
+            stream.flush();os.fsync(stream.fileno())
+        os.replace(name,path)
+    finally:
+        if Path(name).exists():Path(name).unlink()
 
 def load_audio(path):
     info = sf.info(str(path))
@@ -75,6 +80,7 @@ class Project:
         self.root = Path(directory)
         self.root.mkdir(parents=True, exist_ok=True)
         self.path = self.root / 'project.json'
+        self._disk=self.path.read_bytes() if self.path.exists() else None
         if self.path.exists():
             self.data = json.loads(self.path.read_text(encoding='utf-8'))
             if self.data.get('version') != 1:
@@ -113,7 +119,27 @@ class Project:
             self.save()
 
     def save(self):
+        current=self.path.read_bytes() if self.path.exists() else None
+        if current!=self._disk:
+            raise RuntimeError('Project changed in another window. Reopen before saving. / 別の画面で変更されています。開き直してください。')
+        if current is not None and json.loads(current)==self.data:return
+        if current is not None:
+            history=self.root/'history';history.mkdir(exist_ok=True)
+            (history/('state-'+str(time.time_ns())+'.json')).write_bytes(current)
+            for old in sorted(history.glob('state-*.json'))[:-30]:old.unlink()
         atomic_json(self.path, self.data)
+        self._disk=self.path.read_bytes()
+
+    def restore(self,snapshot):
+        path=Path(snapshot).resolve()
+        if not path.is_relative_to(self.root.resolve()) or path==self.path.resolve():raise ValueError('Choose a project backup')
+        data=json.loads(path.read_text(encoding='utf8'))
+        if data.get('version')!=1 or not isinstance(data.get('catalog'),list) or not isinstance(data.get('clips'),dict):raise ValueError('Invalid project backup')
+        for clip in data['clips'].values():
+            if not self.asset(clip['source']).is_file():raise ValueError('Backup audio is missing: '+clip['source'])
+        before=self.data;self.data=data
+        try:self.save()
+        except Exception:self.data=before;raise
 
     def add_link(self,target_key,source_key,kind,seconds=8,replace_key=None):
         if kind not in ('player_aura','target_aura','previous_spell'):raise ValueError('Invalid link condition')
@@ -246,7 +272,7 @@ class Project:
                 raise
         return added
 
-    def export(self, game_or_folder, template, game=True):
+    def export(self, game_or_folder, template, game=True, progress=None):
         destination = Path(game_or_folder)
         if game:
             if (destination/'_forever_'/'Wow.exe').is_file():
@@ -271,7 +297,7 @@ class Project:
                 slots += [('success','success:'+str(i)) for i in range(2,number+1)]
                 for event, slot in slots:
                     clip = self.data['clips'].get(row['key']+':'+slot)
-                    if not clip or not clip.get('ready', True):
+                    if not clip or not clip.get('ready', True) or not clip.get('enabled',True):
                         continue
                     data, rate = load_audio(self.asset(clip['source']))
                     rendered = render_audio(data, rate, clip['start'], clip['end'], clip.get('gain', 1), clip.get('normalize', False),effects=clip.get('effects'))
@@ -281,6 +307,10 @@ class Project:
                     sf.write(str(prepared/'Audio'/filename), rendered, rate, subtype='PCM_16')
                     path = 'Interface\\AddOns\\'+ADDON+'\\Audio\\'+filename
                     volumes = write_volume_variants(rendered, rate, prepared/'Audio')
+                    segmented=''
+                    if self.data.get('options',{}).get('ducking',False):
+                        from ducking import write_segments,segments_lua,STEP
+                        segmented=',segmentStep='+str(STEP)+',segments='+segments_lua(write_segments(rendered,rate,prepared/'Audio'))
                     condition=''
                     if row.get('condition'):
                         c=row['condition']
@@ -290,15 +320,16 @@ class Project:
                         seconds=float(c.get('seconds',8))
                         if not np.isfinite(seconds) or not 1<=seconds<=30:raise ValueError('Invalid link time window')
                         condition=',condition={tag='+lua_string(row['key'])+',kind='+lua_string(c['kind'])+',ids={'+','.join(map(str,ids))+'},seconds='+str(seconds)+'}'
-                    bindings.append('  {ids={'+','.join(str(int(i)) for i in row['ids'])+'}, class='+lua_string(row.get('class','PALADIN'))+', name='+lua_string(row['name'])+', event='+lua_string(event)+', file='+lua_string(path)+', volumes='+volume_lua(volumes)+condition+'},')
+                    bindings.append('  {ids={'+','.join(str(int(i)) for i in row['ids'])+'}, class='+lua_string(row.get('class','PALADIN'))+', name='+lua_string(row['name'])+', event='+lua_string(event)+', file='+lua_string(path)+', duration='+str(len(rendered)/rate)+', volumes='+volume_lua(volumes)+segmented+condition+'},')
                     count += 1
+                    if progress:progress(count)
             for f in Path(template).iterdir():
                 if f.is_file() and f.suffix in ('.lua', '.toc', '.tga') and f.name != 'Config.lua':
                     shutil.copy2(f, prepared/f.name)
             catalog_lua = 'VoiceChantCatalog = {\n' + '\n'.join('  {id='+str(int(i))+', class='+lua_string(r.get('class','PALADIN'))+', name='+lua_string(r['name'])+'},' for r in self.data['catalog'] for i in r['ids']) + '\n}\n'
             (prepared/'Catalog.lua').write_text(catalog_lua, encoding='utf-8')
             opts = self.data.get('options', {})
-            config = 'VoiceChantConfig = {gap='+str(float(opts.get('gap', .2)))+', stopOnCancel='+('true' if opts.get('stop_on_cancel', True) else 'false')+', bindings={\n'+'\n'.join(bindings)+'\n}}\n'
+            config = 'VoiceChantConfig = {gap='+str(float(opts.get('gap', .2)))+', ducking='+('true' if opts.get('ducking',False) else 'false')+', stopOnCancel='+('true' if opts.get('stop_on_cancel', True) else 'false')+', bindings={\n'+'\n'.join(bindings)+'\n}}\n'
             (prepared/'Config.lua').write_text(config, encoding='utf-8')
             destination.mkdir(exist_ok=True)
             if (destination/'Config.lua').exists():

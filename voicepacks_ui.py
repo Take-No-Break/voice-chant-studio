@@ -1,7 +1,9 @@
 """Explicit local sharing; no automatic uploads and no game/account data in packs."""
 import tkinter as tk
 from tkinter import ttk,filedialog,messagebox
-from voicepacks import export_voicepack,selected_clips,read_voicepack,inspect_import,import_voicepack
+from voicepacks import export_voicepack,selected_clips,read_voicepack,inspect_import,import_voicepack,selected_pack
+from core import load_audio,render_audio
+import sounddevice as sd
 
 def open_voicepacks(ui):
     if ui.controller.busy:return
@@ -9,8 +11,8 @@ def open_voicepacks(ui):
     window=tk.Toplevel(ui.root);window.title(ui.bi('音声パック共有','Voice packs'));window.transient(ui.root)
     ui.root.update_idletasks()
     x=ui.root.winfo_rootx()+max(0,(ui.root.winfo_width()-740)//2)
-    y=ui.root.winfo_rooty()+max(0,(ui.root.winfo_height()-530)//2)
-    window.geometry(f'740x530+{x}+{y}');window.resizable(False,False)
+    y=ui.root.winfo_rooty()+max(0,(ui.root.winfo_height()-650)//2)
+    window.geometry(f'740x650+{x}+{y}');window.resizable(False,False)
     window.grab_set()
     tabs=ttk.Notebook(window);tabs.pack(fill='both',expand=True,padx=16,pady=16)
     send=ttk.Frame(tabs,padding=16);receive=ttk.Frame(tabs,padding=16)
@@ -20,6 +22,9 @@ def open_voicepacks(ui):
     title=tk.StringVar(value='Voice pack');editable=tk.BooleanVar(value=False)
     ttk.Label(send,text=ui.bi('パック名（共有先に表示されます）','Pack title (visible to the recipient)')).pack(anchor='w')
     ttk.Entry(send,textvariable=title).pack(fill='x',pady=(4,12))
+    author=tk.StringVar();description=tk.StringVar()
+    for label,var in [(ui.bi('作者（任意）','Author (optional)'),author),(ui.bi('説明（任意）','Description (optional)'),description)]:
+        line=ttk.Frame(send);line.pack(fill='x',pady=3);ttk.Label(line,text=label,width=18).pack(side='left');ttk.Entry(line,textvariable=var).pack(side='left',fill='x',expand=True)
     ttk.Label(send,text=ui.bi('共有する範囲','Voices to share')).pack(anchor='w')
     box=ttk.Combobox(send,textvariable=scope,values=scope_names,state='readonly');box.pack(fill='x',pady=4)
     summary=ttk.Label(send,wraplength=660);summary.pack(anchor='w',pady=10)
@@ -46,18 +51,29 @@ def open_voicepacks(ui):
             kwargs=selection()
             path=filedialog.asksaveasfilename(parent=window,defaultextension='.voicepack.zip',initialfile='VoiceChantStudio.voicepack.zip',filetypes=[('Voice Chant Studio pack','*.voicepack.zip'),('ZIP','*.zip')])
             if not path:return
-            result=export_voicepack(ui.project,path,title=title.get(),editable=editable.get(),**kwargs)
+            result=export_voicepack(ui.project,path,title=title.get(),author=author.get(),description=description.get(),editable=editable.get(),**kwargs)
             messagebox.showinfo('Voice Chant Studio',ui.bi('共有パックを保存しました。','Voice pack saved. ')+str(result['clips'])+ui.bi('音声\n\n',' voices\n\n')+path,parent=window)
         except Exception as error:messagebox.showerror('Voice pack',str(error),parent=window)
     ttk.Button(send,text=ui.bi('音声パックを書き出す','Export voice pack'),command=export,style='Accent.TButton').pack(anchor='w',pady=8)
 
     pack=[None]
     def close():
+        sd.stop()
         if pack[0]:pack[0].close();pack[0]=None
         window.destroy()
     window.protocol('WM_DELETE_WINDOW',close)
     ttk.Label(receive,text=ui.bi('友人から受け取った .voicepack.zip を選択してください。\nゲーム用の「配布用ZIP」とは別の形式です。','Choose a .voicepack.zip received from a friend.\nThis is different from the finished game addon ZIP.'),wraplength=660).pack(anchor='w',pady=(0,12))
     details=ttk.Label(receive,text=ui.bi('パック未選択','No pack selected'),wraplength=660);details.pack(anchor='w',pady=10)
+    voices=ttk.Treeview(receive,show='tree',height=5,selectmode='extended');voices.pack(fill='x',pady=5)
+    ttk.Label(receive,text=ui.bi('Ctrl / Shiftで必要な音声だけ選択できます。','Ctrl / Shift selects only the voices you want.')).pack(anchor='w')
+    def subset():return selected_pack(pack[0],[int(i) for i in voices.selection()])
+    def preview():
+        try:
+            if not pack[0] or not voices.selection():return
+            clip=pack[0].manifest['clips'][int(voices.selection()[0])];audio,rate=load_audio(pack[0].audio[clip['source']])
+            sd.play(render_audio(audio,rate,clip['start'],clip['end'],clip.get('gain',1),clip.get('normalize',False),effects=clip.get('effects')),rate)
+        except Exception as error:messagebox.showerror('Preview',str(error),parent=window)
+    ttk.Button(receive,text=ui.bi('選択した声を試聴','Preview selected voice'),command=preview).pack(anchor='w',pady=5)
     conflict=tk.StringVar(value='keep')
     ttk.Radiobutton(receive,text=ui.bi('重複する枠は現在の音声を残す（推奨）','Keep my existing voices for conflicting slots (recommended)'),variable=conflict,value='keep').pack(anchor='w',pady=4)
     ttk.Radiobutton(receive,text=ui.bi('重複する枠をパックの音声で置き換える','Replace conflicting slots with this pack'),variable=conflict,value='replace').pack(anchor='w',pady=4)
@@ -70,14 +86,20 @@ def open_voicepacks(ui):
             except Exception:incoming.close();raise
             if pack[0]:pack[0].close()
             pack[0]=incoming;m=incoming.manifest
+            voices.delete(*voices.get_children());rows={r['key']:r for r in m['catalog']}
+            for index,clip in enumerate(m['clips']):voices.insert('', 'end',iid=str(index),text=rows[clip['ability']]['class']+' · '+rows[clip['ability']]['name']+' · '+clip['phase']+' #'+str(clip['slot']))
+            voices.selection_set(voices.get_children())
             text=m['title']+'\n'+str(len(m['clips']))+ui.bi('音声 / 重複する枠：',' voices / conflicting slots: ')+str(report['conflicts'])+'\n'+', '.join(sorted({r['class'] for r in m['catalog']}))
             text+='\n'+ui.bi('編集元を含むパックです。','Includes editable original takes.') if m['mode']=='editable' else '\n'+ui.bi('完成音声のみのパックです。','Finished audio only.')
+            text+='\n'+m.get('author','')+' — '+m.get('description','')
             details.config(text=text);apply.configure(state='normal')
         except Exception as error:messagebox.showerror('Voice pack',str(error),parent=window)
     def import_pack():
         if not pack[0]:return
         try:
-            report=import_voicepack(ui.project,pack[0],conflict=conflict.get())
+            incoming=subset();report=inspect_import(ui.project,incoming)
+            if report['conflicts'] and not messagebox.askyesno('Import review',str(report['conflicts'])+ui.bi('件の重複。選択した保持/置き換え方針で取り込みますか？',' conflicting slots. Import using the selected keep/replace policy?'),parent=window):return
+            report=import_voicepack(ui.project,incoming,conflict=conflict.get())
             ui.row=None;ui.clip=None;ui.audio=None;ui.ready=False;ui.search.set('');ui.assigned_only.set(False);ui.class_filter.set(ui.tr('すべて'));ui.populate();ui.draw();ui.update_state()
             ui.status.set(ui.bi('音声パックを取り込みました：','Imported voice pack: ')+str(report['imported'])+ui.bi('件。必要なら完成を保存し、ゲームへ書き出してください。',' voices. Export to game when ready.'))
             note=ui.bi('\n変更前のプロジェクトをバックアップしました。','\nThe previous project was backed up before changes.') if report.get('backup') else ui.bi('\n既存プロジェクトへの変更はありません。','\nThe existing project was not changed.')

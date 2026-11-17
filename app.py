@@ -9,7 +9,7 @@ from i18n import translate
 from icons import SpellIcons
 from game_paths import detect_game, resolve_game
 from theme import apply_theme
-VERSION = '0.7'
+VERSION = '0.8'
 BASE = Path(getattr(sys, '_MEIPASS', Path(__file__).parent))
 HOME = Path(os.environ.get('LOCALAPPDATA', str(Path.home()))) / 'VoiceChantStudio'
 CATALOG = json.loads((BASE / 'assets/catalog.json').read_text(encoding='utf-8'))
@@ -41,6 +41,9 @@ class Studio:
         root.studio_language=self.language
         root.geometry('1240x840')
         root.minsize(1040, 740)
+        from studio_workflow import EditorLock
+        self.project_lock=EditorLock(HOME/'Projects/Paladin')
+        self.root.bind('<Destroy>',lambda e:self.project_lock.close() if e.widget is self.root else None,add='+')
         self.project = Project(HOME / 'Projects/Paladin', CATALOG)
         self.row = None
         self.clip = None
@@ -179,6 +182,7 @@ class Studio:
         ttk.Button(toolbar, text=self.tr('ゲームの一覧を取り込む'), command=self.import_book).pack(side='left')
         ttk.Button(toolbar, text=self.tr('アビリティを追加'), command=self.add_spell).pack(side='left', padx=8)
         ttk.Button(toolbar, text=self.bi('一覧の出典','Catalog source'), command=self.catalog_source).pack(side='left')
+        ttk.Button(toolbar,text=self.bi('制作ツール','Studio tools'),command=self.open_tools).pack(side='left',padx=6)
         self.project_label = ttk.Label(toolbar, text=self.project.root.name, style='Sub.TLabel')
         self.project_label.pack(side='right')
         body = ttk.Panedwindow(self.root, orient='horizontal')
@@ -369,7 +373,7 @@ class Studio:
                 continue
             clips = [self.project.data['clips'].get(row['key'] + ':' + e) for e in EVENTS]
             clips += [self.project.data['clips'].get(row['key']+':success:'+str(i)) for i in range(2,int(self.project.data.get('success_variations',{}).get(row['key'],1))+1)]
-            ready = sum((bool(c and c.get('ready')) for c in clips))
+            ready = sum((bool(c and c.get('ready') and c.get('enabled',True)) for c in clips))
             if self.assigned_only.get() and (not any(clips)):
                 continue
             self.tree.insert('', 'end', iid=row['key'], text=label, image=self.icon_for(row), values=(self.class_label(row.get('class','')),str(ready) + '/'+str(len(clips)) if any(clips) else '—'))
@@ -460,6 +464,8 @@ class Studio:
         self.draw()
 
     def update_state(self):
+        if self.clip and not self.clip.get('enabled',True):
+            self.clip_state.config(text=self.bi('無効 · 制作ツールで有効にできます','Disabled · enable in Studio tools'));return
         self.clip_state.config(text=self.tr('保存済み · 書き出し対象') if self.ready else self.tr('編集中 · 完成を保存してください') if self.audio is not None else self.tr('未録音'))
 
     def edit_changed(self):
@@ -502,6 +508,7 @@ class Studio:
             messagebox.showerror(self.tr('読み込みエラー'), self.tr(str(e)))
 
     def record(self):
+        if getattr(self,'export_busy',False):return
         if not self.row:
             messagebox.showinfo(self.tr('アビリティを選択'), self.tr('左の一覧からアビリティを選んでください。'))
             return
@@ -595,6 +602,7 @@ class Studio:
         try:
             data = self.rendered()
             self.ready = True
+            self.clip['enabled']=True
             self.stash()
             self.update_state()
             self.populate()
@@ -673,7 +681,7 @@ class Studio:
             gap = float(self.gap.get())
             if not 0 <= gap <= 5:
                 raise ValueError(self.tr('間隔は0〜5秒です。'))
-            self.project.data['options'].update(gap=gap, stop_on_cancel=self.stop_on_cancel.get())
+            self.project.data['options'].update(gap=gap, stop_on_cancel=self.stop_on_cancel.get(),ducking=True)
             self.project.data['game'] = self.game.get()
             self.project.save()
             return True
@@ -703,9 +711,8 @@ class Studio:
         if not self.game.get():
             return
         try:
-            path, count = self.project.export(self.game.get(), BASE / 'addon')
-            messagebox.showinfo(self.tr('書き出しました'), f"{count}{self.tr('件の保存済み音声を書き出しました。\n\n')}{path}{self.tr('\n\nWoWを完全に終了して再起動し、AddOnsで Voice Chant Studio を有効にしてください。\n\n/voicechant test で最初の音声を試聴できます。\nゲーム本来の効果音はそのまま残ります。')}")
-            self.status.set(f"{self.tr('ゲームへ書き出しました：')}{count}{self.tr('件。WoWを完全に再起動してください。')}")
+            from workflow_ui import export_with_progress
+            return export_with_progress(self,self.game.get(),BASE/'addon')
         except Exception as e:
             messagebox.showerror(self.tr('書き出しできません'), self.tr(str(e)) + self.tr('\nProgram Filesへの書き込みが拒否された場合はアプリを管理者として起動するか、配布用ZIPから手動コピーしてください。'))
 
@@ -719,13 +726,8 @@ class Studio:
         if not p:
             return
         try:
-            with tempfile.TemporaryDirectory() as d:
-                folder, count = self.project.export(d, BASE / 'addon', game=False)
-                with zipfile.ZipFile(p, 'w', zipfile.ZIP_DEFLATED) as z:
-                    for f in folder.rglob('*'):
-                        if f.is_file():
-                            z.write(f, str(Path(folder.name) / f.relative_to(folder)))
-            self.status.set(f"{self.tr('配布用ZIPを保存しました（')}{count}{self.tr('音声）。友人はAddOnsへ展開できます。')}")
+            from workflow_ui import export_with_progress
+            return export_with_progress(self,None,BASE/'addon',game=False,zip_path=p)
         except Exception as e:
             messagebox.showerror(self.tr('ZIP作成エラー'), self.tr(str(e)))
 
@@ -735,7 +737,11 @@ class Studio:
             return
         self.stash()
         try:
+            from studio_workflow import EditorLock
+            if Path(directory).resolve()==self.project.root.resolve():return
+            lock=EditorLock(directory)
             p = Project(directory, CATALOG)
+            self.project_lock.close();self.project_lock=lock
             self.project = p
             self.row = None
             self.clip = None
@@ -841,12 +847,17 @@ class Studio:
         from voicepacks_ui import open_voicepacks
         return open_voicepacks(self)
 
+    def open_tools(self):
+        from workflow_ui import open_tools
+        return open_tools(self)
+
     def help(self):
         messagebox.showinfo(self.tr('使い方'),self.bi(
             '① PALADIN / MAGE / PRIEST を選び、アビリティを選択\n② 詠唱開始 / 発動成功 / 中断のタイミングを選択\n③ 録音またはF8 → 3回の合図の後に録音開始\n④ ■ 停止またはF8で終了。カウントダウン中なら中止\n⑤ 黄色の境界で前後をカットし、選択範囲を試聴\n⑥ 完成を保存 → ゲームへ書き出す → WoWを完全に再起動\n\nF8はこのアプリにフォーカスがある間に使えます。\n末尾150msを除く設定は停止クリック音を避ける初期範囲です。\n声の末尾まで切れた場合は「全体に戻す」で調整してください。\n切り取りは非破壊で、元の録音はこのPCに残ります。\n右上の日本語 / Englishで表示言語を切り替えます。\n\n/voicechant：アビリティ一覧の取り込み用\n/voicechant test：追加音声の試聴\n/voicechant mute / unmute：追加音声だけ切替\n\nゲームの原音は残ります。音声はアップロードしません。\n他のプレイヤーに音声は自動で届きません。',
             '1. Choose PALADIN / MAGE / PRIEST, then an ability.\n2. Choose Cast start / Successful cast / Interrupted.\n3. Record or F8: recording begins after three countdown beeps.\n4. Stop or F8 ends the take; during countdown it cancels.\n5. Drag the yellow boundaries to trim, then preview the selection.\n6. Save finished clip → Export to game → fully restart WoW.\n\nF8 works while this app has focus.\nTrim last 150 ms sets an initial end marker to avoid a stop click.\nIf it cuts off your voice, use Full range and adjust the marker.\nTrimming preserves the complete original recording on this PC.\nUse Japanese / English at the top right to switch languages.\n\n/voicechant: copy the game ability list for import\n/voicechant test: preview an extra voice clip\n/voicechant mute / unmute: toggle extra voice only\n\nOriginal game effects remain audible. Nothing is uploaded.\nOther players do not automatically hear your voice clips.'))
 
     def close(self):
+        if getattr(self,'export_busy',False):return
         self.closing = True
         sd.stop()
         if self.controller.busy:
@@ -872,7 +883,9 @@ def main():
         (HOME / 'last-error.txt').write_text(''.join(traceback.format_exception(exc, value, tb)), encoding='utf-8')
         messagebox.showerror(translate('エラー',getattr(root,'studio_language','ja')), str(value) + '\n' + str(HOME / 'last-error.txt'))
     root.report_callback_exception = report
-    Studio(root)
+    try:Studio(root)
+    except Exception as error:
+        messagebox.showerror('Voice Chant Studio',str(error),parent=root);root.destroy();return
     root.mainloop()
 if __name__ == '__main__':
     main()

@@ -1,10 +1,12 @@
 # Download and start
 
-**Windows users:** [Download the Windows ZIP](https://github.com/Take-No-Break/voice-chant-studio/releases/latest/download/VoiceChantStudio-Windows.zip), extract it, then launch `VoiceChantStudio-v0.7.exe`. Python and an AI assistant are not required.
+**Windows users:** [Download the Windows ZIP](https://github.com/Take-No-Break/voice-chant-studio/releases/latest/download/VoiceChantStudio-Windows.zip), extract it, then launch `VoiceChantStudio-v0.8.exe`. Python and an AI assistant are not required.
 
 **Desktop AI assistants:** read [AI-SETUP.md](AI-SETUP.md) and [AGENTS.md](AGENTS.md) before operating the app. [日本語の説明](README.ja.md).
 
 WoW Forever only. The game must already be installed. Automatic discovery is best effort; use Browse and Battle.net's Show in Explorer to select the `_forever_` folder containing `Wow.exe` when needed.
+
+**Studio tools:** presets/batch FX, recording scripts, condition simulation, diagnostics/restore/storage and pack management. `/vcs` adds stop/overlap/newest-priority playback and variation selection modes. Newest priority is experimental segmented playback with up to ~0.25s gain response plus timer delay and possible seams. See V08-GUIDE.md.
 
 All **9 original classes** are included (491 entries). **Create spell link** lets users select player-buff, target-debuff or previous-successful-spell conditions. **Voice FX / EQ** provides offline pitch, 3-band EQ, vibrato and tremolo. See LINK-EXAMPLES.md for setup examples and limits.
 
@@ -12,9 +14,9 @@ All **9 original classes** are included (491 entries). **Create spell link** let
 
 Successful cast / Instant abilities support **1–5 voices**, chosen randomly with equal probability among finished enabled clips. Repeats are allowed. Start/cancel retain one voice each. Dedicated in-game volume: `/vcs`.
 
-Validation: 78 automated tests passed for v0.7 (synthetic audio and simulated events). Standalone v0.7 GUI verification is reported in the release notes. Live-game playback was not rechecked. Source takes and current game account data are not included.
+Validation: 94 automated tests passed for v0.8 (synthetic audio and simulated events). Standalone v0.8 GUI verification is reported in the release notes. Live-game playback was not rechecked. Source takes and current game account data are not included.
 
-# Voice Chant Studio v0.7 — Windows / WoW Forever
+# Voice Chant Studio v0.8 — Windows / WoW Forever
 
 Record your own spell chants and play them over WoW Forever's original effects. The original game sounds remain audible.
 
@@ -22,7 +24,7 @@ Record your own spell chants and play them over WoW Forever's original effects. 
 
 ## Start and choose a language
 
-Double-click `VoiceChantStudio-v0.7.exe`. The packaged Windows app does not require Python. The desktop **Voice Chant Studio** shortcut opens this update. Close an already open older version before launching the update.
+Double-click `VoiceChantStudio-v0.8.exe`. The packaged Windows app does not require Python. The desktop **Voice Chant Studio** shortcut opens this update. Close an already open older version before launching the update.
 
 Use **日本語 / English** at the top right to switch languages. Your choice is remembered for the next launch. English also changes the app's settings, instructions, and error dialogs. Buttons in native Windows file pickers may follow your Windows display language.
 
@@ -114,14 +116,14 @@ Use **New project / Open project** to manage other projects. To move your editab
 
 Start with one short test take. Preview it in the app and use `/voicechant test` in game to check your microphone, volume, and playback before recording more clips.
 
-## Dedicated in-game voice volume (v0.7)
+## Dedicated in-game voice volume (v0.8)
 
 The addon list displays **Voice Chant Studio - Voice Effects**. Its settings category is **Voice Chant Studio**.
 Open **Esc → Options → AddOns → Voice Chant Studio**, or type `/vcs` / `/voicechant settings`.
 The slider adjusts only this addon's voices from 0–100% in 10% steps. It does not change game effects or NPC voice volume.
 `/vcs volume 50` sets 50%; `/voicechant test` previews a voice. Volume and mute persist across logins.
 100% is the clip volume exported from the editor. Original recordings remain intact. Fully restart WoW after new volume files are added.
-Use editor v0.7 for future exports so the new settings remain installed.
+Use editor v0.8 for future exports so the new settings remain installed.
 
 ## Success voice variations / 発動成功の音声バリエーション
 
@@ -131,7 +133,7 @@ Choose Successful cast / Instant ability, set Success voices to 1–5, select a 
 
 Game discovery checks Blizzard registration and common local install folders. If missing, use Browse: Battle.net gear → Show in Explorer → select _forever_ containing Wow.exe (or its parent folder). No AI is required. See AI-SETUP.md for detailed user/AI setup instructions.
 
-## v0.7: User spell links and offline Voice FX
+## v0.8: User spell links and offline Voice FX
 
 All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, Mage: 56, Paladin: 50, Priest: 52, Rogue: 58, Shaman: 55, Warlock: 50, Warrior: 45. Data comes from installed Camelot trainer/quest/rank lists and Forever-specific tooltips. Two unavailable IDs were excluded (see all-classes-report.json); this does not promise every future, item, pet or talent spell. Import the actual client spellbook for your character.
 
@@ -143,15 +145,22 @@ All nine original Forever classes are available. Counts: Druid: 58, Hunter: 67, 
 
 ## Shared app and addon icon
 
-The original microphone/spark icon is shared by the Windows EXE, window and desktop shortcut, and the WoW AddOns list via IconTexture. Use editor v0.7 for future exports. Close older editor windows before opening the updated desktop shortcut. Fully restart WoW to refresh addon metadata/icon files.
+The original microphone/spark icon is shared by the Windows EXE, window and desktop shortcut, and the WoW AddOns list via IconTexture. Use editor v0.8 for future exports. Close older editor windows before opening the updated desktop shortcut. Fully restart WoW to refresh addon metadata/icon files.
 
 ## Fantasy interface / WoWライクなデザイン
 
 Original dark-leather/stone-inspired colors, bronze/gold borders, gold headings, red primary buttons and a dark waveform editor. No Blizzard UI textures are used for the app theme. Japanese and English layouts retain editing/export controls at the supported minimum size. The original microphone/spark mark is shared by the EXE, shortcut and WoW addon.
 
 
-## v0.7: Voice packs / 音声パック共有
+## v0.8: Voice packs / 音声パック共有
 
 **Voice packs / 音声パック共有** exports finished voices to a `.voicepack.zip` for another user to import into the editor. Choose all saved voices, current class or selected ability. Finished-only is the default; optional editable mode includes full original takes and trim/FX settings, including trimmed-away audio. The recipient previews conflicts and keeps existing slots by default; replacements preserve original files and back up project settings. Random success slots and spell links are retained. Nothing is uploaded automatically. See [VOICE-PACKS.md](VOICE-PACKS.md) for both languages.
 
 保存した音声を「音声パック共有」からZIPに書き出して友人へ渡せます。受け取る側も同じ画面から取り込み、自分のゲームへ書き出します。初期設定は完成音声だけの共有です。「編集元を含める」を選ぶと切り取った前後を含む元録音も渡します。詳細はVOICE-PACKS.mdをご覧ください。
+
+
+## v0.8 / Studio tools
+
+Open **制作ツール / Studio tools** for voice presets, batch FX, recording scripts, condition simulation, diagnostics, snapshot restoration, storage archival and pack management. `/vcs` offers stop/overlap/newest-priority playback and random/no-repeat/sequential variations. **Newest priority is beta segmented playback, with up to ~0.25s gain response plus timer delay and possible seams; live game quality/performance is unverified.** Re-export and restart WoW to add segment files. See [V08-GUIDE.md](V08-GUIDE.md) for limits and bilingual instructions.
+
+「制作ツール」に声のプリセット・一括適用・録音アシスト・連携テスト・診断・履歴復元・容量/パック管理を追加しました。最新の声を100%、前を50%、前々を20%にするゲーム内の「最新優先」は試験機能です。再書き出しとWoWの完全な再起動が必要です。詳しい操作と制約はV08-GUIDE.mdをご覧ください。

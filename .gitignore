@@ -7,8 +7,13 @@ Projects/
 originals/
 Config.lua
 *.wav
+*.voicepack.zip
 tooltip-cache*/
 icon-source-cache/
 *.log
 .env*
-*.voicepack.zip
+project.json
+history/
+export-backups/
+audio-archive/
+.editor.lock

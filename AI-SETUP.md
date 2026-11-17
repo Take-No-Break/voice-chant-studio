@@ -19,6 +19,10 @@ Publication: distribute the clean source archive and application ZIP; do not inc
 
 ## v0.6 workflows
 
+## v0.8 workflows
+
+Read V08-GUIDE.md before using Studio tools or explaining newest-priority playback. Newest priority is experimental segmented playback, not a direct per-handle gain API; do not claim seamless audio or measured FPS/CPU results. New exports include segments and default to newest priority only if the user has not saved a game mode. Preserve the game mode and volume. Use snapshots for restoration, verify backup sources exist, and never remove originals. Archive unused game audio only after WoW is closed. FX batch application creates drafts. Voice pack removal preserves post-import edits. Test with synthetic audio and simulated game events; never enable real capture during automated tests.
+
 For v0.7 voice sharing, read VOICE-PACKS.md. Use Voice packs, not the finished addon ZIP, for editable recipient imports. Finished audio only is the default; editable sources require explicit selection because they include trimmed-away audio. Never upload a voice pack without the user's instruction. Import defaults to keeping conflicts, backs up project settings before changes, and preserves originals. Validate incoming packs as data only. Use temporary synthetic projects for sharing tests.
 
 The catalog includes all 9 original classes (491 entries), not every possible future/item/pet/talent spell. Check all-classes-report.json for coverage/exclusions. The user creates conditional rows through Create spell link; see LINK-EXAMPLES.md. Do not assume Classic talent names/IDs match Forever. Conditions are read-only observations and must not automate gameplay. Only exported links activate aura tracking; no OnUpdate is used. For hidden/secret aura IDs, fall back rather than guessing. Use the game's actual aura ID where it differs from its cast spell.
